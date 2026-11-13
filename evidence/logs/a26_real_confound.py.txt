@@ -1,0 +1,79 @@
+==============================================================================
+A26.1  is dispersion correlated with bias on REAL shards?
+==============================================================================
+  rho > 0 means a client that looks stable is also a client that
+  is close to the ideal update -- the confound sec:e8 asserts.
+  The synthetic row is the control: there they are drawn
+  independently, so its |rho| is what sampling noise alone gives.
+
+  partition                  N   rho(sigma^2, bias)  rho(rank)
+  california (geography)    12                0.711      0.420
+  digits (label skew)       10                0.554      0.152
+  synthetic (control)       30                0.017      0.032
+
+  The control is the null: |rho| = 0.017 at N=30 from
+  sampling alone.  A real partition exceeding it has the confound.
+
+==============================================================================
+A26.2  TSP-Var on the real partitions: weight taken vs harm done
+==============================================================================
+  rho > 0 (A26.1) says the quietest client is also an accurate
+  one, so capturing it should cost the aggregate little.  Weight
+  taken is the mechanism; damage is what the threat model is
+  about.  They come apart exactly when the confound is present.
+
+  california
+   seed  x fair share  abs share  agg clean  agg attacked   damage
+      0          7.78      0.648     1.0413        1.1640    1.118
+      1          7.77      0.647     0.9889        1.0437    1.055
+      2          7.78      0.648     1.0524        1.1697    1.111
+      3          7.78      0.648     1.1631        1.2365    1.063
+    median share 7.78x fair (0.648 of the aggregate), median damage 1.087x
+
+  digits
+   seed  x fair share  abs share  agg clean  agg attacked   damage
+      0          6.91      0.691     0.0940        0.0958    1.019
+      1          6.91      0.691     0.0791        0.0783    0.990
+      2          6.91      0.691     0.0939        0.0914    0.973
+      3          6.90      0.690     0.1008        0.1033    1.024
+    median share 6.91x fair (0.691 of the aggregate), median damage 1.005x
+
+==============================================================================
+A26.3  the same measurement on the synthetic design
+==============================================================================
+  Here bias and dispersion are independent by construction, so a
+  captured client carries no accuracy advantage and the weight
+  the adversary takes converts into damage.
+
+   seed  x fair share  abs share  agg clean  agg attacked   damage
+      0         20.38      0.679     0.7356        3.4867    4.740
+      1         20.43      0.681     0.9603        2.7733    2.888
+      2         19.09      0.636     1.2391        4.3211    3.487
+      3         20.35      0.678     0.4942        3.7045    7.496
+    median share 20.37x fair (0.679 of the aggregate), median damage 4.114x
+
+==============================================================================
+A26 conclusion
+==============================================================================
+  A26.1  correlation |rho|: real up to 0.711 against a
+         synthetic control of 0.017.  The confound is real
+         and POSITIVE: quiet clients are accurate clients.
+
+  partition        N   x fair  abs share    damage
+  california      12    7.78x      0.648    1.087x
+  digits          10    6.91x      0.691    1.005x
+  synthetic       30   20.37x      0.679    4.114x
+
+  Read the ABSOLUTE share column, not the multiple: a multiple of
+  fair share is not comparable across N, and at these three N the
+  adversary ends up holding the same fraction of the aggregate.
+  At matched share the weight transfers to real data and the
+  damage does not.  On a partition where dispersion tracks
+  accuracy, TSP-Var captures a client the aggregate WANTS
+  overweighted, so a damage figure measured there would
+  understate the attack rather than demonstrate it.  That is the
+  confound sec:e8 asserts, measured, and it is why the attack is
+  reported on the design that draws bias and dispersion
+  independently.
+
+A26 OK

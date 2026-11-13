@@ -1,0 +1,112 @@
+==============================================================================
+A10.1  damage against the audit, as the gauge magnitude grows
+==============================================================================
+ log-sd   |q|/|p|  own MSE delta  agg x clean    median      min        max
+   0.00      1.00       0.00e+00         1.00      1.00     1.00       1.00
+   0.25      1.09       2.78e-17         1.00      1.00     1.00       1.00
+   0.50      1.45       7.63e-17         1.00      1.00     0.99       1.01
+   0.75      2.43       1.39e-17         1.03      1.02     1.01       1.10
+   1.00      5.10       1.39e-17         1.19      1.09     1.04       1.78
+   1.25     12.74       1.39e-17         2.20      1.37     1.20       6.48
+   1.50     35.81       3.47e-17         8.88      2.44     1.64      38.92
+   1.75    108.43       2.08e-17        54.28      7.36     3.09     266.60
+   2.00    344.94       2.08e-17       372.46     32.52     7.93    1893.25
+
+  Column 3 is the functional audit.  It is at machine zero on every
+  row, including the row where the aggregate degrades 372x.  There is
+  no magnitude at which the audit starts to see the attack: that is
+  the P1/P2 decoupling of A6, now as a function of attack strength.
+  Note how far median sits below mean -- the distribution is heavily
+  right-skewed, so the mean is carried by a minority of seeds and
+  both belong in the paper.
+
+==============================================================================
+A10.2  is the damage quadratic in the parameter displacement?
+==============================================================================
+  The adversary moves the mean by (q - p)/N.  If the global loss is
+  locally quadratic in the parameter error, damage - 1 should be
+  proportional to |q - p|^2 / N^2.  Testing that directly.
+
+ log-sd       |q-p|    |q-p|^2/N^2    damage-1     ratio
+   0.50        9.57          0.159       0.004    0.0260
+   0.75       22.14          0.851       0.029    0.0342
+   1.00       53.61          4.989       0.188    0.0377
+   1.25      141.21         34.620       1.201    0.0347
+   1.50      403.36        282.457       7.876    0.0279
+   1.75     1227.66       2616.599      53.280    0.0204
+   2.00     3912.51      26575.965     371.460    0.0140
+
+  log-log slope 0.940, correlation r = 0.99834
+  A slope of 1.0 would be exactly quadratic.  The fit is close and
+  very tight, but the slope is BELOW 1 and the ratio column falls
+  monotonically, so the growth is slightly sub-quadratic rather than
+  exactly quadratic.  The mechanism is ReLU: once the inflated unit
+  drives its activation negative on most inputs the unit clips, and
+  a clipped unit contributes less than the quadratic term predicts.
+  Reported as an empirical law with a stated deviation, not as a
+  theorem -- the honest form of this result.
+
+==============================================================================
+A10.3  capacity, measured where the effect actually exists
+==============================================================================
+  This is A7.1 and A7.2 re-run across magnitudes.  Reading down a
+  column gives capacity at fixed strength; reading across a row gives
+  strength at fixed capacity.
+
+            architecture  gauge dim       sd=0.5      sd=1.0      sd=1.5      sd=2.0
+           [20, 8, 8, 1]         16         1.00        1.02        1.32        7.65
+         [20, 32, 32, 1]         64         1.01        1.10        4.37      156.98
+       [20, 128, 128, 1]        256         1.00        1.02        5.32      577.42
+         [20, 24, 24, 1]         48         1.00        1.27       22.31     1676.67
+     [20, 24, 24, 24, 1]         72         1.01        1.76       99.95    14417.59
+ [20, 24, 24, 24, 24, 1]         96         1.01        2.23      379.61   120056.01
+
+  At sd=0.5 every architecture is at 1.00 and capacity is invisible.
+  At sd=2.0 the same comparison spans orders of magnitude.  A7's
+  width column was measured at sd=1.0, in the flat region, which is
+  why it looked like a refutation.  Depth still dominates width at
+  matched gauge dimension.
+
+==============================================================================
+A10.4  does a larger federation dilute the attack?
+==============================================================================
+  One adversary in N contributes 1/N of the mean, so the quadratic
+  law predicts damage - 1 shrinks like 1/N^2.  If so, scale is a
+  partial defence and the paper must say so rather than imply the
+  attack is uniformly severe.
+
+    N   damage-1 at sd=1.5        x N^2   own MSE delta
+   10              15.8059       1580.6        0.00e+00
+   20               5.2184       2087.4        2.78e-17
+   40               1.3523       2163.7        4.16e-17
+   80               0.3000       1919.8        0.00e+00
+
+  If the 'x N^2' column is roughly flat, dilution follows the law
+  and a large federation is genuinely safer against ONE adversary.
+  Note this is a defence only against a fixed adversary count: the
+  audit delta in the last column stays at zero regardless, so nothing
+  here lets the server IDENTIFY the attacker.
+
+==============================================================================
+A10.5  the norm threshold this suggests, and what it costs
+==============================================================================
+  The gauge does its damage by inflating the submitted vector, so a
+  norm bound looks like an obvious cheap defence.  The question is
+  whether it separates attack from honest variation.
+
+  log-sd   |q|/median honest|    damage   canon |q|/med  canon damage
+    0.00                 1.00      1.00            1.00          1.00
+    0.50                 1.37      1.01            1.00          1.00
+    1.00                 4.40      1.10            1.00          1.00
+    1.50                28.34      4.37            1.00          1.00
+    2.00               253.58    156.98            1.00          1.00
+
+  A norm bound does fire on the large-magnitude rows, so it is a
+  real mitigation and the paper should not pretend otherwise.  But it
+  is a threshold on a continuous quantity: the attacker picks a
+  magnitude just under it and keeps the damage that remains, and the
+  server still cannot tell an inflated honest client from an attack,
+  because the audit is blind at every row.  Canonicalisation is the
+  stronger answer -- it pins the ratio near 1 and removes the damage
+  outright, at no functional cost, because it is itself a gauge move.
+

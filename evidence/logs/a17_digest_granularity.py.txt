@@ -1,0 +1,45 @@
+==============================================================================
+A17.1  the gauge move seen as a raw output vector
+==============================================================================
+gauge_prediction: abs=7.494e-16, rel=8.919e-14, tolerance_ratio=6.059e-04
+negative_control_expected_rejection: abs=1.368e-10, rel=3.715e-10, tolerance_ratio=1.000e+02
+超界扰动对照：按预期拒绝
+
+witness a = 3356.27, aggregate damage 372.0000x clean
+entries differing: 365 of 1500
+max |diff| 7.494e-16   max relative 8.919e-14
+sha256 equal: False
+
+哈希是否相同由当前字节决定；下面比较诚实执行调度变化。
+
+==============================================================================
+A17.2  honest implementation variation, identical parameters
+==============================================================================
+
+Same client, same weights, same inputs; only the evaluation
+schedule changes; differences below are measured on this environment.
+
+             variation   max |diff|   entries  digest equal
+------------------------------------------------------------
+honest_batch_1500: abs=0.000e+00, rel=0.000e+00, tolerance_ratio=0.000e+00
+       batch size 1500    0.000e+00         0          True
+honest_batch_750: abs=4.441e-16, rel=1.289e-13, tolerance_ratio=4.280e-04
+        batch size 750    4.441e-16        11         False
+honest_batch_500: abs=6.523e-16, rel=2.650e-14, tolerance_ratio=6.366e-04
+        batch size 500    6.523e-16         9         False
+honest_batch_128: abs=6.523e-16, rel=2.650e-14, tolerance_ratio=6.366e-04
+        batch size 128    6.523e-16         9         False
+honest_batch_1: abs=1.776e-15, rel=9.543e-13, tolerance_ratio=1.208e-03
+          batch size 1    1.776e-15      1216         False
+honest_reordering: abs=6.523e-16, rel=2.650e-14, tolerance_ratio=6.366e-04
+    permuted row order    6.523e-16        18         False
+
+==============================================================================
+A17.3  the comparison that decides how to state the claim
+==============================================================================
+
+gauge move at 372x damage : max |diff| 7.494e-16
+honest re-batching, no attack : max |diff| 1.776e-15
+ratio honest / gauge          : 2.3703703703703702
+honest_max >= gauge_max in this run: True
+两类输出均按预声明容差检查；误差大小次序与哈希相等性不作通用保证。

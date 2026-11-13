@@ -1,0 +1,62 @@
+==============================================================================
+V1.1  Theorem 2: common bias translation leaves every peer-only
+      observable invariant.   W1: {b_i}   vs   W2: {b_i + c}
+==============================================================================
+  ||c|| = 12.9223   (a large, arbitrary translation)
+  check V2 - V1 == c :  True
+
+             frame   translation-equivariant?   max|mu(V+c) - mu(V) - c|
+              mean                     YES   8.882e-16
+      coord-median                     YES   8.882e-16
+  geometric-median                     YES   8.882e-16
+      trimmed-mean                     YES   8.882e-16
+
+                scorer   invariant?   max|s(V2) - s(V1)|   rel
+            Krum score          YES            2.274e-13   1.37e-16
+          dist to mean          YES            2.220e-15   3.25e-16
+    dist to geo-median          YES            1.776e-15   2.60e-16
+   inv-sq-dist weights          YES            6.245e-17   4.82e-16
+      max pairwise cos          YES            3.886e-16   7.24e-16
+      norm MAD z-score          YES            2.887e-15   1.08e-15
+           Mahalanobis          YES            7.105e-14   2.61e-15
+
+  Theorem 2 verdict: CONFIRMED
+
+==============================================================================
+V1.2  The invariance is specific to lambda=1. Anchors must break it.
+==============================================================================
+  lambda   max|s(V2)-s(V1)|   invariant?
+    1.00          2.220e-15   YES (blind)
+    0.99          5.907e-02   no  (sees it)
+    0.90          7.092e-01   no  (sees it)
+    0.50          5.182e+00   no  (sees it)
+    0.00          1.155e+01   no  (sees it)
+
+  Reading: at lambda=1 the scorer is blind to c by Theorem 2. Any lambda<1
+  makes the two worlds distinguishable, and the gap grows as lambda falls.
+  This is the formal content of "anchors are necessary", not a heuristic.
+
+==============================================================================
+V1.3  Proposition 1 as an explicit two-world construction
+==============================================================================
+  W1: adversary carries bias +Delta, honest population unbiased.
+  W2: adversary unbiased, honest population carries bias -Delta.
+  W2 = W1 translated by c = -Delta, so by Theorem 2 a peer-only scorer
+  assigns IDENTICAL weights in both. But the correct weight assignment
+  differs: in W1 the adversary should be down-weighted, in W2 it should not.
+
+  check bW2 == bW1 - Delta :  True
+
+                scorer   |s(W1)-s(W2)|_max   adversary rank W1 / W2
+            Krum score           1.137e-13    5 /  5
+          dist to mean           8.882e-16    7 /  7
+    dist to geo-median           8.882e-16    8 /  8
+   inv-sq-dist weights           2.082e-17   22 / 22
+      max pairwise cos           1.110e-16   19 / 19
+      norm MAD z-score           1.110e-15   14 / 14
+           Mahalanobis           3.197e-14    8 /  8
+
+  Every scorer ranks the adversary identically in the two worlds, while the
+  ground truth differs. Any scorer achieving eps < 1 in W1 therefore inflicts
+  eps >= 1 on some honest client in W2. Proposition 1 holds, and this is a
+  construction rather than a sketch.

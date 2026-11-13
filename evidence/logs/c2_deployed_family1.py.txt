@@ -1,0 +1,78 @@
+C2.0 局部估计器自检及跨轮公式回归
+C2.1 全诚实对照（无目标偏移）；rho/CV 保持 seed=0 口径
+  fedavg     rho=N/A CV=0.00000
+  invvar     rho=+0.95017 CV=0.50710
+  pwfl       rho=+0.86652 CV=0.68477
+  fiva-g     rho=+0.84472 CV=0.61455
+  fiva-p     rho=+0.88610 CV=0.66693
+C2.2 攻击网格与各自全诚实基线
+  fedavg     none         reward=1.000000 mse/base=1.000000 excess=+0.000000
+  fedavg     tsp-var      reward=1.000000 mse/base=0.982608 excess=+0.056250
+  fedavg     fang-trim    reward=1.000000 mse/base=0.734112 excess=+1.000000
+  fedavg     shej-minmax  reward=1.000000 mse/base=1.159791 excess=+0.637500
+  invvar     none         reward=1.319080 mse/base=1.000000 excess=+0.000000
+  invvar     tsp-var      reward=4.438259 mse/base=0.889353 excess=+0.068750
+  invvar     fang-trim    reward=0.068538 mse/base=0.989039 excess=+1.000000
+  invvar     shej-minmax  reward=3.125067 mse/base=2.532164 excess=+0.812500
+  pwfl       none         reward=1.322814 mse/base=1.000000 excess=+0.000000
+  pwfl       tsp-var      reward=4.788703 mse/base=0.908405 excess=+0.062500
+  pwfl       fang-trim    reward=1.213953 mse/base=1.715749 excess=+1.000000
+  pwfl       shej-minmax  reward=1.326032 mse/base=1.470750 excess=+0.687500
+  fiva-g     none         reward=1.306900 mse/base=1.000000 excess=+0.000000
+  fiva-g     tsp-var      reward=4.086167 mse/base=0.904012 excess=+0.062500
+  fiva-g     fang-trim    reward=1.214248 mse/base=1.607638 excess=+1.000000
+  fiva-g     shej-minmax  reward=1.311198 mse/base=1.420876 excess=+0.687500
+  fiva-p     none         reward=1.332041 mse/base=1.000000 excess=+0.000000
+  fiva-p     tsp-var      reward=4.918703 mse/base=0.945753 excess=+0.043750
+  fiva-p     fang-trim    reward=1.246393 mse/base=3.074480 excess=+1.000000
+  fiva-p     shej-minmax  reward=1.337400 mse/base=1.980448 excess=+0.725000
+C2.3 逐坐标与标量折叠
+  pwfl: 4.788703 / 4.845660
+  fiva-g: 4.086167 / 4.112627
+  fiva-p: 4.918703 / 4.845093
+C2.4 遗忘系数与局部方差下限敏感性
+  lambda=0.0: 1.004502
+  lambda=0.5: 1.705877
+  lambda=0.95: 4.086167
+  lambda=0.99: 4.634898
+  pwfl floor=1e-12: 4.788703
+  pwfl floor=1e-08: 4.788703
+  pwfl floor=0.0001: 4.788703
+  fiva-g floor=1e-12: 4.086167
+  fiva-g floor=1e-08: 4.086167
+  fiva-g floor=0.0001: 4.086167
+  fiva-p floor=1e-12: 4.918703
+  fiva-p floor=1e-08: 4.918703
+  fiva-p floor=0.0001: 4.918703
+C2.5 初始方差扫描；后续各轮均广播动态全局方差
+  var0=1.0: {'x_fair': 4.086167234057224, 'ratio': 0.13923560603090762, 'global_var_first': 0.7710942688137448, 'global_var_last': 0.01092053233882167}
+  var0=0.1: {'x_fair': 4.08620468809713, 'ratio': 0.13923440428336395, 'global_var_first': 0.09890516063789248, 'global_var_last': 0.010920093915714633}
+  var0=0.01: {'x_fair': 4.08633337541116, 'ratio': 0.1392302850118139, 'global_var_first': 0.010451099275430394, 'global_var_last': 0.010918590062147569}
+  var0=0.0001: {'x_fair': 4.093124419723603, 'ratio': 0.13901363989990842, 'global_var_first': 0.00010525546645697508, 'global_var_last': 0.010839054028255878}
+  var0=1e-08: {'x_fair': 4.827535155045334, 'ratio': 0.12155499592548216, 'global_var_first': 1.0526315712541482e-08, 'global_var_last': 0.0002769353888062231}
+C2.6 同评分器检测器对照
+  fedavg: {'tsp-var': 0.05625, 'fang-trim': 1.0, 'shej-minmax': 0.6375000000000001}
+  invvar: {'tsp-var': 0.06875, 'fang-trim': 1.0, 'shej-minmax': 0.8125}
+  pwfl: {'tsp-var': 0.0625, 'fang-trim': 1.0, 'shej-minmax': 0.6875}
+  fiva-g: {'tsp-var': 0.0625, 'fang-trim': 1.0, 'shej-minmax': 0.6874999999999999}
+  fiva-p: {'tsp-var': 0.043750000000000004, 'fang-trim': 1.0, 'shej-minmax': 0.725}
+C2.7 官方 full 模式数值稳定项对照（不等于官方全系统复现）
+  fiva-g: reward=4.085593, mse/base=0.904018
+  fiva-p: reward=4.907082, mse/base=0.945748
+C2 OK: <PROJECT_ROOT>/exp/results/c2_deployed.json
+test_fiva_p_weights_independent_of_lambda (test_fiva.FivaTests.test_fiva_p_weights_independent_of_lambda) ... ok
+test_history_does_not_enter_current_mean (test_fiva.FivaTests.test_history_does_not_enter_current_mean) ... ok
+test_import_does_not_run_experiments (test_fiva.FivaTests.test_import_does_not_run_experiments) ... ok
+test_invalid_inputs (test_fiva.FivaTests.test_invalid_inputs) ... ok
+test_known_weights_and_two_round_variance (test_fiva.FivaTests.test_known_weights_and_two_round_variance) ... ok
+test_official_epsilon_arithmetic (test_fiva.FivaTests.test_official_epsilon_arithmetic) ... ok
+test_only_tsp_has_biased_local_target (test_fiva.FivaTests.test_only_tsp_has_biased_local_target) ... ok
+test_three_round_simulation_against_independent_recurrence (test_fiva.FivaTests.test_three_round_simulation_against_independent_recurrence) ... ok
+test_welford_and_broadcast_gradient_variance (test_fiva.FivaTests.test_welford_and_broadcast_gradient_variance) ... ok
+test_zero_lambda (test_fiva.FivaTests.test_zero_lambda) ... ok
+test_zero_variance_stabilizers (test_fiva.FivaTests.test_zero_variance_stabilizers) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.214s
+
+OK

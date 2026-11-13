@@ -1,0 +1,253 @@
+==============================================================================
+A20.1  the two worlds are ONE object: w(W1) = w(W2) exactly
+==============================================================================
+  thm:unidentifiable says a peer-only scorer cannot tell the worlds
+  apart.  Checked as float equality, not as a tolerance.
+
+                 rule   max|w(W1)-w(W2)|  bitwise equal
+     FedAvg (uniform)          0.000e+00           True
+  inverse sq distance          1.249e-16          False
+     distance softmin          1.943e-16          False
+    geo-median inv sq          3.331e-16          False
+     Multi-Krum (f=2)          0.000e+00           True
+      Krum (select 1)          0.000e+00           True
+    norm-trimmed mean          0.000e+00           True
+
+  worst deviation over 8 seeds x 6 magnitudes: 3.33e-16
+
+==============================================================================
+A20.2  suppression in W1 IS displacement in W2, as an identity
+==============================================================================
+  supp = w_0(W1)/w_0(clean): what the rule does to the biased client.
+  eps_2 = 1 - w_0(W2)/w_0(clean): what def:resistance charges the rule
+  for doing it to the honest origin-tracking client of the translated
+  world.  If these are the same number the trade-off is exact.
+
+                 rule  |Delta|      supp     eps_2  1-supp-eps_2
+     FedAvg (uniform)      0.0    1.0000    0.0000       0.0e+00
+     FedAvg (uniform)      0.8    1.0000    0.0000       0.0e+00
+     FedAvg (uniform)      2.0    1.0000    0.0000       0.0e+00
+     FedAvg (uniform)      5.0    1.0000    0.0000       0.0e+00
+     FedAvg (uniform)     10.0    1.0000    0.0000       0.0e+00
+     FedAvg (uniform)     30.0    1.0000    0.0000       0.0e+00
+  inverse sq distance      0.0    1.0000    0.0000       0.0e+00
+  inverse sq distance      0.8    0.9215    0.0785       1.1e-16
+  inverse sq distance      2.0    0.7119    0.2881       2.2e-16
+  inverse sq distance      5.0    0.3154    0.6846       1.1e-16
+  inverse sq distance     10.0    0.1065    0.8935       0.0e+00
+  inverse sq distance     30.0    0.0143    0.9857       1.1e-16
+     distance softmin      0.0    1.0000    0.0000       0.0e+00
+     distance softmin      0.8    0.8915    0.1085       4.4e-16
+     distance softmin      2.0    0.5932    0.4068       6.7e-16
+     distance softmin      5.0    0.0957    0.9043       0.0e+00
+     distance softmin     10.0    0.0014    0.9986       0.0e+00
+     distance softmin     30.0    0.0000    1.0000       0.0e+00
+    geo-median inv sq      0.0    1.0000    0.0000       0.0e+00
+    geo-median inv sq      0.8    0.9204    0.0796       4.4e-16
+    geo-median inv sq      2.0    0.7096    0.2904       6.7e-16
+    geo-median inv sq      5.0    0.3100    0.6900       2.2e-16
+    geo-median inv sq     10.0    0.1017    0.8983       2.2e-16
+    geo-median inv sq     30.0    0.0125    0.9875       1.1e-16
+     Multi-Krum (f=2)      0.0    1.0000    0.0000       0.0e+00
+     Multi-Krum (f=2)      0.8    1.0000    0.0000       0.0e+00
+     Multi-Krum (f=2)      2.0    1.0000    0.0000       0.0e+00
+     Multi-Krum (f=2)      5.0    0.6250    0.3750       0.0e+00
+     Multi-Krum (f=2)     10.0    0.0000    1.0000       0.0e+00
+     Multi-Krum (f=2)     30.0    0.0000    1.0000       0.0e+00
+      Krum (select 1)      0.0      excl      excl            --
+      Krum (select 1)      0.8      excl      excl            --
+      Krum (select 1)      2.0      excl      excl            --
+      Krum (select 1)      5.0      excl      excl            --
+      Krum (select 1)     10.0      excl      excl            --
+      Krum (select 1)     30.0      excl      excl            --
+    norm-trimmed mean      0.0    1.0000    0.0000       0.0e+00
+    norm-trimmed mean      0.8    1.0000    0.0000       0.0e+00
+    norm-trimmed mean      2.0    1.0000    0.0000       0.0e+00
+    norm-trimmed mean      5.0    0.6250    0.3750       0.0e+00
+    norm-trimmed mean     10.0    0.0000    1.0000       0.0e+00
+    norm-trimmed mean     30.0    0.0000    1.0000       0.0e+00
+
+  worst discrepancy 6.66e-16: eps_2 = 1 - supp exactly.
+  So eps_2 >= 1 requires supp <= 0, that is outright exclusion.  A rule
+  that suppresses to a positive fraction has eps_2 < 1, and the
+  proposition's conclusion does not follow for it.
+
+==============================================================================
+A20.3  epsilon at a = 0 for each rule, at the largest bias
+==============================================================================
+  eps_1 charges displacement of the honest peers in W1; eps_2 charges
+  displacement of client 0 in W2.  The proposition claims max >= 1 for
+  every scorer.
+
+                 rule     eps_1     eps_2       eps   eps < 1
+     FedAvg (uniform)    0.0000    0.0000    0.0000      True
+  inverse sq distance    0.1936    0.9857    0.9857      True
+     distance softmin    0.3228    1.0000    1.0000      True
+    geo-median inv sq    0.0052    0.9875    0.9875      True
+     Multi-Krum (f=2)    0.0000    1.0000    1.0000     False
+      Krum (select 1)    0.2500    1.0000    1.0000     False
+    norm-trimmed mean    0.1250    1.0000    1.0000     False
+
+  4 of 7 rules attain eps < 1 with a = 0:
+         FedAvg (uniform)  eps = 0.0000
+      inverse sq distance  eps = 0.9857
+         distance softmin  eps = 1.0000
+        geo-median inv sq  eps = 0.9875
+  The proposition as written is therefore FALSE.  Every rule attaining
+  eps < 1 does so by declining to exclude: the three hard-exclusion
+  rules are the only ones that reach 1.
+
+==============================================================================
+A20.4  what eps = 0 costs: the rule can no longer rank
+==============================================================================
+  Spearman correlation of each rule's weights against true per-client
+  bias magnitude on an all-honest heterogeneous population, alongside
+  its eps at a = 0.  A rule that cannot rank cannot be captured and
+  cannot decide either -- the E1b landscape, here as a theorem's cost.
+
+                 rule  rho(w, |bias|)  eps at a=0
+     FedAvg (uniform)             N/A      0.0000
+  inverse sq distance          -0.830      0.9857
+     distance softmin          -0.830      1.0000
+    geo-median inv sq          -0.834      0.9875
+     Multi-Krum (f=2)          -0.401      1.0000
+      Krum (select 1)          -0.282      1.0000
+    norm-trimmed mean          -0.473      1.0000
+
+  FedAvg 的权重恒定，Spearman 未定义（N/A），不是相关系数零。
+  eps = 0 的恒等反例不受这项事后秩统计修正影响。
+
+==============================================================================
+A20.5  the repaired statement, as a predicate
+==============================================================================
+  Claim: with a = 0, for every translation-equivariant scorer, the
+  suppression applied to a common-mode-biased client in W1 equals the
+  displacement inflicted on the origin-tracking honest client in W2;
+  hence a scorer that suppresses at all (supp < 1) has eps > 0, and one
+  that excludes (supp = 0) has eps = 1.  No scorer both suppresses and
+  keeps eps = 0.
+
+                 rule  supp(|D|=30)       eps  suppresses  eps > 0
+     FedAvg (uniform)        1.0000    0.0000       False    False
+  inverse sq distance        0.0143    0.9857        True     True
+     distance softmin        0.0000    1.0000        True     True
+    geo-median inv sq        0.0125    0.9875        True     True
+     Multi-Krum (f=2)        0.0000    1.0000        True     True
+      Krum (select 1)        0.0000    1.0000        True     True
+    norm-trimmed mean        0.0000    1.0000        True     True
+
+  rules that suppress at zero cost: 0
+  The repaired proposition holds on every rule tested, and it is an
+  equality rather than an impossibility: anchors are what buy
+  suppression without displacement, which is the design claim sec:m2
+  actually needs.
+
+==============================================================================
+A20 conclusion: prop:impossible must acquire the hypothesis that the
+scorer discriminates, and its content is the exact identity of A20.2,
+not the unquantified 'eps >= 1' its proof asserts.
+==============================================================================
+==============================================================================
+A24  'why not just cap the weight?'  The cap measured against M1, M2
+==============================================================================
+
+==============================================================================
+A24.1/2  harm, honest cost, and resolution at the silent operating point
+==============================================================================
+  honest cost is MSE on the attack-free control under the SAME
+  mechanism, relative to undefended.  resolution is the Spearman
+  correlation between honest clients' weight and their true precision
+  1/sigma on that control: a mechanism that bounds the adversary by
+  flattening the weights has become FedAvg and cannot rank at all.
+
+       mechanism    xfair      cost  resolution
+      undefended    4.59x    1.000x     +0.980
+  hard cap c=1.4    1.37x    1.087x     +0.970
+  hard cap c=2.0    1.92x    1.010x     +0.979
+  hard cap c=3.0    2.82x    0.999x     +0.980
+     M2 lam=0.25    1.91x    1.208x     +0.980
+      M2 lam=0.5    2.82x    1.086x     +0.980
+       M1 c=3e-3    1.30x    1.111x     +0.963
+
+  harness OK: undefended 4.59x, M2 2.82/1.91x, M1 1.30x reproduce E3.
+
+  matched at ~2.8x: cap 0.999x cost vs M2 1.086x
+  matched at ~1.9x: cap 1.010x cost vs M2 1.208x
+  -> at matched harm the cap is the CHEAPER mechanism, and it keeps
+     its resolution.  Both easy objections to it fail.
+
+==============================================================================
+A24.3  is the cap a rate limiter?  E9's loud/silent test
+==============================================================================
+  E9 found M2 to be only a rate limiter: 3.72x silent, 18.63x loud.
+  M1 gave 1.30x either way.  A cap rescales the take, so it should
+  behave like M2 -- it does not.
+
+       mechanism   silent      loud  loud/silent
+      undefended    4.60x    24.81x        5.39x
+  hard cap c=3.0    2.83x     2.84x        1.00x
+  hard cap c=2.0    1.93x     1.93x        1.00x
+  hard cap c=1.4    1.38x     1.38x        1.00x
+
+  E9 published: undefended 4.60/24.81 (5.39x), M2 lam=0.75 3.72/18.63
+  (5.01x), M1 c=3e-3 1.30/1.30 (1.00x).
+  harness OK: undefended row reproduces E9's 4.60/24.81.
+  -> every cap ratio is 1.00x. The cap is NOT a rate limiter; on this
+     axis it behaves like M1's floor, not like M2's mixing.
+
+==============================================================================
+A24.4  eq:suppcost binds the cap: it is not an exemption
+==============================================================================
+  A capped rule is still peer-only, so thm:unidentifiable applies and
+  A20.2's identity eps_2 = 1 - supp must hold for it.  Measured on
+  A20's own three-world construction.
+
+                 rule   max|w(W1)-w(W2)|  worst |1-supp-eps_2|
+   inv-sq + cap c=1.4          7.633e-17             2.220e-16
+   inv-sq + cap c=2.0          1.249e-16             3.331e-16
+   inv-sq + cap c=3.0          1.249e-16             2.220e-16
+
+  the two worlds agree to 1.2e-16 -- not bitwise, because the
+  water-filling redistribution is float-asymmetric, but far inside any
+  weight that matters -- and the identity holds to 3.3e-16.
+  -> the cap buys its bound at the same exchange rate as every other
+     peer-only rule.  It is another point on eq:suppcost, not an
+     escape from it.
+
+==============================================================================
+A24.5  the cap's guarantee decays in coalition size; M2's does not
+==============================================================================
+  A per-client cap of c/N held by K colluders yields at most K*c/N, so
+  the coalition's absolute take grows linearly in K and the cap is
+  inert once K/N >= 1/c.  M2 reserves (1-lambda) of the mass for
+  anchor-derived weight whatever K is.  Calibrate the pairs to the
+  same absolute share at K = 1 and follow them out.
+
+       mechanism       K=1       K=3       K=6      K=10      K=15
+      undefended     0.153     0.369     0.569     0.719     0.830
+  hard cap c=1.4     0.046     0.137     0.276     0.459     0.686
+  hard cap c=2.0     0.064     0.193     0.386     0.639     0.828
+  hard cap c=3.0     0.094     0.282     0.547     0.719     0.830
+     M2 lam=0.25     0.064     0.168     0.292     0.430     0.582
+      M2 lam=0.5     0.094     0.235     0.385     0.526     0.665
+       M1 c=3e-3     0.043     0.127     0.250     0.399     0.569
+
+  (absolute coalition weight share; K/N alone would give 0.033, 0.100, 0.200, 0.333, 0.500)
+
+  hard cap c=3.0 vs M2 lam=0.5: equal at K=1 (0.094 vs 0.094), 0.830 vs 0.665 at K=15
+  hard cap c=2.0 vs M2 lam=0.25: equal at K=1 (0.064 vs 0.064), 0.828 vs 0.582 at K=15
+  cap c=3.0 at K=15 is within 0.000 of the undefended share: fully inert.
+
+==============================================================================
+SUMMARY
+==============================================================================
+  A24.1 cheaper than M2 at matched harm      : 0.999x vs 1.086x at ~2.8x
+  A24.2 keeps weight-vs-precision ranking    : +0.980 vs undefended +0.980
+  A24.3 not a rate limiter                   : loud/silent 1.00x vs M2's 5.01x
+  A24.4 eq:suppcost binds it                 : identity to 3.3e-16
+  A24.5 decays in K, inert at K/N >= 1/c     : 0.830 vs M2 0.665 at K=15
+
+  A24 CLAIMS: the cap beats M2 on the single-adversary frontier and is
+  not defeated by an adaptive adversary, so sec:e3 must report it; M1
+  still dominates both; and the cap is bound by eq:suppcost and decays
+  in coalition size, which is what the reserved anchor mass is for.

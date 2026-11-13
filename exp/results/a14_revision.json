@@ -1,0 +1,218 @@
+{
+  "seed": 0,
+  "dims": [
+    20,
+    32,
+    32,
+    1
+  ],
+  "clients": 24,
+  "atol": 1e-12,
+  "rtol": 1e-12,
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "numpy": "2.5.2",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+  "comparisons": [
+    {
+      "label": "negative_control_expected_rejection",
+      "max_absolute": 1.368334889839673e-10,
+      "max_relative": 3.7149220367571685e-10,
+      "max_tolerance_ratio": 100.00001001980148,
+      "passed": false
+    },
+    {
+      "label": "own_MSE_a=1",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=1",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "own_MSE_a=2",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=2",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "own_MSE_a=4",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=4",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "own_MSE_a=10",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=10",
+      "max_absolute": 7.771561172376096e-16,
+      "max_relative": 8.919420539950589e-14,
+      "max_tolerance_ratio": 0.000572717018882854,
+      "passed": true
+    },
+    {
+      "label": "own_MSE_a=100",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=100",
+      "max_absolute": 8.881784197001252e-16,
+      "max_relative": 1.0703304647940706e-13,
+      "max_tolerance_ratio": 0.0005012742011491253,
+      "passed": true
+    },
+    {
+      "label": "own_MSE_a=1000",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=1000",
+      "max_absolute": 6.661338147750939e-16,
+      "max_relative": 7.180248115974844e-14,
+      "max_tolerance_ratio": 0.0005789155470902544,
+      "passed": true
+    },
+    {
+      "label": "own_MSE_a=10000",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=10000",
+      "max_absolute": 6.661338147750939e-16,
+      "max_relative": 5.385186086981133e-14,
+      "max_tolerance_ratio": 0.0006471992357055457,
+      "passed": true
+    },
+    {
+      "label": "own_MSE_a=100000",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=100000",
+      "max_absolute": 6.661338147750939e-16,
+      "max_relative": 4.5411415179577454e-14,
+      "max_tolerance_ratio": 0.000572717018882854,
+      "passed": true
+    },
+    {
+      "label": "own_MSE_a=1e+06",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction_a=1e+06",
+      "max_absolute": 7.771561172376096e-16,
+      "max_relative": 1.6054956971911058e-13,
+      "max_tolerance_ratio": 0.0005736067961485464,
+      "passed": true
+    },
+    {
+      "label": "IVT_targets",
+      "worst_relative_error": 5.329070518200751e-16,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "label": "held-out MSE_target=372",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "max abs prediction error_target=372",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "challenge output energy_target=372",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction on trigger region_target=372",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "held-out MSE_target=1e+06",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "max abs prediction error_target=1e+06",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "challenge output energy_target=1e+06",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "prediction on trigger region_target=1e+06",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    }
+  ],
+  "robustness_seeds": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

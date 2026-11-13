@@ -1,0 +1,92 @@
+====================================================================================
+V3.1  lem:budget -- is the displacement budget tau = z sigma_A / sqrt(a)?
+====================================================================================
+  Claim: an adversary that must keep the anchor-frame residual within a
+  z-sigma acceptance region can shift the frame by at most tau.
+
+   a  s_anch |  measured ||mu_A||  pred s_A/sqrt(a)   ratio
+   1    0.30 |             1.3270            1.3416  0.9891
+   2    0.30 |             0.9365            0.9487  0.9872
+   3    0.30 |             0.7640            0.7746  0.9863
+   4    0.30 |             0.6625            0.6708  0.9877
+   8    0.30 |             0.4680            0.4743  0.9865
+  16    0.30 |             0.3298            0.3354  0.9834
+  32    0.30 |             0.2342            0.2372  0.9876
+  64    0.30 |             0.1654            0.1677  0.9865
+   1    1.00 |             4.4207            4.4721  0.9885
+   2    1.00 |             3.1260            3.1623  0.9885
+   3    1.00 |             2.5506            2.5820  0.9878
+   4    1.00 |             2.2089            2.2361  0.9878
+   8    1.00 |             1.5615            1.5811  0.9876
+  16    1.00 |             1.1062            1.1180  0.9894
+  32    1.00 |             0.7810            0.7906  0.9879
+  64    1.00 |             0.5529            0.5590  0.9890
+
+  The anchor frame's own error concentrates as s_A sqrt(d)/sqrt(a); the ratio
+  is the chi -> sqrt(d) correction and is constant in a. So the 1/sqrt(a)
+  scaling of lem:budget is exact in its dependence on a. CONFIRMED.
+
+====================================================================================
+V3.2  eq:firstorder -- the UNTESTED 1/sqrt(a) scaling of eps
+====================================================================================
+  eps ~ 2 lam z sigma_A / (s_H sqrt a) + Pi_max.
+  Prediction: at fixed lam, eps falls as 1/sqrt(a) toward a constant.
+
+  lam=0.5, no variance floor, k=1, s_adv=0.35, delta=0.05
+
+   a |  adv share   x fair      eps |  eps*sqrt(a)
+   0 |     0.2283    6.85x   0.2017 |           --
+   1 |     0.1771    5.31x   0.1487 |       0.1487
+   2 |     0.1923    5.77x   0.1644 |       0.2325
+   3 |     0.1930    5.79x   0.1651 |       0.2860
+   4 |     0.2025    6.07x   0.1750 |       0.3499
+   8 |     0.2111    6.33x   0.1839 |       0.5200
+  16 |     0.2068    6.20x   0.1795 |       0.7179
+  32 |     0.2014    6.04x   0.1738 |       0.9834
+  64 |     0.2090    6.27x   0.1817 |       1.4534
+
+  a=0 (pure peer consensus) reference: eps = 0.2017
+
+====================================================================================
+V3.3  M1 (variance floor) vs M2-as-defined (reference-frame mixing)
+====================================================================================
+  The E3 run tested weight mixing. eq:refmix defines FRAME mixing.
+  Both are reported so the paper can state which mechanism was tested.
+
+                         mechanism |  adv share   x fair      eps
+           undefended (a=0, lam=1) |     0.2283    6.85x   0.2017
+           M1 variance floor=1e-03 |     0.2283    6.85x   0.2017
+           M1 variance floor=3e-03 |     0.2283    6.85x   0.2017
+           M1 variance floor=1e-02 |     0.2283    6.85x   0.2017
+    M2 FRAME mixing lam=0.75 (a=3) |     0.2109    6.33x   0.1837
+    M2 FRAME mixing lam=0.50 (a=3) |     0.1930    5.79x   0.1651
+    M2 FRAME mixing lam=0.25 (a=3) |     0.1752    5.26x   0.1468
+    M2 FRAME mixing lam=0.00 (a=3) |     0.1589    4.77x   0.1299
+         M2 WEIGHT mixing lam=0.75 |     0.1471    4.41x   0.1177
+         M2 WEIGHT mixing lam=0.50 |     0.1057    3.17x   0.0749
+         M2 WEIGHT mixing lam=0.25 |     0.0679    2.04x   0.0358
+
+====================================================================================
+V3.4  thm:displacement -- is the bound valid, and how loose?
+====================================================================================
+  w_h^atk / w_h^clean  >=  (1/(1+lam tau/s_H))^2 * 1/(1+Pi_max)
+
+   a    lam |  measured ratio     bound  valid?  looseness
+   1   1.00 |          0.8600    0.2303     YES      3.73x
+   1   0.75 |          0.8729    0.3029     YES      2.88x
+   1   0.50 |          0.8926    0.4161     YES      2.14x
+   1   0.25 |          0.9112    0.6072     YES      1.50x
+   3   1.00 |          0.8548    0.3751     YES      2.28x
+   3   0.75 |          0.8619    0.4573     YES      1.88x
+   3   0.50 |          0.8740    0.5699     YES      1.53x
+   3   0.25 |          0.8874    0.7298     YES      1.22x
+   8   1.00 |          0.8533    0.5147     YES      1.66x
+   8   0.75 |          0.8597    0.5921     YES      1.45x
+   8   0.50 |          0.8689    0.6884     YES      1.26x
+   8   0.25 |          0.8792    0.8103     YES      1.09x
+  32   1.00 |          0.8547    0.6884     YES      1.24x
+  32   0.75 |          0.8619    0.7457     YES      1.16x
+  32   0.50 |          0.8706    0.8103     YES      1.07x
+  32   0.25 |          0.8798    0.8838     NO       1.00x
+
+  A "NO" is a falsification of thm:displacement at those parameters.

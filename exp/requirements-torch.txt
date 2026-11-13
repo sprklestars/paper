@@ -1,0 +1,11 @@
+# torch 环境 —— 仅 e10_cifar_cnn.py 与 tools/fetch_cifar.py 使用；需 Python 3.12
+# 实测：Python 3.12.14 / torch 2.2.2 / torchvision 0.17.2 / numpy 1.26.4
+# 沿用实测 torch 2.2.2 / numpy<2 组合，与主环境入口分别安装。
+# 本文件不保证跨平台逐位复现；精确版本见 provenance/requirements-torch.lock.txt。建法：
+#   python3.12 -m venv .venv-torch
+#   .venv-torch/bin/pip install -r exp/requirements-torch.txt
+torch==2.2.2
+torchvision==0.17.2
+numpy<2
+pyarrow
+pillow

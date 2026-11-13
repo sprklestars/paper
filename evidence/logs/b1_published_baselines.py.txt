@@ -1,0 +1,166 @@
+B1.ace  L-BFGS Hessian product: rel err 1.46e-15 (buffers reversed: 0.71) -- must be < 1e-10
+
+==============================================================================
+B1.0  no-attack control per scorer (denominator of every ratio)
+==============================================================================
+FedAvg (uniform)     advW=0.0333 honW=0.03333 mse=0.0026 FP={'norm': 0.04, 'dist': 0.04, 'krum_adv': 0.06, 'cos': 0.43}
+Inverse-variance     advW=0.0328 honW=0.03335 mse=0.0018 FP={'norm': 0.04, 'dist': 0.04, 'krum_adv': 0.06, 'cos': 0.43}
+Krum                 advW=0.0330 honW=0.03335 mse=0.0026 FP={'norm': 0.04, 'dist': 0.04, 'krum_adv': 0.06, 'cos': 0.43}
+Trimmed mean         advW=0.0321 honW=0.03338 mse=0.0023 FP={'norm': 0.04, 'dist': 0.04, 'krum_adv': 0.06, 'cos': 0.43}
+FLTrust              advW=0.0336 honW=0.03332 mse=0.0049 FP={'norm': 0.04, 'dist': 0.04, 'krum_adv': 0.05, 'cos': 0.39}
+FoolsGold            advW=0.0345 honW=0.03329 mse=0.0026 FP={'norm': 0.04, 'dist': 0.04, 'krum_adv': 0.06, 'cos': 0.43}
+
+==============================================================================
+B1.1  every attack against every scorer
+==============================================================================
+attack         scorer                  advW  x-fair  mse/base     eps  max-excess  detectors-that-fired
+none           FedAvg (uniform)      0.0333    1.00      1.00   0.000  +0.00       -
+none           Inverse-variance      0.0328    0.98      1.00   0.000  +0.00       -
+none           Krum                  0.0330    0.99      1.00   0.000  +0.00       -
+none           Trimmed mean          0.0321    0.96      1.00   0.000  +0.00       -
+none           FLTrust               0.0336    1.01      1.00   0.000  +0.00       -
+none           FoolsGold             0.0345    1.04      1.00   0.000  +0.00       -
+
+fang-trim      FedAvg (uniform)      0.0333    1.00      0.88   0.000  +0.96       cos,dist,krum_adv,norm
+fang-trim      Inverse-variance      0.0025    0.07      1.12  -0.031  +0.96       cos,dist,krum_adv,norm
+fang-trim      Krum                  0.0000    0.00      1.08  -0.034  +0.96       cos,dist,krum_adv,norm
+fang-trim      Trimmed mean          0.0000    0.00      1.10  -0.033  +0.96       cos,dist,krum_adv,norm
+fang-trim      FLTrust               0.0104    0.31      1.13  -0.024  +0.96       cos,dist,krum_adv,norm
+fang-trim      FoolsGold             0.5148   15.44    704.73   0.497  +0.96       cos,dist,krum_adv
+
+fang-krum      FedAvg (uniform)      0.0333    1.00      0.85   0.000  +0.29       cos,dist
+fang-krum      Inverse-variance      0.3062    9.19     82.60   0.283  +0.53       cos,dist,norm
+fang-krum      Krum                  0.0345    1.03      0.86   0.002  +0.29       cos,dist
+fang-krum      Trimmed mean          0.0313    0.94      0.86  -0.001  +0.28       cos,dist
+fang-krum      FLTrust               0.0061    0.18      1.00  -0.028  +0.46       cos,dist
+fang-krum      FoolsGold             0.0380    1.14      0.85   0.004  +0.33       cos,dist,norm
+
+shej-minmax    FedAvg (uniform)      0.0333    1.00      1.45   0.000  +0.41       cos,dist,krum_adv,norm
+shej-minmax    Inverse-variance      0.1437    4.31     14.40   0.115  +0.53       cos,dist,krum_adv,norm
+shej-minmax    Krum                  0.0203    0.61      1.18  -0.013  +0.32       cos,dist,krum_adv,norm
+shej-minmax    Trimmed mean          0.0075    0.22      1.06  -0.025  +0.33       cos,dist,krum_adv,norm
+shej-minmax    FLTrust               0.0224    0.67      1.05  -0.012  +0.33       cos,dist,krum_adv,norm
+shej-minmax    FoolsGold             0.0536    1.61      2.48   0.020  +0.53       cos,dist,krum_adv,norm
+
+shej-minsum    FedAvg (uniform)      0.0333    1.00      1.46   0.000  +0.41       cos,dist,norm
+shej-minsum    Inverse-variance      0.1802    5.41     22.85   0.152  +0.53       cos,dist
+shej-minsum    Krum                  0.0345    1.03      1.51   0.002  +0.42       cos,dist,norm
+shej-minsum    Trimmed mean          0.0054    0.16      1.04  -0.028  +0.21       cos,dist,norm
+shej-minsum    FLTrust               0.0220    0.66      1.05  -0.012  +0.21       cos,dist,norm
+shej-minsum    FoolsGold             0.0546    1.64      2.59   0.021  +0.53       cos,dist,norm
+
+freerider      FedAvg (uniform)      0.0333    1.00      1.00   0.000  +0.27       cos,norm
+freerider      Inverse-variance      1.0000   30.00    227.90   1.000  +0.74       cos,norm
+freerider      Krum                  0.0345    1.03      1.02   0.002  +0.27       cos,norm
+freerider      Trimmed mean          0.0417    1.25      1.00   0.010  +0.26       cos,norm
+freerider      FLTrust               0.0036    0.11      1.00  -0.031  +0.44       cos
+freerider      FoolsGold             0.0295    0.88      0.98  -0.005  +0.28       cos,norm
+
+freerider-dis  FedAvg (uniform)      0.0333    1.00      1.04   0.000  +0.28       cos,norm
+freerider-dis  Inverse-variance      1.0000   30.00    246.24   1.000  +0.75       cos,norm
+freerider-dis  Krum                  0.0345    1.03      1.01   0.002  +0.29       cos,norm
+freerider-dis  Trimmed mean          0.0417    1.25      1.03   0.010  +0.26       cos,norm
+freerider-dis  FLTrust               0.0044    0.13      1.09  -0.030  +0.44       cos
+freerider-dis  FoolsGold             0.0300    0.90      0.98  -0.005  +0.28       cos,norm
+
+ace            FedAvg (uniform)      0.0333    1.00      1.00   0.000  +0.02       -
+ace            Inverse-variance      0.0328    0.98      1.00   0.000  +0.02       -
+ace            Krum                  0.0332    1.00      1.00   0.000  +0.02       -
+ace            Trimmed mean          0.0322    0.97      1.00   0.000  +0.02       -
+ace            FLTrust               0.0336    1.01      1.00   0.000  +0.02       -
+ace            FoolsGold             0.0346    1.04      1.00   0.000  +0.01       -
+
+ace-amp        FedAvg (uniform)      0.0333    1.00      1.00   0.000  +0.03       -
+ace-amp        Inverse-variance      0.0328    0.98      1.00   0.000  +0.03       -
+ace-amp        Krum                  0.0332    1.00      1.00   0.000  +0.03       -
+ace-amp        Trimmed mean          0.0322    0.96      1.00   0.000  +0.03       -
+ace-amp        FLTrust               0.0336    1.01      1.00   0.000  +0.03       -
+ace-amp        FoolsGold             0.0346    1.04      1.00   0.000  +0.03       -
+
+ace-tuned      FedAvg (uniform)      0.0333    1.00      1.01   0.000  +0.17       cos
+ace-tuned      Inverse-variance      0.2609    7.83      1.08   0.236  +0.10       cos,norm
+ace-tuned      Krum                  0.0345    1.03      1.03   0.002  +0.18       cos
+ace-tuned      Trimmed mean          0.0411    1.23      1.01   0.009  +0.16       cos
+ace-tuned      FLTrust               0.0071    0.21      1.01  -0.027  +0.34       cos
+ace-tuned      FoolsGold             0.0297    0.89      1.00  -0.005  +0.18       cos
+
+tsp-var        FedAvg (uniform)      0.0333    1.00      0.99   0.000  +0.01       -
+tsp-var        Inverse-variance      0.1702    5.11      0.94   0.142  +0.01       -
+tsp-var        Krum                  0.0345    1.03      0.97   0.002  +0.01       -
+tsp-var        Trimmed mean          0.0413    1.24      0.97   0.010  +0.01       -
+tsp-var        FLTrust               0.0519    1.56      1.02   0.019  -0.00       -
+tsp-var        FoolsGold             0.0318    0.96      0.99  -0.003  +0.00       -
+
+==============================================================================
+B1.2  faithfulness: each baseline against the AGR it was designed for
+==============================================================================
+fang-trim      vs Trimmed mean         mse/base=      1.10  advW=0.0000  no L1 damage
+fang-trim      vs FedAvg (uniform)     mse/base=      0.88  advW=0.0333  no L1 damage
+fang-krum      vs Krum                 mse/base=      0.86  advW=0.0345  no L1 damage
+shej-minmax    vs Krum                 mse/base=      1.18  advW=0.0203  no L1 damage
+shej-minmax    vs Trimmed mean         mse/base=      1.06  advW=0.0075  no L1 damage
+shej-minsum    vs Krum                 mse/base=      1.51  advW=0.0345  damages
+shej-minsum    vs Trimmed mean         mse/base=      1.04  advW=0.0054  no L1 damage
+freerider      vs FedAvg (uniform)     mse/base=      1.00  advW=0.0333  no L1 damage
+freerider-dis  vs FedAvg (uniform)     mse/base=      1.04  advW=0.0333  no L1 damage
+
+==============================================================================
+B1.3  headline comparison under the inverse-variance decision maker
+==============================================================================
+attack             x-fair   mse/base  max-excess   silent?  compliant?
+none                 0.98       1.00       +0.00      True  n/a
+fang-trim            0.07       1.12       +0.96     False  no (fabricates)
+fang-krum            9.19      82.60       +0.53     False  no (fabricates)
+shej-minmax          4.31      14.40       +0.53     False  no (fabricates)
+shej-minsum          5.41      22.85       +0.53     False  no (fabricates)
+freerider           30.00     227.90       +0.74     False  no (fabricates)
+freerider-dis       30.00     246.24       +0.75     False  no (fabricates)
+ace                  0.98       1.00       +0.02      True  no (fabricates)
+ace-amp              0.98       1.00       +0.03      True  no (fabricates)
+ace-tuned            7.83       1.08       +0.10     False  no (fabricates)
+tsp-var              5.11       0.94       +0.01      True  yes
+
+==============================================================================
+B1.4  malicious fraction: k=1 (matched to TSP-Var) vs k=6 (20%, the
+      fraction Fang et al. and Shejwalkar & Houmansadr assume)
+==============================================================================
+attack           scorer            k   x-fair   mse/base  max-excess  silent?
+fang-trim        Trimmed mean      1     0.00       1.10       +0.96  False
+fang-trim        Trimmed mean      6     0.62      21.42       +1.00  False
+fang-krum        Krum              1     1.03       0.86       +0.29  False
+fang-krum        Krum              6     0.71       3.13       +0.00  True
+shej-minmax      Krum              1     0.61       1.18       +0.32  False
+shej-minmax      Krum              6     1.04      17.67       +0.05  True
+shej-minsum      Krum              1     1.03       1.51       +0.42  False
+shej-minsum      Krum              6     1.01      18.98       +0.05  True
+freerider-dis    Inverse-variance  1    30.00     246.24       +0.75  False
+freerider-dis    Inverse-variance  6     5.00     345.05       +0.43  False
+tsp-var          Inverse-variance  1     5.11       0.94       +0.01  True
+tsp-var          Inverse-variance  6     3.09       0.97       +0.00  True
+
+==============================================================================
+B1.5  ACE's Eq. (3) filter: rejection rate and the l sweep
+==============================================================================
+l = 1    trajectory: n= 1576 rounds  ||H dw||/||dw|| median=1.4855  rejected at l=1:  96.2%  at l=2:  3.7%
+l = inf  trajectory: n= 1576 rounds  ||H dw||/||dw|| median=1.2141  rejected at l=1:  82.1%  at l=2:  0.8%
+
+     l     advW   x-fair   mse/base  max-excess
+   1.0   0.0328     0.98      1.000      +0.017
+   1.5   0.0621     1.86      1.079      +0.087
+   2.0   0.2405     7.21      1.082      +0.096
+   2.5   0.2492     7.48      1.076      +0.099
+   3.0   0.2609     7.83      1.081      +0.100
+   4.0   0.2609     7.83      1.081      +0.100
+   inf   0.2609     7.83      1.081      +0.100
+
+==============================================================================
+B1.6  the two statistics behind the ACE rows (inverse variance)
+==============================================================================
+attack      norm/med      sd  sd/mean  norm fires   cos adv  cos honest
+none           1.134   0.393    0.346       0.037   +0.0475     +0.0545
+ace-tuned      0.377   0.296    0.783       0.138   +0.0199     +0.0551
+tsp-var        0.403   0.132    0.328       0.048   +0.0779     +0.0533
+
+detected by the same suite that stays quiet on TSP-Var: ['fang-trim', 'fang-krum', 'shej-minmax', 'shej-minsum', 'freerider', 'freerider-dis', 'ace-tuned']
+wrote results/b1_baselines.json
+B1 OK

@@ -1,0 +1,55 @@
+============================================================================
+A3.0  the AM-GM floor on displayable dispersion
+============================================================================
+ seed     baseline   best global   best per-unit  suppression    max|df|
+    0   7.9479e-05    6.8490e-05      5.1273e-05         1.55    1.7e-15
+    1   1.0808e-04    8.4458e-05      5.6409e-05         1.92    1.6e-15
+    2   4.8030e-05    4.0421e-05      3.0652e-05         1.57    2.2e-15
+    3   1.5995e-04    1.4038e-04      1.0599e-04         1.51    2.1e-15
+    4   1.2774e-04    9.8247e-05      7.3574e-05         1.74    1.6e-15
+
+  Per-unit scaling is the full continuous group and it is solved to
+  optimality here, not searched heuristically.  Suppression stays
+  near 1.5x.  The attack is bounded, and bounded for a reason.
+
+============================================================================
+A3.1  end to end: does it suppress apparent variance in a federation?
+============================================================================
+                           adv disp   honest disp     ratio
+         no gauge move    1.443e-02     1.443e-02    1.0000
+      gauge stabilised    1.448e-02     1.443e-02    1.0033
+
+  Ratio at 1 confirms A3.0 in the dynamic setting.
+
+============================================================================
+A3.2  what weight share does it buy?
+============================================================================
+                            share    x fair         sd    agg MSE
+         no gauge move     0.0500      1.00     0.0000     0.3467
+      gauge stabilised     0.0499      1.00     0.0000     0.3788
+
+  Fair share is 1/N = 0.05.  No gain.
+
+============================================================================
+A3.3  what DOES survive: is function movement readable from parameters?
+============================================================================
+                          param disp   function disp        ratio
+         no gauge move     1.443e-02       2.073e-02          1.4
+      gauge stabilised     1.448e-02       1.017e-01          7.0
+
+  The ratio is what a dispersion-based scorer implicitly assumes is
+  constant across clients.  It is not, and A4 shows how far apart the
+  two can be pulled -- but not in the direction that helps an
+  adversary game a variance estimate.
+
+============================================================================
+A3.4  for completeness: under canonicalisation and the M1 floor
+============================================================================
+                     defence   adv x fair
+            none (attack on)         1.00
+  layerwise canonicalisation         1.00
+            M1 floor phi=0.5         1.00
+
+  Nothing to defend against here; recorded so the negative result
+  is not mistaken for an untested configuration.
+

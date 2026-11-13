@@ -1,0 +1,123 @@
+==============================================================================
+A12.1  is the committed scorer bit-reproducible?
+==============================================================================
+  64 repeat calls, same process, bit-identical : True
+  client order permuted then undone, identical : True
+  sequential vs pairwise sum of iv             : identical
+
+==============================================================================
+A12.2  does recomputation catch a cheating aggregator?
+==============================================================================
+  aggregator publishes digest(state) but applies a tilted policy that
+  favours client 0 by a relative factor (1+eps).
+
+  FIRST, the naive check: compare the published vector against a fresh
+  scorer(ev) call using exact equality.
+
+         eps     w0_claimed    Linf dev  flagged
+       5e-01  0.06986133395   2.218e-02     True
+       1e-03  0.04773006930   4.541e-05     True
+       1e-09  0.04768466068   4.541e-11     True
+       1e-15  0.04768466064   5.551e-17     True
+       0e+00  0.04768466064   1.388e-17     True
+
+  *** eps = 0 is flagged, deviation 1.388e-17.  There is no cheat
+  in that row.  This is a FALSE POSITIVE, and it is not a bug in the
+  scorer: an honest aggregator that happens to normalise once more than
+  the verifier produces a different float.  Exact equality against a
+  reimplementation is therefore NOT a sound check -- it accuses honest
+  servers.  M3 as stated in the paper does not say what is compared.
+
+  SECOND, the fix: the commitment must fix the arithmetic path, so the
+  verifier replays the same operations rather than recomputing the
+  same mathematical function.
+
+         eps    Linf dev  caught
+       5e-01   2.218e-02    True
+       1e-03   4.541e-05    True
+       1e-06   4.541e-08    True
+       1e-09   4.541e-11    True
+       1e-12   4.542e-14    True
+       1e-15   4.857e-17    True
+       1e-16   0.000e+00   False
+       0e+00   0.000e+00   False
+
+  no false positive at eps = 0     : True
+  smallest cheat still caught      : 1e-15
+  detection is exact, not statistical: there is no threshold to tune
+  and no false-positive rate to trade off.  The sensitivity floor is
+  float64 spacing, eps(w0) = 6.939e-18, i.e. a
+  relative cheat below ~1e-16 is absorbed by rounding -- and a cheat
+  that small moves no reward, so the floor is economically irrelevant.
+
+==============================================================================
+A12.3  STATE COMPLETENESS: what must the digest cover?
+==============================================================================
+  The paper says 'publish digest(state)'.  Suppose the digest commits
+  only to the EWMA vector ev, which is what the scorer reads.  The
+  aggregator also controls how ev was built from the update history.
+
+    rho  warmup           w0  digest(ev)
+    0.3       0  0.051030616  b3ee9682c111
+    0.3       1  0.054824774  98a792f2c854
+    0.3       2  0.063098478  7e7db1501da6
+    0.5       0  0.052834519  427cfaf6b64d
+    0.5       1  0.053916572  c145f8e4f9c2
+    0.5       2  0.055938501  d2c6bc3be4e0
+    0.7       0  0.051931891  f1014a99a809
+    0.7       1  0.051987994  31c3dbb64c92
+    0.7       2  0.052301258  3c0eb95d4f79
+
+  w0 varies by a factor of 1.236 across free hyperparameters
+  that a state-only digest does NOT bind.  Every row is a valid
+  (state, weights) pair with a correct digest and a correct scorer.
+  -> M3 is UNDERSPECIFIED as written.  The commitment must cover the
+     estimator (rho, warmup, the whole state-transition map), not just
+     the scorer's input.  We fix the paper's wording accordingly.
+
+  after binding the transition map, the free choice disappears:
+  digest(params || full history) = f27c00add5fc440ac0bc3981eb35bb0f
+  recompute -> w0 = 0.053916572  (unique)
+  independent recomputation identical : True
+
+==============================================================================
+A12.4  verification cost vs aggregation cost
+==============================================================================
+  scorer operates on N scalars; aggregation operates on N x d floats.
+  N = 16, d = 64
+  scorer  ~       160 flop
+  aggregate ~    2048 flop
+  ratio     0.0781
+  -> verification is asymptotically free: the trust decision reads a
+     length-N summary, while aggregation touches N*d parameters.
+     A verifier need not hold any model to check the decision.
+
+==============================================================================
+A12.5  does M3 compose with M4?
+==============================================================================
+  M4 rewrites submitted parameters (canonicalise, then align).  If the
+  digest is taken over RAW submissions, two honest servers running M4
+  could publish different digests.  Order matters -- test it.
+  digest(raw theta)      9792ae05eed08f8b
+  digest(raw g.theta)    8cb1ca8c398adcb7   equal: False
+  digest(canon theta)    06295a2a828471ae
+  digest(canon g.theta)  e6308733222287f5   equal: False
+  max relative deviation after canon : 2.127e-16
+
+  canon output agrees numerically but NOT bitwise, so a SHA over
+  raw float bytes is the wrong commitment primitive here: the
+  digest must be taken over the state the scorer reads (length-N
+  dispersion summary), which is gauge-invariant once M4 has run,
+  NOT over the parameter bytes.
+  -> ORDERING IS MANDATORY: M4 (canonicalise) then M3 (commit),
+     and M3 commits to scorer state, not to submissions.
+
+==============================================================================
+SUMMARY
+==============================================================================
+  A12.1 scorer reproducible in-process        : True
+        order-independent                     : True
+  A12.2 cheat detection                       : exact, no threshold; floor ~6.9e-18 relative
+  A12.3 state-only digest underspecified      : 1.236x weight freedom -> must bind transition map
+  A12.4 verify/aggregate cost ratio           : 0.0781
+  A12.5 M4-then-M3 ordering required          : commit scorer state, not bytes

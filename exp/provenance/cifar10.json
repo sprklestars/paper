@@ -1,0 +1,75 @@
+{
+  "dataset": "uoft-cs/cifar10",
+  "splits": {
+    "train": {
+      "source_url": "https://huggingface.co/datasets/uoft-cs/cifar10/resolve/main/plain_text/train-00000-of-00001.parquet",
+      "downloaded_from": "https://hf-mirror.com/datasets/uoft-cs/cifar10/resolve/main/plain_text/train-00000-of-00001.parquet",
+      "source_revision": "main; immutable upstream revision not recorded",
+      "parquet_sha256": "8428b53a88a11ac374111006708df51469e315a22ac6d66470afd9c78d2ae883",
+      "npz_container_sha256": "012bbaf929722cdfae8fb1fec6d0c427129635e3079443319bb7af931bf9388d",
+      "row_rule": "first 20000 rows in stored parquet order; no shuffle",
+      "row_indices_zero_based": [
+        0,
+        19999
+      ],
+      "arrays": {
+        "X": {
+          "shape": [
+            20000,
+            32,
+            32,
+            3
+          ],
+          "dtype": "|u1",
+          "order": "C",
+          "sha256_bytes": "3bcc485f22b230607de307a45a47a7672a43682a50f10e87544d023bdc9e1bc1"
+        },
+        "y": {
+          "shape": [
+            20000
+          ],
+          "dtype": "<i8",
+          "order": "C",
+          "sha256_bytes": "a8546dd6bc429eb8e8c2ad220d348866c89a9c1c7f5ad17195894a07a25a4c32"
+        }
+      },
+      "decoded_parquet_matches_npz": true
+    },
+    "test": {
+      "source_url": "https://huggingface.co/datasets/uoft-cs/cifar10/resolve/main/plain_text/test-00000-of-00001.parquet",
+      "downloaded_from": "https://hf-mirror.com/datasets/uoft-cs/cifar10/resolve/main/plain_text/test-00000-of-00001.parquet",
+      "source_revision": "main; immutable upstream revision not recorded",
+      "parquet_sha256": "841389e6f2d64f28bf17310e430aebac20ec3ba611a3c5e231dc93c645ce84de",
+      "npz_container_sha256": "e738df0656ef2e74f6aef79785fcfdac40b2aff1960213677890af293cfe904c",
+      "row_rule": "first 2000 rows in stored parquet order; no shuffle",
+      "row_indices_zero_based": [
+        0,
+        1999
+      ],
+      "arrays": {
+        "X": {
+          "shape": [
+            2000,
+            32,
+            32,
+            3
+          ],
+          "dtype": "|u1",
+          "order": "C",
+          "sha256_bytes": "4946cb5ae9a2c68e6ca2da22e50da3b523358fd85ffaccfe834632e039845928"
+        },
+        "y": {
+          "shape": [
+            2000
+          ],
+          "dtype": "<i8",
+          "order": "C",
+          "sha256_bytes": "bfa4456a208773a3ce0dfa3f105c41f30e5c3feda7de4adbc7da02ea6bb63989"
+        }
+      },
+      "decoded_parquet_matches_npz": true
+    }
+  },
+  "partition_record": "exp/results/e10_partition.json (actual indices written by E10)",
+  "caveat": "Container hash may vary after recompression; compare array dtype, shape and byte hash separately."
+}

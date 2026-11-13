@@ -1,0 +1,53 @@
+==========================================================================================
+E9  the adaptive adversary: it observes (c, lambda) and re-optimises
+     grid 8x5 on seeds [0, 1, 2, 3, 4], winner re-measured on the disjoint seeds [5, 6, 7, 8, 9, 10, 11, 12]
+     silent means worst detector excess <= 0.05 against the same defence's own control
+==========================================================================================
+
+none               static (0.35, 0.05) -> 4.56x (excess +0.042)
+                   adaptive argmax (s_adv=0.35, delta=0.02) -> grid 4.64x, held out 4.60x (excess +0.044)
+                   gain from adapting +0.04x   best cell ignoring silence 24.81x   honest-cost 0.83x
+
+M1 c=1e-3          static (0.35, 0.05) -> 2.56x (excess +0.038)
+                   adaptive argmax (s_adv=0.35, delta=0.02) -> grid 2.56x, held out 2.56x (excess +0.043)
+                   gain from adapting +0.00x   best cell ignoring silence 2.58x   honest-cost 0.86x
+
+M1 c=3e-3          static (0.35, 0.05) -> 1.30x (excess +0.040)
+                   adaptive argmax (s_adv=0.02, delta=0.2) -> grid 1.30x, held out 1.30x (excess +0.051)
+                   gain from adapting +0.00x   best cell ignoring silence 1.30x   honest-cost 0.96x
+
+M1 c=1e-2          static (0.35, 0.05) -> 1.01x (excess +0.034)
+                   adaptive argmax (s_adv=0.35, delta=0.2) -> grid 1.00x, held out 1.01x (excess +0.017)
+                   gain from adapting +0.00x   best cell ignoring silence 1.00x   honest-cost 0.98x
+
+M2 lam=0.75        static (0.35, 0.05) -> 3.69x (excess +0.039)
+                   adaptive argmax (s_adv=0.35, delta=0.02) -> grid 3.75x, held out 3.72x (excess +0.042)
+                   gain from adapting +0.03x   best cell ignoring silence 18.63x   honest-cost 0.84x
+
+M2 lam=0.50        static (0.35, 0.05) -> 2.80x (excess +0.033)
+                   adaptive argmax (s_adv=0.35, delta=0.02) -> grid 2.85x, held out 2.83x (excess +0.042)
+                   gain from adapting +0.02x   best cell ignoring silence 12.35x   honest-cost 0.87x
+
+M2 lam=0.25        static (0.35, 0.05) -> 1.91x (excess +0.034)
+                   adaptive argmax (s_adv=0.35, delta=0.02) -> grid 1.93x, held out 1.92x (excess +0.043)
+                   gain from adapting +0.01x   best cell ignoring silence 6.41x   honest-cost 0.92x
+
+M1+M2 3e-3,0.75    static (0.35, 0.05) -> 1.22x (excess +0.036)
+                   adaptive argmax (s_adv=0.1, delta=0.2) -> grid 1.23x, held out 1.23x (excess +0.040)
+                   gain from adapting +0.00x   best cell ignoring silence 1.23x   honest-cost 0.97x
+
+==========================================================================================
+SUMMARY  reward / fair share, k=1
+==========================================================================================
+defence              static  adaptive    gain   argmax (s,delta)   excess  if loud
+none                   4.56      4.60   +0.04       (0.35, 0.02)   +0.044    24.81
+M1 c=1e-3              2.56      2.56   +0.00       (0.35, 0.02)   +0.043     2.58
+M1 c=3e-3              1.30      1.30   +0.00        (0.02, 0.2)   +0.051     1.30
+M1 c=1e-2              1.01      1.01   +0.00        (0.35, 0.2)   +0.017     1.00
+M2 lam=0.75            3.69      3.72   +0.03       (0.35, 0.02)   +0.042    18.63
+M2 lam=0.50            2.80      2.83   +0.02       (0.35, 0.02)   +0.042    12.35
+M2 lam=0.25            1.91      1.92   +0.01       (0.35, 0.02)   +0.043     6.41
+M1+M2 3e-3,0.75        1.22      1.23   +0.00         (0.1, 0.2)   +0.040     1.23
+
+OK: the search reproduces the undefended ceiling, M2's analytic bound holds under re-optimisation, and every defence still binds.
+E9 CLAIMS: none 4.60x (static 4.56x) | M1 c=1e-3 2.56x (static 2.56x) | M1 c=3e-3 1.30x (static 1.30x) | M1 c=1e-2 1.01x (static 1.01x) | M2 lam=0.75 3.72x (static 3.69x) | M2 lam=0.50 2.83x (static 2.80x) | M2 lam=0.25 1.92x (static 1.91x) | M1+M2 3e-3,0.75 1.23x (static 1.22x)

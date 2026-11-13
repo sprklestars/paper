@@ -1,0 +1,25 @@
+============================================================================
+mlp.py self-test: gradients against finite differences
+============================================================================
+  ln=False  worst relative gradient error 2.87e-08   ok
+  ln=True   worst relative gradient error 6.68e-08   ok
+
+============================================================================
+mlp.py self-test: which moves preserve the function?
+============================================================================
+    architecture                               move    max |df|   symmetry?
+      plain ReLU          per-unit rescale of (W,b)     8.9e-16         YES
+      plain ReLU   per-unit rescale via scale_units     1.8e-15         YES
+      plain ReLU               permute hidden units     1.3e-15         YES
+      plain ReLU             gauge canonicalisation     1.1e-15         YES
+       LayerNorm          per-unit rescale of (W,b)     1.1e+00          no
+       LayerNorm   per-unit rescale via scale_units     1.1e-15         YES
+       LayerNorm               permute hidden units     8.9e-16         YES
+       LayerNorm             gauge canonicalisation     8.9e-16         YES
+       LayerNorm  layer scale c=5 (no compensation)     6.5e-09          no
+       LayerNorm   layer shift +3 (no compensation)     1.7e-15         YES
+
+  Read the LayerNorm block against the plain block.  Normalisation
+  removes the naive per-unit move and leaves the real one, and it
+  adds two directions that need no compensation at all.
+

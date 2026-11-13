@@ -1,0 +1,91 @@
+============================================================================
+A4.1  the functional audit vs the aggregate: do they agree?
+============================================================================
+  adversary's own test MSE (honest model)  0.637748
+  clean aggregate test MSE                 0.501584
+
+                  gauge move      own MSE    audit df     agg MSE   x clean
+                        none     0.637748    0.00e+00    0.501584      1.00
+                 global c1=2     0.637748    0.00e+00    0.504699      1.01
+                 global c1=8     0.637748    0.00e+00    0.556109      1.11
+             per-unit sd=0.5     0.637748    1.55e-15    0.504391      1.01
+             per-unit sd=1.5     0.637748    1.78e-15    1.539533      3.07
+                 permutation     0.637748    1.55e-15    0.499116      1.00
+
+  Columns 1-2 are what a functional audit sees: unchanged, exactly.
+  Column 3 is what the federation gets.
+
+============================================================================
+A4.2  is damage CHEAP?  aggregate harm per unit of detectability
+============================================================================
+  per-unit log-sd     agg MSE   x clean   z-score   Krum rank
+             0.00    0.501584      1.00     -1.22         4.0
+             0.05    0.501627      1.00      2.52        29.2
+             0.10    0.501714      1.00     11.87        30.0
+             0.20    0.502036      1.00     38.71        30.0
+             0.35    0.503011      1.00     93.08        30.0
+             0.50    0.504995      1.01    171.49        30.0
+             0.75    0.514441      1.03    424.08        30.0
+             1.00    0.554740      1.11   1162.35        30.0
+             1.50    2.069166      4.13   9290.98        30.0
+
+  If the x-clean column rises while the z-score stays low, damage
+  is cheap.  If detectability outruns damage, the attack is not
+  viable and the honest reading is that distance scoring holds.
+
+============================================================================
+A4.3  permutation: the discrete part of the group
+============================================================================
+  permuted clients     agg MSE   x clean   z-score
+                 0    0.501584      1.00      0.00
+                 1    0.493547      0.98    339.18
+                 2    0.490030      0.98    339.60
+                 3    0.498404      0.99    328.32
+                 5    0.533768      1.06    364.79
+                 8    0.629046      1.25    335.59
+
+  Permutation is free to apply and has no cheap canonical form:
+  aligning hidden units across clients is an assignment problem.
+
+============================================================================
+A4.4  the control: the same attack against a model with NO orbit
+============================================================================
+  clean aggregate MSE 0.000030
+
+          client 0 transform      own MSE     agg MSE   x clean
+                        none     0.001467    0.000030      1.00
+                scale by 2.0    19.113199    0.021592    729.68
+                scale by 8.0   930.212659    1.035884  35007.40
+        permute coefficients    39.177788    0.043402   1466.77
+
+  The point of this table is the 'own MSE' column.  Every transform
+  that damages the linear aggregate also damages the client's own
+  model, so a functional audit catches it.  There is no move that is
+  free for the client and costly for the average -- that gap is what
+  the symmetry group opens up, and it exists only for the network.
+
+============================================================================
+A4.5  do canonicalisation defences close it?
+============================================================================
+  clean aggregate MSE                 0.501584
+  layerwise-canon aggregate MSE       0.845742
+  gauge-canon aggregate MSE           0.502319
+  variance of teacher output          0.752754
+
+  Layerwise normalisation divides W3 as well, so it rescales the
+  OUTPUT: it is not a gauge move and it destroys the model on its
+  own, before any attack.  Absolute MSE is reported for that reason;
+  a ratio against a broken baseline would look like a defence.
+
+              gauge move        raw   layerwise   gauge-canon
+             global c1=8     0.5561      0.8452        0.5023
+         per-unit sd=0.5     0.5062      0.8466        0.5023
+         per-unit sd=1.5     2.1808      0.8474        0.5023
+             permutation     0.4991      0.8471        0.4993
+
+  Gauge canonicalisation fixes the per-unit scale by a move that
+  stays inside the orbit, so it costs nothing and it does neutralise
+  the continuous part of the group.  It does not touch permutation,
+  for which no cheap canonical form exists: aligning hidden units
+  across clients is an assignment problem.
+

@@ -1,0 +1,10 @@
+imported a12_policy_binding (its own output suppressed; 123 lines)
+panel a: float64 spacing at w0 = 6.939e-18
+  naive check on the honest row (eps=0) : 1.388e-17  -> FALSE POSITIVE
+  bound check on the honest row (eps=0) : 0.000e+00  -> clean
+  smallest cheat the bound check catches: 1e-15
+panel b: w0 spans 0.0510-0.0631 = 1.236x
+  value under the bound transition map  : 0.0539
+
+wrote ../paper/fig/policy.pdf
+FIGURE CLAIMS: false positive=1.388e-17  smallest caught=1e-15  spread=1.236x

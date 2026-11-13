@@ -1,0 +1,193 @@
+==========================================================================
+C1  weight share vs eta   (N=30, honest sigma^2 == 1)
+==========================================================================
+       eta    pi measured    pi closed   (1-pi)/eta
+     1e+00   0.0333333333   0.03333333       0.9667
+     1e-01   0.2564102564   0.25641026       7.4359
+     1e-02   0.7751937984   0.77519380      22.4806
+     1e-03   0.9718172983   0.97181730      28.1827
+     1e-04   0.9971083857   0.99710839      28.9161
+     1e-06   0.9999710008   0.99997100      28.9992
+     1e-08   0.9999997100   0.99999971      29.0000
+     1e-10   0.9999999971   1.00000000      29.0000
+
+  closed form matches to machine precision; (1-pi)/eta -> N-1 = 29
+  => 1 - pi = (N-1) eta + O(eta^2).  C1 CONFIRMED (exact, not asymptotic).
+
+==========================================================================
+C2  aggregate bias ||sum w_i b_i|| vs ||Delta||   (honest bias nonzero)
+==========================================================================
+       eta   ||agg bias||  / ||Delta||  sd over seeds
+     1e+00       0.178591     0.178591       2.93e-02
+     1e-01       0.291499     0.291499       2.91e-02
+     1e-02       0.775520     0.775520       9.93e-03
+     1e-03       0.971661     0.971661       1.29e-03
+     1e-04       0.997090     0.997090       1.32e-04
+     1e-06       0.999971     0.999971       1.33e-06
+
+  => ratio -> 1.  C2 CONFIRMED.  Honest bias is squeezed out at the
+     same O(eta) rate, so weight capture does transfer.
+
+==========================================================================
+C3  estimated (not declared) variance, adversary trains honestly
+==========================================================================
+ sigma_A/sigma_H         pi    x fair   ||agg bias||   over seeds
+            1.00     0.0305      0.91         0.0305     2.08e-03
+            0.50     0.1075      3.23         0.1075     7.89e-03
+            0.20     0.9784     29.35         0.9784     9.52e-02
+            0.10     1.0000     30.00         1.0000     8.51e-15
+            0.03     1.0000     30.00         1.0000     1.53e-15
+            0.01     1.0000     30.00         1.0000     1.37e-15
+
+  Contrary to what we expected before running this, pi does NOT
+  saturate: past a threshold between 0.5 and 0.2 it runs away to 1.0
+  with vanishing seed variance.  C3c isolates the cause.
+
+==========================================================================
+C3b saturation of pi under estimated variance (sigma_A/sigma_H = 0.01)
+==========================================================================
+    N         pi    x fair    1/(1+c(N-1))  c fit
+   10     1.0000     10.00                 0.0000
+   20     1.0000     20.00                 0.0000
+   30     1.0000     30.00                 0.0000
+   50     1.0000     50.00                 0.0000
+  100     1.0000    100.00                 0.0000
+
+  c is the adversary's effective variance ratio as the estimator sees
+  it.  Constant c => pi ~ 1/(1+c(N-1)), i.e. share x fair ~ 1/c is
+  scale-free in N.  That is the deployable form of thm:capture.
+
+==========================================================================
+C3c runaway is a FRAME effect, not a variance effect
+==========================================================================
+ sigma_A/sigma_H    weighted     uniform      median
+            1.00        0.97        0.98        0.97
+            0.50        3.92        3.25        3.28
+            0.35        8.85        5.37        5.43
+            0.30       30.00        6.45        6.50
+            0.25       30.00        7.77        7.79
+            0.20       30.00        9.35        9.29
+            0.10       30.00       12.82       12.47
+            0.01       30.00       14.68       14.14
+
+  x fair share.  Under an unmovable frame the adversary's gain is
+  bounded and smooth in sigma_A.  Under the self-referential frame
+  there is a threshold past which it takes everything.
+
+==========================================================================
+C3d (i) ceiling under unmovable frame vs closed form
+==========================================================================
+    N   pi measured   pi predicted  x fair meas  x fair pred
+   10        0.5115         0.5263         5.11         5.26
+   20        0.4963         0.5128         9.93        10.26
+   30        0.4996         0.5085        14.99        15.25
+   50        0.4910         0.5051        24.55        25.25
+  100        0.4832         0.5025        48.32        50.25
+
+==========================================================================
+C3d (ii) capture threshold under self-referential frame
+==========================================================================
+    N  threshold sigma_A/sigma_H   pi below   pi above
+   10                     0.5459     0.9079     0.8968
+   20                     0.3807     0.9206     0.8986
+   30                     0.3078     0.9025     0.8816
+   50                     0.2348     0.9534     0.8737
+
+  A sharp threshold, not a gradual degradation: this is the
+  TSP-Var / TSP-Shift coupling of sec:tspshift operating in the
+  amplifying regime, reached here without any deliberate shift.
+
+==========================================================================
+C3e threshold scaling and transition sharpness
+==========================================================================
+    N   threshold   threshold*sqrt(N)
+   10      0.5462              1.7272
+   15      0.4419              1.7115
+   20      0.3810              1.7037
+   30      0.3077              1.6854
+   50      0.2351              1.6621
+   80      0.1870              1.6727
+
+  log-log fit: threshold = 1.795 * N^(-0.518)
+  exponent -0.518 vs -1/2 predicted by frame sampling noise
+  => LARGER federations are MORE vulnerable, not less.
+
+  transition sharpness at N=30 (x fair share):
+    sigma_A/sigma_H = 0.40  ->    6.30x
+    sigma_A/sigma_H = 0.36  ->    8.16x
+    sigma_A/sigma_H = 0.34  ->    9.61x
+    sigma_A/sigma_H = 0.33  ->   10.66x
+    sigma_A/sigma_H = 0.32  ->   13.52x
+    sigma_A/sigma_H = 0.31  ->   25.11x
+    sigma_A/sigma_H = 0.30  ->   30.00x
+    sigma_A/sigma_H = 0.28  ->   30.00x
+    sigma_A/sigma_H = 0.24  ->   30.00x
+
+==========================================================================
+C3f does the relative floor remove the capture threshold?
+==========================================================================
+  x fair share
+   sA/sH   no floor    phi=0.2    phi=0.5    phi=0.8
+    1.00       0.98       0.98       0.98       1.02
+    0.50       4.00       3.97       1.87       1.25
+    0.35       9.14       4.28       1.87       1.25
+    0.30      29.98       4.28       1.87       1.25
+    0.20      30.00       4.28       1.87       1.25
+    0.10      30.00       4.28       1.87       1.25
+    0.01      30.00       4.28       1.87       1.25
+
+  A floor caps the share at 1/phi regardless of sigma_A: the threshold
+  does not move, it ceases to exist.  Predicted caps: phi=0.2 -> 5.00x, phi=0.5 -> 2.00x, phi=0.8 -> 1.25x
+
+==========================================================================
+C3g is prop:threshold's exponent a fit, or a closed form?
+==========================================================================
+  steps (1)-(3): the two residuals and the balance relation
+    N  sA/sH |   e0 err   eH/sH^2  balance err
+   20   0.40 |    2.13%    1.0069       11.30%
+   20   0.60 |    2.91%    0.9662        4.22%
+   20   0.80 |    3.17%    0.9625        4.25%
+   20   1.00 |    3.35%    0.9610        4.24%
+   30   0.40 |    0.45%    0.9912        4.86%
+   30   0.60 |    0.04%    0.9858        5.12%
+   30   0.80 |    0.25%    0.9844        5.21%
+   30   1.00 |    0.44%    0.9838        5.26%
+   50   0.40 |    0.88%    0.9996        5.25%
+   50   0.60 |    0.52%    0.9980        5.24%
+   50   0.80 |    0.30%    0.9976        5.22%
+   50   1.00 |    0.17%    0.9973        5.21%
+   80   0.40 |    4.39%    1.0027        5.26%
+   80   0.60 |    4.75%    1.0021        5.31%
+   80   0.80 |    4.82%    1.0019        5.33%
+   80   1.00 |    4.83%    1.0019        5.35%
+
+  (1) e_0 closed form   max rel err 4.83%
+  (2) e_H / sigma_H^2   in [0.9610, 1.0069]
+  (3) balance relation  max rel err 11.30%, median 5.23%
+      the worst cell is the smallest N at the smallest r, where the
+      dropped O(pi^2 r^2) term is largest; step (2) is the one that
+      is approximate, and its error is what the 5% offset below is.
+
+  step (4): where the fixed point disappears vs where it is measured
+    N   measured  sqrt(3/(N-1))   ratio
+   10     0.5461         0.5774  1.0573
+   15     0.4420         0.4629  1.0473
+   20     0.3811         0.3974  1.0427
+   30     0.3074         0.3216  1.0462
+   50     0.2351         0.2474  1.0527
+   80     0.1869         0.1949  1.0428
+  120     0.1525         0.1588  1.0414
+  200     0.1173         0.1228  1.0463
+
+  measured   1.769 N^(-0.5129)
+  closed form 1.870 N^(-0.5154)
+  closed form is high by 4.7% +- 0.5pp -- a CONSTANT offset, uniform in N,
+  max rel err 5.7%.  The exponent is
+  therefore derived and the fitted exponent is measurement noise
+  around -1/2; the 5% gap is the O(pi^2 r^2) term dropped in
+  step (2).
+  c = measured/closed form: mean 0.9551 sd 0.0046 spread 0.0144 over N = 10-200
+  log c against log N slope +0.00247; zero means free of N, and a
+  term additive in 1/N would need this to be about -0.5.
+  [assertions passed]
+

@@ -1,0 +1,108 @@
+==============================================================================
+A22.1  the proof's stated ratio yields 1/2, not N/(2N-1)
+==============================================================================
+  pi = 1/(1 + (N-1) * ratio).  Substituting ratio = 1/(N-1):
+
+     N  proof ratio  pi from it   N/(2N-1)  agree?
+    10      0.11111     0.50000    0.52632   False
+    20      0.05263     0.50000    0.51282   False
+    30      0.03448     0.50000    0.50847   False
+    50      0.02041     0.50000    0.50505   False
+   100      0.01010     0.50000    0.50251   False
+
+  The ratio 1/(N-1) is N-independent in its effect: it gives exactly
+  1/2 at every N.  So the sentence's two halves contradict each other.
+
+==============================================================================
+A22.2  the residual variances, derived and then simulated
+==============================================================================
+  e_adv = Var(ubar) = (N-1)/N^2;  e_H = (1-1/N)^2 + (N-2)/N^2
+  = (N^2-N-1)/N^2, both in units of sigma_H^2.  Simulated by direct
+  Monte Carlo over the same generator shape the harness uses.
+
+     N  e_adv pred   e_adv sim   e_H pred    e_H sim  max rel err
+    10    0.090000    0.090060   0.890000   0.890443     6.70e-04
+    20    0.047500    0.047749   0.947500   0.947702     5.24e-03
+    30    0.032222    0.032228   0.965556   0.965974     4.33e-04
+    50    0.019600    0.019558   0.979600   0.979749     2.13e-03
+   100    0.009900    0.009901   0.989900   0.989987     1.41e-04
+
+  worst relative error 5.24e-03: the residual variances are as
+  derived, and e_adv is NOT sigma_H^2/N -- it is that times (N-1)/N.
+
+==============================================================================
+A22.3  the ratio, three ways
+==============================================================================
+     N  proof 1/(N-1)      exact       1/N  proof err
+    10        0.11111    0.10112   0.10000       9.9%
+    20        0.05263    0.05013   0.05000       5.0%
+    30        0.03448    0.03337   0.03333       3.3%
+    50        0.02041    0.02001   0.02000       2.0%
+   100        0.01010    0.01000   0.01000       1.0%
+
+  The proof's ratio is ~10% high at N=10 and the exact ratio is close
+  to 1/N, which is what N/(2N-1) corresponds to.  So the FORMULA is
+  the large-N approximation and the stated RATIO is simply wrong.
+
+==============================================================================
+A22.4  which closed form matches the harness's common-sigma columns?
+==============================================================================
+  a16_ceiling_residual.py's 'hom' columns are the common-sigma_H case
+  prop:ceiling states.  Those measurements, transcribed from
+  results/a16_ceiling_residual.py.txt, against both closed forms.
+
+     N   measured     exact    |err|   N/(2N-1)    |err|
+    10     0.5235    0.5235   0.0000     0.5263   0.0028
+    20     0.5120    0.5122   0.0002     0.5128   0.0008
+    30     0.5082    0.5082   0.0000     0.5085   0.0003
+    50     0.5047    0.5049   0.0002     0.5051   0.0004
+   100     0.5027    0.5025   0.0002     0.5025   0.0002
+
+  worst deviation: exact 0.0002 (0.02 points), published 0.0028 (0.28 points)
+  The exact form tracks the common-sigma measurement to under a tenth
+  of a point at every N; N/(2N-1) is high by up to a quarter point,
+  worst at small N where the approximation ratio 1/N is worst.
+
+==============================================================================
+A22.5  end to end: the fixed point, simulated in the EMA harness
+==============================================================================
+  The closed forms above are static.  This runs the actual estimator
+  with a common sigma_H, an unmovable mean frame and sigma_adv -> 0,
+  which is the configuration prop:ceiling describes.
+
+     N          simulated     exact   N/(2N-1)  exact err   pub err
+    10      0.5246 +-0.0054    0.5235     0.5263     0.0010    0.0017
+    20      0.5113 +-0.0090    0.5122     0.5128     0.0009    0.0016
+    30      0.5085 +-0.0092    0.5082     0.5085     0.0003    0.0000
+    50      0.5032 +-0.0044    0.5049     0.5051     0.0018    0.0019
+   100      0.5003 +-0.0057    0.5025     0.5025     0.0022    0.0023
+
+  worst: exact 0.22 points, published 0.23 points
+  Both closed forms are within measurement noise of the simulation at
+  large N; they separate at small N, where the exact one wins.
+
+==============================================================================
+A22.6  does eq:ceiling's headline claim survive the correction?
+==============================================================================
+  eq:ceiling asserts pi -> N/(2N-1) ~ 1/2, i.e. a single client takes
+  half the aggregate and no more.  The exact form must have the same
+  limit for the paper's conclusion to stand.
+
+       N   exact pi  x fair (pi*N)
+      10   0.523529           5.24
+      30   0.508187          15.25
+     100   0.502487          50.25
+    1000   0.500250         500.25
+   10000   0.500025        5000.25
+
+  pi at N = 1e7: 0.50000002, so the limit is 1/2 as claimed and the
+  'N/2 times its entitlement' reading is unchanged.  The correction
+  moves the constant at small N, not the conclusion.
+
+==============================================================================
+A22 conclusion: prop:ceiling's proof must state the ratio as
+(N-1)/(N^2-N-1), approximately 1/N and not 1/(N-1), and eq:ceiling
+should carry the exact form, whose limit is the 1/2 the paper claims.
+Part of the residual sec:e0 attributes to honest heterogeneity is the
+published formula's own small-N error, and A22.4 separates the two.
+==============================================================================

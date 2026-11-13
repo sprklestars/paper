@@ -1,0 +1,31 @@
+Krum 回归检查通过：联盟全排除语义、空集合、实际选择数量
+FedAvg (uniform)     d=0.00  advW=0.033  honW=0.0333  mse=0.0024  alarms={'norm': 0.44, 'cos': 0.06}
+FedAvg (uniform)     d=0.05  advW=0.033  honW=0.0333  mse=0.0024  alarms={'norm': 0.35, 'cos': 0.15}
+FedAvg (uniform)     d=0.10  advW=0.033  honW=0.0333  mse=0.0024  alarms={'norm': 0.2, 'cos': 0.28}
+FedAvg (uniform)     d=0.20  advW=0.033  honW=0.0333  mse=0.0024  alarms={'norm': 0.04, 'cos': 0.42}
+FedAvg (uniform)     d=0.50  advW=0.033  honW=0.0333  mse=0.0026  alarms={'krum_adv': 0.0, 'cos': 0.62}
+Inverse-variance     d=0.00  advW=0.979  honW=0.0007  mse=0.0000  alarms={'norm': 0.58, 'cos': 0.39}
+Inverse-variance     d=0.05  advW=0.979  honW=0.0007  mse=0.0024  alarms={'norm': 0.58, 'cos': 0.47}
+Inverse-variance     d=0.10  advW=0.979  honW=0.0007  mse=0.0095  alarms={'norm': 0.61, 'cos': 0.62}
+Inverse-variance     d=0.20  advW=0.979  honW=0.0007  mse=0.0383  alarms={'norm': 0.64, 'cos': 0.83}
+Inverse-variance     d=0.50  advW=0.119  honW=0.0304  mse=0.0052  alarms={'krum_adv': 0.0, 'cos': 0.88}
+Krum                 d=0.00  advW=0.034  honW=0.0333  mse=0.0024  alarms={'norm': 0.44, 'cos': 0.06}
+Krum                 d=0.05  advW=0.034  honW=0.0333  mse=0.0024  alarms={'norm': 0.35, 'cos': 0.16}
+Krum                 d=0.10  advW=0.034  honW=0.0333  mse=0.0024  alarms={'norm': 0.21, 'cos': 0.28}
+Krum                 d=0.20  advW=0.034  honW=0.0333  mse=0.0024  alarms={'norm': 0.04, 'cos': 0.41}
+Krum                 d=0.50  advW=0.034  honW=0.0333  mse=0.0027  alarms={'krum_adv': 0.0, 'cos': 0.62}
+Trimmed mean         d=0.00  advW=0.042  honW=0.0330  mse=0.0020  alarms={'norm': 0.45, 'cos': 0.07}
+Trimmed mean         d=0.05  advW=0.042  honW=0.0330  mse=0.0020  alarms={'norm': 0.36, 'cos': 0.18}
+Trimmed mean         d=0.10  advW=0.042  honW=0.0330  mse=0.0021  alarms={'norm': 0.21, 'cos': 0.3}
+Trimmed mean         d=0.20  advW=0.041  honW=0.0331  mse=0.0021  alarms={'norm': 0.05, 'cos': 0.45}
+Trimmed mean         d=0.50  advW=0.035  honW=0.0333  mse=0.0024  alarms={'krum_adv': 0.0, 'cos': 0.63}
+FLTrust              d=0.00  advW=0.114  honW=0.0306  mse=0.0045  alarms={'norm': 0.39, 'cos': 0.03}
+FLTrust              d=0.05  advW=0.090  honW=0.0314  mse=0.0047  alarms={'norm': 0.32, 'cos': 0.06}
+FLTrust              d=0.10  advW=0.063  honW=0.0323  mse=0.0049  alarms={'norm': 0.2, 'cos': 0.14}
+FLTrust              d=0.20  advW=0.040  honW=0.0331  mse=0.0051  alarms={'norm': 0.03, 'cos': 0.28}
+FLTrust              d=0.50  advW=0.026  honW=0.0336  mse=0.0053  alarms={'krum_adv': 0.0, 'cos': 0.46}
+FoolsGold            d=0.00  advW=0.028  honW=0.0335  mse=0.0025  alarms={'norm': 0.44, 'cos': 0.05}
+FoolsGold            d=0.05  advW=0.031  honW=0.0334  mse=0.0025  alarms={'norm': 0.35, 'cos': 0.14}
+FoolsGold            d=0.10  advW=0.032  honW=0.0334  mse=0.0025  alarms={'norm': 0.2, 'cos': 0.27}
+FoolsGold            d=0.20  advW=0.034  honW=0.0333  mse=0.0025  alarms={'norm': 0.04, 'cos': 0.42}
+FoolsGold            d=0.50  advW=0.038  honW=0.0332  mse=0.0029  alarms={'krum_adv': 0.0, 'cos': 0.69}

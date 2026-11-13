@@ -1,0 +1,34 @@
+==============================================================================
+A25.1  plain linear regression y = w^T x
+==============================================================================
+  scale w by 2.0: max|df| = 1.838e+00  -> the client's own function moved
+  scale w by 5.0: max|df| = 7.352e+00  -> the client's own function moved
+  no nontrivial move preserves it: the orbit is trivial.
+
+==============================================================================
+A25.2  linear state-space model (the Kalman filter's class)
+==============================================================================
+                   T   own max|df|   aggregate damage
+         diag(2,1,1)     0.000e+00           0.008011
+         diag(5,1,1)     4.441e-16            0.02267
+        diag(20,1,1)     4.441e-16             0.5102
+   random invertible     8.882e-16             0.4542
+
+  own function moves by at most 8.9e-16, float round-off,
+  while the aggregate moves by 0.51 of its own scale.
+
+==============================================================================
+A25.3  which redundancy breaks averaging
+==============================================================================
+  multiplicative (a,w)->(ta,w/t):  own 1.78e-15  aggregate shift 0.4036
+  additive     (u,v)->(u+c,v-c):  own 3.55e-15  aggregate shift 7.245e-16
+
+  Both are exact orbits; only the multiplicative one survives
+  averaging, because averaging commutes with a common translation
+  and not with a common rescaling.  eq:homog is multiplicative.
+
+==============================================================================
+A25 conclusion: the orbit-free property is minimal parameterisation
+and not linearity.  sec:gauge must say 'linear regressor', and the
+Kalman filter cannot serve as the orbit-free control it was used as.
+==============================================================================

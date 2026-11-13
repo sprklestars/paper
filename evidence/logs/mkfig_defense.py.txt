@@ -1,0 +1,16 @@
+recomputing the combined attack (same calls as a11.4)...
+  permute only               undef       0.98  def  1.00  audit 1.33e-15
+  scale $s{=}1.5$            undef      12.64  def  1.00  audit 2.00e-15
+  scale then permute         undef       1.61  def  1.00  audit 1.55e-15
+  scale $s{=}3$ + permute    undef    9648.12  def  1.00  audit 1.78e-15
+  adversary own MSE constant at 0.6247 throughout
+
+measuring the honest cost across seeds (no attacker present)...
+  seed 0: 0.482064 -> 0.482753   ratio 1.0014
+  seed 1: 0.566870 -> 0.567681   ratio 1.0014
+  seed 2: 0.449534 -> 0.450158   ratio 1.0014
+  seed 3: 0.989628 -> 0.990789   ratio 1.0012
+  seed 4: 0.539330 -> 0.540033   ratio 1.0013
+
+wrote ../paper/fig/defense.pdf
+FIGURE CLAIMS: worst undefended=9648.12x  defended max=1.0014x  audit<=2.0e-15  honest cost=1.0013x (per-seed max 1.0014)

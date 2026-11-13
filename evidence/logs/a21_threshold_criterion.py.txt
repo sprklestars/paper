@@ -1,0 +1,97 @@
+==============================================================================
+A21.1  c at the criterion the SCRIPT uses (pi > 0.9) and the one the
+       PROOF derives (pi > 0.5, where the interior fixed point dies)
+==============================================================================
+  u(1-u) peaks at 1/4 at u = 1/2, so the fixed point vanishes at
+  pi = 1/2.  All columns use the identical generator and bracket; the
+  T = 400 pair is v6's own horizon, the T = 2000 pair shows what a
+  longer horizon does to the same measurement.
+
+    N  sqrt(3/(N-1))  c @.9 T400  c @.5 T400  c @.9 T2k  c @.5 T2k
+   10         0.5774      0.9458      0.9760     0.9699     0.9923
+   20         0.3974      0.9591      0.9833     0.9859     1.0078
+   30         0.3216      0.9559      0.9858     0.9850     1.0005
+   50         0.2474      0.9500      0.9862     0.9837     1.0043
+   80         0.1949      0.9589      0.9847     0.9898     1.0037
+
+  T=400  c at pi>0.9 : mean 0.9539 sd 0.0052   (the paper quotes 0.955)
+  T=400  c at pi>0.5 : mean 0.9832 sd 0.0037
+  T=2000 c at pi>0.9 : mean 0.9829 sd 0.0068
+  T=2000 c at pi>0.5 : mean 1.0017 sd 0.0052
+
+  criterion effect at fixed T=400 : +0.0293
+  horizon   effect at fixed crit  : +0.0289
+  the offset the paper attributes to the dropped O(pi^2 r^2) term is
+  1 - c = 0.0461; the criterion alone accounts for 64% of it and the horizon for 63%.
+  Neither is a property of the dropped term, so the offset is not
+  wholly attributable to it.
+
+  log c vs log N slope: +0.00391 at pi>0.9, +0.00428 at pi>0.5
+  Both flat, so 'the N-dependence is exact' survives either way: the
+  criterion moves the CONSTANT, not the exponent.
+
+==============================================================================
+A21.2  how sharp is the transition between the two criteria?
+==============================================================================
+  If pi jumps from 0.5 to 0.9 over a narrow band of r the criterion
+  hardly matters; if the band is wide, c is criterion-dependent and the
+  paper must name its criterion.
+
+  N = 30, sqrt(3/(N-1)) = 0.3216, T = 400
+  r = sigma_A/sigma_H       pi    x fair
+                 0.45   0.1614      4.84
+                 0.40   0.2099      6.30
+                 0.36   0.2720      8.16
+                 0.34   0.3205      9.61
+                 0.33   0.3553     10.66
+                 0.32   0.4506     13.52
+                 0.31   0.8370     25.11
+                 0.30   1.0000     30.00
+                 0.28   1.0000     30.00
+                 0.24   1.0000     30.00
+
+  pi crosses 0.5 below r = 0.45 and 0.9 below r = 0.24, a band
+  of 0.21 in r, i.e. 65% of the
+  threshold itself.  Not a knife edge, so the criterion belongs in the
+  text alongside c.
+
+==============================================================================
+A21.3  the OTHER claim: does harm at FIXED adversary capability rise
+       with N, as 'larger federations are more vulnerable' suggests?
+==============================================================================
+  The threshold in r falls like N^-1/2.  That is a statement about the
+  BAR, not about the harm at a fixed r.  Sweeping N at fixed r:
+
+     r      N=10      N=20      N=30      N=50      N=80
+  0.50     10.00      4.04      3.87      3.78      3.92
+  0.35     10.00     20.00      8.82      7.98      8.05
+  0.20     10.00     20.00     30.00     50.00     29.16
+  0.10     10.00     20.00     30.00     50.00     80.00
+
+  Read as multiples of fair share.  A row that rises with N means a
+  larger federation is worse at fixed capability; a row that falls
+  means dilution wins.  Both appear, depending on which side of
+  theta_N the fixed r sits on, which is the point: the correct claim
+  is about the THRESHOLD, and 'more vulnerable' must be said of the
+  bar rather than of the damage.
+
+==============================================================================
+A21.4  is the offset unit in tab:e0 right?
+==============================================================================
+  v6 prints 'closed form is high by X% +- Ypp' where X and Y are the
+  mean and sd of pred/meas expressed in per cent.
+  With c = 0.9539 that is 4.8% +- 0.6, and the
+  MEAN is a relative error: the closed form exceeds the measured
+  threshold by that fraction of the threshold.
+  tab:e0 reports '4.7 +- 0.5 pp', attaching a percentage-point unit to
+  both.  The spread of a set of percentages is fairly quoted in pp, but
+  the 4.7 is not a difference of two probabilities: it is 4.7% OF the
+  threshold, so the entry should read '4.7% (spread 0.5 pp)'.
+
+==============================================================================
+A21 conclusion: the exponent -1/2 is derived and holds at both
+criteria; c is criterion- and horizon-dependent, so prop:threshold must
+state that its c is measured where pi exceeds 0.9 at T = 400 and not at
+the fixed point's disappearance, and tab:e0's '4.7 pp' should read
+'4.7%'.
+==============================================================================

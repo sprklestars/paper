@@ -1,0 +1,16 @@
+test_fiva_p_weights_independent_of_lambda (__main__.FivaTests.test_fiva_p_weights_independent_of_lambda) ... ok
+test_history_does_not_enter_current_mean (__main__.FivaTests.test_history_does_not_enter_current_mean) ... ok
+test_import_does_not_run_experiments (__main__.FivaTests.test_import_does_not_run_experiments) ... ok
+test_invalid_inputs (__main__.FivaTests.test_invalid_inputs) ... ok
+test_known_weights_and_two_round_variance (__main__.FivaTests.test_known_weights_and_two_round_variance) ... ok
+test_official_epsilon_arithmetic (__main__.FivaTests.test_official_epsilon_arithmetic) ... ok
+test_only_tsp_has_biased_local_target (__main__.FivaTests.test_only_tsp_has_biased_local_target) ... ok
+test_three_round_simulation_against_independent_recurrence (__main__.FivaTests.test_three_round_simulation_against_independent_recurrence) ... ok
+test_welford_and_broadcast_gradient_variance (__main__.FivaTests.test_welford_and_broadcast_gradient_variance) ... ok
+test_zero_lambda (__main__.FivaTests.test_zero_lambda) ... ok
+test_zero_variance_stabilizers (__main__.FivaTests.test_zero_variance_stabilizers) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.626s
+
+OK

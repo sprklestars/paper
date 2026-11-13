@@ -1,0 +1,61 @@
+==========================================================================
+A1.1  are the symmetries EXACT on a trained network?
+==========================================================================
+                   transform     max |df|   rel param move
+            scale c1=2, c2=1     0.00e+00            0.783
+           scale c1=10, c2=1     1.33e-15            6.331
+          scale c1=0.1, c2=1     1.33e-15            6.365
+            scale c1=5, c2=5     1.47e-15            2.802
+        permute hidden units     1.33e-15            1.416
+             permute + scale     1.55e-15            2.362
+
+  Function identical to floating-point noise; parameter vector moves
+  by up to several times its own norm.  The symmetry is exact.
+
+==========================================================================
+A1.2  is parameter distance UNBOUNDED along the gauge orbit?
+==========================================================================
+        c1     ||dtheta||     max |df|
+       1.0         0.0000     0.00e+00
+       1.5         4.8279     1.33e-15
+       2.0         8.9771     0.00e+00
+       4.0        24.8101     0.00e+00
+       8.0        56.5853     0.00e+00
+      16.0       120.5450     0.00e+00
+      64.0       505.3546     0.00e+00
+
+  Distance grows without bound at exactly zero functional cost.
+  No distance-based scorer can be robust to this.
+
+==========================================================================
+A1.3  can the adversary DIAL its trust rank at zero functional cost?
+==========================================================================
+   c1 applied by adversary    Krum      L2     cos     max|df|
+                      1.00       4       4       3    0.00e+00
+                      1.02       8       8       7    1.78e-15
+                      1.05      27      27      26    1.33e-15
+                      1.10      30      30      30    1.33e-15
+                      1.25      30      30      30    1.33e-15
+                      1.50      30      30      30    1.33e-15
+                      2.00      30      30      30    0.00e+00
+                      0.95      27      27      26    1.33e-15
+                      0.80      30      30      30    1.33e-15
+
+  (rank 1 = most trusted of 30; the adversary's FUNCTION is identical
+  in every row.)
+
+==========================================================================
+A1.4  what does the gauge move cost the AGGREGATE?
+==========================================================================
+      c1   Krum rank   agg MSE vs clean agg       rel
+    1.00           4               0.000000    0.0000
+    1.02           8               0.000000    0.0000
+    1.05          27               0.000000    0.0000
+    1.10          30               0.000001    0.0000
+    1.25          30               0.000004    0.0000
+    1.50          30               0.000022    0.0001
+    2.00          30               0.000147    0.0004
+
+  If rank improves faster than aggregate error grows, the attack is
+  cheap and the scorer is measuring the wrong thing.
+

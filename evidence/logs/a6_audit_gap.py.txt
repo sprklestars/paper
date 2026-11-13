@@ -1,0 +1,88 @@
+==============================================================================
+A6.1  the audit gap across seeds (per-unit gauge, log-sd 1.5)
+==============================================================================
+ seed     own MSE   own MSE after    max|df|   agg clean   agg after        x
+    0    0.637748        0.637748    1.8e-15    0.501584    3.116133     6.21
+    1    0.687054        0.687054    2.2e-15    0.557100   70.181202   125.98
+    2    0.539483        0.539483    1.8e-15    0.421790    0.761721     1.81
+    3    1.251291        1.251291    2.2e-15    0.982746    1.192256     1.21
+    4    0.596264        0.596264    1.7e-15    0.502840    4.015578     7.99
+    5    0.585323        0.585323    1.8e-15    0.496235   11.248256    22.67
+    6    0.555094        0.555094    2.2e-15    0.465922    5.278315    11.33
+    7    0.544989        0.544989    2.7e-15    0.473362    1.926333     4.07
+
+  aggregate damage  mean 22.66x  median 7.10x  min 1.21x  max 125.98x
+  own-model error is identical to 1e-15 in every row: the client's
+  function is untouched, so every functional audit passes exactly.
+
+==============================================================================
+A6.2  how large is the gap as a function of gauge magnitude?
+==============================================================================
+ per-unit log-sd   own MSE delta   agg x clean    z-score   Krum rank
+            0.00        0.00e+00          1.00      -0.81         8.4
+            0.10        1.11e-16          1.00       9.01        30.0
+            0.25        4.44e-17          1.00      41.59        30.0
+            0.50        1.11e-16          1.01     129.83        30.0
+            0.75        1.11e-16          1.02     322.81        30.0
+            1.00        6.66e-17          1.08     942.75        30.0
+            1.25        8.88e-17          1.30    3496.50        30.0
+            1.50        8.88e-17          2.56   11938.82        30.0
+            2.00        1.11e-16         64.93   98190.77        30.0
+
+  Column 2 is the audit's view and stays at machine zero throughout.
+  Column 3 is the federation's.  Columns 4-5 are why this is an
+  auditing result and not a stealth attack: a distance-based scorer
+  does see it, and sees it early.  The two views never agree.
+
+==============================================================================
+A6.3  the control: no orbit, so no gap
+==============================================================================
+        client 0 transform      own MSE   own MSE after   agg x clean
+                      none     0.001467        0.001467          1.00
+                scale by 2     0.001467       19.113199        729.68
+                scale by 8     0.001467      930.212659      35007.40
+      permute coefficients     0.001467       39.177788       1466.77
+          add gaussian 0.5     0.001467        9.120354        339.60
+
+  Every transform that damages the aggregate also damages the
+  client's own model by a comparable factor, so a functional audit
+  catches all of them.  P1 implies P2.  This is the property the
+  network loses, and losing it is what makes the defect AI-specific.
+
+==============================================================================
+A6.4  which audits are fooled?
+==============================================================================
+                         audit         honest    gauge-moved   detects?
+                  held-out MSE       0.637748       0.637748         no
+      max abs prediction error       3.059803       3.059803         no
+     challenge-response digest     349.596644     349.596644         no
+  prediction on trigger region      -0.566233      -0.566233         no
+             parameter L2 norm      11.459788    2197.681459        YES
+         distance to peer mean       1.185513    2196.521075        YES
+
+  Everything computed from the model's OUTPUTS is blind, exactly.
+  Only checks that read the parameter vector see anything -- and
+  those are precisely the checks that cannot distinguish a gauge
+  move from honest heterogeneity, which is what A5 tested.
+
+==============================================================================
+A6.5  gauge canonicalisation as the repair, and its limit
+==============================================================================
+  Canonicalisation normalises each hidden unit's incoming weights and
+  pushes the scale forward.  It is itself a gauge move, so it changes
+  no client's function -- verified below -- and it maps the whole
+  continuous orbit to one representative.
+
+              gauge move    raw agg   canon agg   canon max|df|
+        (clean baseline)     0.5016      0.5023               -
+         per-unit sd=0.5     0.5062      0.5023         1.8e-15
+         per-unit sd=1.5     2.1808      0.5023         1.6e-15
+         per-unit sd=3.0 840011.4783      0.5023         1.8e-15
+             permutation     0.4937      0.4943         2.1e-15
+
+  The continuous group is closed at no cost.  The permutation
+  subgroup is not: canonicalising it means choosing a consistent
+  labelling of hidden units across clients, which is an assignment
+  problem per client per round, and the row above shows why it is
+  lower priority -- permutation alone barely moves the aggregate.
+

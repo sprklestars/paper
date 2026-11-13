@@ -1,0 +1,17 @@
+recomputing the magnitude sweep (this is the same call a10 makes)...
+  log-sd 0.00  |q-p|       0.00  damage         1.00  audit 0.00e+00
+  log-sd 0.25  |q-p|       3.69  damage         1.00  audit 2.78e-17
+  log-sd 0.50  |q-p|       9.57  damage         1.00  audit 7.63e-17
+  log-sd 0.75  |q-p|      22.14  damage         1.03  audit 1.39e-17
+  log-sd 1.00  |q-p|      53.61  damage         1.19  audit 1.39e-17
+  log-sd 1.25  |q-p|     141.21  damage         2.20  audit 1.39e-17
+  log-sd 1.50  |q-p|     403.36  damage         8.88  audit 3.47e-17
+  log-sd 1.75  |q-p|    1227.66  damage        54.28  audit 2.08e-17
+  log-sd 2.00  |q-p|    3912.51  damage       372.46  audit 2.08e-17
+
+fitted on s >= 0.5 (7 points, matching a10.2)
+log-log slope 0.940   r = 0.99834
+
+wrote ../paper/fig/maglaw.pdf
+max damage 372.46x   max audit 7.633e-17
+FIGURE CLAIMS: slope=0.940  r=0.99834  maxdamage=372.46  audit<=7.6e-17

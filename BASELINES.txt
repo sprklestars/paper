@@ -1,0 +1,65 @@
+Baseline attribution and experiment index
+Extracted from the existing experimental documentation. See README.txt for corrected
+A13/A15/A24/A26 interpretation and the public evidence directory layout.
+
+
+下表的“来源”对应 `paper/refs.bib` 及补充材料 `sec:supp-provenance`。所有行均未调用作者官方代码。未列出的敏感性检查不表示做过。
+
+| 方法／来源 | 本地函数与适配 | 数值处理／变体 | 已做敏感性与未做项 |
+|---|---|---|---|
+| Krum，Blanchard 2017 距离分数 | `e2_silence.w_krum` | 最近 `max(1,N-k-2)` 个平方距离；保留 `max(1,N-k)` 客户端的 Multi-Krum 变体 | 有全／部分排除回归；未扫描保留数量，不套用原鲁棒性定理 |
+| Trimmed mean，Yin 2018 | `e2_silence.w_trimmed` | 按坐标幸存次数形成一个标量权重，**不是**逐坐标 trimmed mean | 未比较该 surrogate 与原逐坐标聚合的全部结果 |
+| FLTrust，Cao 2021 | `e2_silence.w_fltrust` | nonnegative cosine 归一化，norm 分母加 `1e-12`，总分过小均匀 fallback；省略原 update-norm rescaling | 未做省略步骤敏感性 |
+| FoolsGold，Fung 2020 | `e2_silence.w_foolsgold` | 最大历史 cosine 惩罚，权重 clip 至 `[1e-6,1]`；省略 pardoning/logit | 未做省略步骤敏感性 |
+| Fang USENIX 2020 | B1 `craft_fang_trim`, `craft_fang_krum` | 方向偏移／二分搜索，复用共同检测器 | B1.1–B1.4 的联盟与评分器对照；未全量重调全部基线 |
+| Min-max／min-sum，Shejwalkar NDSS 2021 | B1 `craft_shej` | 以诚实更新距离预算进行二分搜索 | 相同 harness 与联盟大小对照 |
+| Free rider，Fraboni AISTATS 2021 | B1 `craft_freerider` | 回放／加噪变体 | 原／伪装两种变体；不是重新部署作者系统 |
+| ACE，Xu USENIX 2024 | B1 `lbfgs_hv`, `craft_ace` | 回归 harness 的预测更新，曲率 guard `1e-12` | buffer 及 filter 阈值检查见 B1.5–B1.6 |
+| Git Re-Basin-inspired activation matching | B2 `_feat`, `_cost`, `_hard`, `c_act_noscale` | 平方描述子距离、SciPy exact assignment；有／无尺度预处理 | warm/cold 初始化、顺序对照；不是作者全系统复现 |
+| OT-Fusion-inspired transport | B2 `_sinkhorn`, `align_generic` | 2000 次 Sinkhorn；epsilon 乘平均 cost；分母 `1e-300`；无自动硬化 | epsilon=0.001..5 扫描；软矩阵不保证函数保持 |
+| FP／EE，ISWA 32 (2026), 200725，正式 Defs.3–4/Eqs.3–6 | C1 `marginals`, `fp_ee_weights`, `w_fp`, `w_ee` | FP 对 alpha 取正部；EE 对 beta/gamma 分别取正部再平均；默认归一为非负份额，不乘可能为负的 vM | 正式公式、混合符号、LOO/IOI 回退、零分数、负预算、效用变换与独立 minshift 映射 |
+| Trajectory Shapley，arXiv:2605.30336 | C1 `w_fedtsv` | 有限排列采样及 `TSV_EPS=1e-12` | 32／256 排列与效用变换对照 |
+| FedRandom，arXiv:2602.05693v1 Sec.3.2 | C1 `w_fedrandom`, `server_step` | 每轮均匀抽取五种服务器优化器之一；本地等规模客户端 harness 才采用均匀客户端聚合，不是源文的一般权重结论 | 共同 harness；未复现原任务全部设置 |
+| PWFL，Computational Intelligence 41(6), e70150 (2025)，正式 Eq.5/Sec.4.4 | C2 `adam_second_moment`, `sim` | SGD 记录的离线二阶矩代理，逐坐标 precision、floor `1e-12`；不等于正式 Adam 训练流程 | floor `1e-12/1e-8/1e-4`、scalar collapse；正式方法已核对，完整原系统未复现 |
+| FIVA-G/P，PMLR 298 (2025), Eqs.1–8 | C2 `welford`, `fiva_gradient_variance`, `fiva_weights`, `sim` | 均值系数仅 `nhat/v`；全局方差 `1/(lam/previous_var + sum(nhat/v))`；G 起始方差接收广播；初始方差 1、forgetting=0.95、局部 floor `1e-12` | 11 项回归；forgetting、初始方差、floor、scalar collapse；额外对照局部 `v+1e-5` 和全局截断；非 CT segmentation 全系统 |
+| M4 的 CIFAR 适配 | E10 `canon`, `align`, `_greedy` | carrier norm 加 `1e-30`；greedy 匹配，非 exact optimum | float32 函数检查、6 seeds；未证明 assignment 唯一 |
+
+FP 零分母按 LOO→IOI 的确定顺序尝试正部，属于对正式 Remark 2 二择一的本地确定化；全部无正值后均匀回退、EE 全零或单客户端处理为显式本地补充。`events` 记录各分支次数。`_vcheck` 比较 bounded utility 与负 MSE；`_mapping_check` 另比较对非负分数减最小值再归一的 Remark 3 风格映射。这不是完整原下游系统复现，不以旧攻击效果阈值作为正确性断言。
+
+FP／EE 正式版 DOI 为 `10.1016/j.iswa.2026.200725`。作者公开仓库固定提交 `81bbd19de9cb1ddd073ccebadbfcf6015fb9a5b3` 的 `downstrem_times/utilities.py` 中，EE 未分别截断且效率归一化被注释，FP 分母采用 EE 和；零分母替代也不完整。`affine_trans_list` 只在负最小值时平移，与正式 Remark 3 文字仍有差异。本轮以正式 PDF 公式为评分依据，不照抄这些差异。正式 Property 5 只适用于未归一化量，公共分母的间接影响已由原文 Sec.5.4 讨论，不主张首次发现。
+
+FedRandom 的 12 页 arXiv:2602.05693v1 全文已于 2026-09-22 对照 Sec.3.2：源文规定每轮从 FedAvg、FedAvgM、FedAdagrad、FedAdam、FedYogi 中均匀抽取服务器聚合策略。本地实验的均匀客户端聚合来自等规模客户端 harness，不能外推为 FedRandom 的一般定义。书目已核实为 CCIS 2841、452–463、2026；正式出版章节仍未取得，因此不能声称正式章节全文对照完成。
+
+## 脚本与稳定论文标签
+
+`verify_all.py` 的注册表保存逐脚本说明。下列分类是证据用途，和一次运行的 PASSED/FAILED 分开。
+
+| 脚本 | 定位与性质 |
+|---|---|
+| `v1_gauge.py` | `thm:unidentifiable`, `prop:impossible` 的数值相对信息检查 |
+| `v2_feedback.py` | `eq:feedback`, `prop:fixedpoint`；含 legacy approximation 对照 |
+| `v3_defense_bounds.py`, `v4_anchor_mechanism.py` | `lem:budget`, `eq:firstorder` 相关诊断及 legacy 无地板界反例；不核验新版全部条件 |
+| `v5_repaired_bound.py` | 1080 个平均权重诊断，新增零违反断言；**不**检查 `thm:displacement` 的逐轮 score/normalisation 条件 |
+| `v6_capture.py` | `thm:capture`, `prop:ceiling`, `prop:threshold` 的数值检查 |
+| `e2_silence.py`, `e2b_sweep.py`, `e2c_confirm.py`, `e2d_trustharm.py` | `sec:e1`, `sec:e2`, `sec:ablation`，份额、检测 excess、EMA 与联盟扫描 |
+| `e3_defense.py`, `e9_adaptive_defense.py` | `sec:e0`, `sec:e9`，matched defence 与 held-out adaptive grid |
+| `a1_nn_symmetry.py`, `mlp.py` | `eq:gaugeinv`，对称性及梯度 sanity checks |
+| `a2_gauge_alignment.py`, `a3_gauge_stabilise.py` | negative result N1/N2，`sec:supp-negatives` |
+| `a4_aggregate_gauge.py`, `a6_audit_gap.py` | `eq:aggnotinv`, `prop:auditgap`，参数平均与功能统计 |
+| `a5_honest_exclusion.py`, `a9_gauge_displacement.py` | negative/null N4/N5、cold start；`sec:supp-negatives`, `sec:coldstart` |
+| `a7_capacity.py`, `a8_normalisation.py`, `a10_magnitude_law.py` | `sec:e5`, `eq:maglaw`；容量、归一化及经验幅度律 |
+| `a11_permutation_canon.py`, `a18_quotient_ties.py` | `prop:ordering`, `sec:e6`；数值商检查与 ties 反例，描述子分离不证明唯一最优 |
+| `a12_policy_binding.py` | `sec:m3`, `sec:e7`；确定性策略重放 |
+| `a13_real_data.py` | `sec:e8`，California／digits |
+| `a14_auditgap_exact.py`, `a17_digest_granularity.py` | `prop:auditgap`, `prop:gauge-damage`；float64、IVT、负对照、真实 SHA-256；深网 witness 非一般定理 |
+| `a15_gauge_constrained.py` | `sec:e5b`，参数检测器下的 Gauge 边界 |
+| `a16_ceiling_residual.py` | `prop:ceiling` 的异质性残差诊断 |
+| `a19_dead_units.py` | `sec:negatives`，Γ 外反例与防御冲突 |
+| `a20_impossibility_scope.py`, `a21_threshold_criterion.py`, `a22_ceiling_exact.py` | legacy/current 对照：suppression 恒等式、阈值判据与 horizon、精确 population ceiling |
+| `a23_same_harness_defense.py`, `a24_weight_cap.py` | `sec:e0`，修正跨 harness 比较、保留有利 hard-cap 对照 |
+| `a25_orbit_scope.py`, `a26_real_confound.py` | `sec:gauge`, `sec:e10`，冗余线性模型、真实分区 capture/harm 分离 |
+| `b1_published_baselines.py`, `b2_matcher_baselines.py` | `sec:e2b`, `sec:e6`，上述攻击与匹配器适配 |
+| `c1_recent_scorers.py`, `c2_deployed_family1.py` | `sec:e1b`, `sec:e1c`，上述评分器适配 |
+| `e10_cifar_cnn.py`, `e11_hierarchical.py` | `sec:e10`, `sec:e11`，CNN 与层次拓扑 |
+| `mkfig_silence.py`, `mkfig_maglaw.py`, `mkfig_defense.py`, `mkfig_policy.py`, `mkfig_scorers.py` | 五张图；仅 maglaw／policy／scorers 包含部分正文数字断言 |
+

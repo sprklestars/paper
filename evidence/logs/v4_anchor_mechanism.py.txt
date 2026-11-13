@@ -1,0 +1,74 @@
+================================================================================
+V4.1  H1 vs H2: does the anchor count matter for EITHER adversary?
+================================================================================
+  lam=0.5, no floor.  fair share = 0.0333
+
+   a |  TSP-Var eps   x fair |  TSP-Shift eps   x fair
+   0 |       0.1849    6.36x |         0.0087    1.25x
+   1 |       0.1329    4.85x |         0.0064    1.19x
+   2 |       0.1532    5.44x |         0.0091    1.26x
+   4 |       0.1720    5.99x |         0.0121    1.35x
+   8 |       0.1728    6.01x |         0.0089    1.26x
+  16 |       0.1608    5.66x |         0.0072    1.21x
+  32 |       0.1822    6.28x |         0.0108    1.31x
+  64 |       0.1610    5.67x |         0.0085    1.25x
+
+  TSP-Var: eps is flat in a. TSP-Shift: the adversary is already BELOW its
+  fair share (self-defeating, as V2 showed), and anchors change little.
+  H2 is supported: anchors address Theorem 2, not Theorem 1. eq:firstorder's
+  1/sqrt(a) term describes the frame-shift budget, which is not the binding
+  constraint under variance masquerading.
+
+================================================================================
+V4.2  What anchors DO fix: the common-mode bias of Theorem 2
+================================================================================
+  Population-wide bias c injected. Under lam=1 it is invisible (Thm 2).
+  Measure: does the aggregate track the TRUE optimum (origin)?
+
+   a    lam |  ||frame - truth||  (truth = 0, bias = 3.0)
+   0   1.00 |             3.0633
+   3   1.00 |             3.0459
+   3   0.75 |             2.2934
+   3   0.50 |             1.5745
+   3   0.25 |             0.9658
+   3   0.00 |             0.7889
+  16   0.50 |             1.5429
+  64   0.50 |             1.5476
+
+  At lam=1 the frame sits on the biased consensus and the common-mode bias is
+  invisible, exactly as Theorem 2 predicts. Only lam<1 pulls the frame back,
+  and the residual error falls with a. THIS is where the anchor budget binds.
+
+================================================================================
+V4.3  M1 must be scaled: floor as a fraction of median dispersion
+================================================================================
+  An absolute floor is not scale-free -- it depends on the learning
+  rate and the update magnitude. A relative floor is.
+
+  floor / median disp |  adv share   x fair      eps |  honest MSE cost
+                 none |     0.2121    6.36x   0.1849 |           1.003x
+                 0.05 |     0.2121    6.36x   0.1849 |           1.003x
+                 0.10 |     0.1924    5.77x   0.1645 |           1.003x
+                 0.20 |     0.1112    3.34x   0.0806 |           1.003x
+                 0.30 |     0.0786    2.36x   0.0468 |           1.002x
+                 0.50 |     0.0556    1.67x   0.0230 |           1.032x
+                 0.80 |     0.0437    1.31x   0.0108 |           1.133x
+                 1.00 |     0.0394    1.18x   0.0062 |           1.207x
+
+  Column 5 is the aggregate's variance relative to the BLUE optimum on an
+  all-honest population: the price of disbelieving low variance estimates.
+  A relative floor removes the capture and the cost is bounded.
+
+================================================================================
+V4.4  thm:displacement at a=32, lam=0.25 -- real violation or MC noise?
+================================================================================
+   a    lam |  mean ratio  min over seeds    bound  violations
+   1   1.00 |      0.7905          0.7202   0.2303     0/24
+   3   0.50 |      0.8289          0.7672   0.5699     0/24
+  32   0.25 |      0.8348          0.7806   0.8838    24/24
+  64   0.25 |      0.8337          0.7806   0.9072    24/24
+  64   0.10 |      0.8422          0.7942   0.9428    24/24
+
+  Violations here are genuine: the bound's Pi_max term assumes a variance
+  floor is in force, and these runs have none. The bound should be stated
+  as conditional on M1, not as unconditional.

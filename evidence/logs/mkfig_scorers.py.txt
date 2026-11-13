@@ -1,0 +1,22 @@
+读取来源哈希已核验的 E1b 结果...
+  FedAvg (uniform)         rho N/A  reward 1.000x
+  Inverse-variance         rho +0.9494  reward 4.901x
+  FP (2026)                rho +0.0478  reward 0.711x
+  EE (2026)                rho N/A  reward 0.995x
+  FedTSV (2026)            rho +0.8248  reward 7.708x
+  FedRandom (2026)         rho N/A  reward 1.000x
+读取来源哈希已核验的 E1c 结果...
+  inv-var (E1c)            rho +0.9502  reward 4.438x
+  PWFL '25                 rho +0.8665  reward 4.789x
+  FIVA-P '25               rho +0.8861  reward 4.919x
+  FIVA-G '25               rho +0.8447  reward 4.086x
+
+FIVA-G 初始方差扫描（后续动态广播）：
+  sigma^2_0    1e+00  reward 4.086x  adv/hon est 0.1392
+  sigma^2_0    1e-01  reward 4.086x  adv/hon est 0.1392
+  sigma^2_0    1e-02  reward 4.086x  adv/hon est 0.1392
+  sigma^2_0    1e-04  reward 4.093x  adv/hon est 0.1390
+  sigma^2_0    1e-08  reward 4.828x  adv/hon est 0.1216
+FIGURE CLAIMS: FedTSV 7.71x (rho 0.82) | PWFL 4.79x | FIVA-P 4.92x | FIVA-G 4.09x (rho 0.84)
+               prior sweep 4.09 4.09 4.09 4.09 4.83 -> generic 4.44x
+已写图与来源记录：<PROJECT_ROOT>/paper/fig/scorers.pdf

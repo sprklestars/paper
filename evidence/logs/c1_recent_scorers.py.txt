@@ -1,0 +1,122 @@
+==============================================================================
+C1.0  FedTSV Shapley estimator: 32 permutations vs 256
+==============================================================================
+perm=   8  advW=0.08974  honW=0.031388  mse=0.00415
+perm=  32  advW=0.06492  honW=0.032244  mse=0.00380
+perm= 128  advW=0.06609  honW=0.032204  mse=0.00375
+perm= 256  advW=0.06585  honW=0.032212  mse=0.00374
+relative advW drift 32 vs 256: 0.0141
+
+==============================================================================
+C1.0b FedRandom server learning rate, chosen on its no-attack MSE
+==============================================================================
+eta=1.0     no-attack mse=0.12789
+eta=0.3     no-attack mse=0.07422
+eta=0.1     no-attack mse=0.02306
+eta=0.03    no-attack mse=0.00475
+eta=0.01    no-attack mse=0.00296
+eta=0.003   no-attack mse=0.00285
+chosen eta = 0.003
+
+==============================================================================
+C1.1  no-attack control per scorer (denominator of every ratio)
+==============================================================================
+FedAvg (uniform)   advW=0.0333 (fair 0.0333) honW=0.03333 mse=0.0026 honCV=0.000
+Inverse-variance   advW=0.0283 (fair 0.0333) honW=0.03351 mse=0.0019 honCV=0.668
+FP (2026)          advW=0.0335 (fair 0.0333) honW=0.03333 mse=0.0064 honCV=1.298
+EE (2026)          advW=0.0333 (fair 0.0333) honW=0.03334 mse=0.0040 honCV=0.048
+FedTSV (2026)      advW=0.0332 (fair 0.0333) honW=0.03334 mse=0.0036 honCV=1.784
+FedRandom (2026)   advW=0.0333 (fair 0.0333) honW=0.03333 mse=0.0025 honCV=0.000
+
+==============================================================================
+C1.2  every attack against every scorer
+==============================================================================
+attack         scorer                advW  x-fair  mse/base     eps  honCV  max-exc  fired
+none           FedAvg (uniform)    0.0333    1.00      1.00   0.000  0.000  +0.00    -
+none           Inverse-variance    0.0283    0.85      1.00   0.000  0.668  +0.00    -
+none           FP (2026)           0.0335    1.01      1.00   0.000  1.298  +0.00    -
+none           EE (2026)           0.0333    1.00      1.00   0.000  0.048  +0.00    -
+none           FedTSV (2026)       0.0332    1.00      1.00   0.000  1.784  +0.00    -
+none           FedRandom (2026)    0.0333    1.00      1.00   0.000  0.000  +0.00    -
+
+tsp-var        FedAvg (uniform)    0.0333    1.00      1.02   0.000  0.000  +0.01    -
+tsp-var        Inverse-variance    0.1634    4.90      0.89   0.139  0.656  +0.01    -
+tsp-var        FP (2026)           0.0237    0.71      1.12  -0.010  1.340  +0.00    -
+tsp-var        EE (2026)           0.0332    1.00      1.06  -0.000  0.058  +0.01    -
+tsp-var        FedTSV (2026)       0.2569    7.71      0.76   0.231  1.784  +0.01    -
+tsp-var        FedRandom (2026)    0.0333    1.00      0.85   0.000  0.000  +0.00    -
+
+misreport      FedAvg (uniform)    0.0333    1.00      1.00   0.000  0.000  +0.00    -
+misreport      Inverse-variance    0.0283    0.85      1.00   0.000  0.668  +0.00    -
+misreport      FP (2026)           0.1456    4.37      0.97   0.116  1.314  +0.01    -
+misreport      EE (2026)           0.0365    1.10      0.69   0.003  0.039  +0.00    -
+misreport      FedTSV (2026)       0.0332    1.00      1.00   0.000  1.784  +0.00    -
+misreport      FedRandom (2026)    0.0333    1.00      1.00   0.000  0.000  +0.00    -
+
+fang-trim      FedAvg (uniform)    0.0333    1.00      0.84   0.000  0.000  +0.96    cos,dist,krum_adv,norm
+fang-trim      Inverse-variance    0.0023    0.07      0.97  -0.027  0.674  +0.96    cos,dist,krum_adv,norm
+fang-trim      FP (2026)           0.0198    0.59      1.27  -0.014  1.245  +0.96    cos,dist,krum_adv,norm
+fang-trim      EE (2026)           0.0319    0.96      0.82  -0.001  0.058  +0.96    cos,dist,krum_adv,norm
+fang-trim      FedTSV (2026)       0.0043    0.13      0.90  -0.030  1.546  +0.96    cos,dist,krum_adv,norm
+fang-trim      FedRandom (2026)    0.0333    1.00      0.70   0.000  0.000  +0.96    cos,dist,krum_adv,norm
+
+shej-minmax    FedAvg (uniform)    0.0333    1.00      1.44   0.000  0.000  +0.40    cos,dist,krum_adv,norm
+shej-minmax    Inverse-variance    0.1452    4.36     13.58   0.120  0.642  +0.52    cos,dist,krum_adv,norm
+shej-minmax    FP (2026)           0.0300    0.90      1.04  -0.004  1.294  +0.31    cos,dist,krum_adv,norm
+shej-minmax    EE (2026)           0.0328    0.98      0.90  -0.000  0.011  +0.39    cos,dist,krum_adv,norm
+shej-minmax    FedTSV (2026)       0.0000    0.00      1.01  -0.034  1.749  +0.32    dist,krum_adv,norm
+shej-minmax    FedRandom (2026)    0.0333    1.00      1.42   0.000  0.000  +0.34    cos,dist,krum_adv,norm
+
+==============================================================================
+C1.2b misreport direction: does one report serve both objectives?
+==============================================================================
+the FP-maximising report also minimises others' EE in 200/200 random instances
+
+==============================================================================
+C1.3  federation size: N=9 (their default) vs N=30 (ours)
+==============================================================================
+attack         scorer               N  x-fair  mse/base   spread
+tsp-var        FP (2026)            9    1.12      1.01     1.13
+misreport      FP (2026)            9    2.88      0.89     3.76
+tsp-var        EE (2026)            9    1.00      0.89     1.01
+misreport      EE (2026)            9    1.21      1.01     1.24
+tsp-var        FedTSV (2026)        9    8.78      0.76   319.93
+misreport      FedTSV (2026)        9    2.41      1.00     2.92
+tsp-var        FP (2026)           15    0.89      0.94     0.88
+misreport      FP (2026)           15    3.45      0.94     4.18
+tsp-var        EE (2026)           15    1.00      0.76     1.00
+misreport      EE (2026)           15    1.21      0.88     1.23
+tsp-var        FedTSV (2026)       15    8.43      0.65    17.98
+misreport      FedTSV (2026)       15    0.97      1.00     0.96
+tsp-var        FP (2026)           30    0.71      1.12     0.70
+misreport      FP (2026)           30    4.37      0.97     4.94
+tsp-var        EE (2026)           30    1.00      1.06     1.00
+misreport      EE (2026)           30    1.10      0.69     1.10
+tsp-var        FedTSV (2026)       30    7.71      0.76    10.03
+misreport      FedTSV (2026)       30    1.00      1.00     1.00
+
+==============================================================================
+C1.4  utility choice: v = 1/(1+MSE) vs v = -MSE
+==============================================================================
+attack         scorer              x-fair 1/(1+m)   x-fair -m
+none           FP (2026)                     1.01        1.01
+tsp-var        FP (2026)                     0.71        0.71
+misreport      FP (2026)                     4.37        4.37
+none           EE (2026)                     1.00        1.00
+tsp-var        EE (2026)                     1.00        1.00
+misreport      EE (2026)                     1.10        1.09
+
+C1.5  FedRandom server optimisers exercised: ['fedadagrad', 'fedadam', 'fedavg', 'fedavgm', 'fedyogi']
+
+==============================================================================
+C1.6  do the weights track true client quality?  Spearman(w, 1/s^2)
+      all-honest federation, no attack
+==============================================================================
+FedAvg (uniform)   rho=N/A   defined=0/8   honCV=0.000
+Inverse-variance   rho=+0.949   defined=8/8   honCV=0.668
+FP (2026)          rho=+0.048   defined=8/8   honCV=1.298
+EE (2026)          rho=N/A   defined=2/8   honCV=0.048
+FedTSV (2026)      rho=+0.825   defined=8/8   honCV=1.784
+FedRandom (2026)   rho=N/A   defined=0/8   honCV=0.000
+wrote results/c1_recent.json
+C1 OK

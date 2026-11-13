@@ -1,0 +1,88 @@
+{
+  "seed": 0,
+  "dims": [
+    20,
+    32,
+    32,
+    1
+  ],
+  "clients": 24,
+  "atol": 1e-12,
+  "rtol": 1e-12,
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "numpy": "2.5.2",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+  "comparisons": [
+    {
+      "label": "gauge_prediction",
+      "max_absolute": 7.494005416219807e-16,
+      "max_relative": 8.919420539950589e-14,
+      "max_tolerance_ratio": 0.0006058987017192914,
+      "passed": true
+    },
+    {
+      "label": "negative_control_expected_rejection",
+      "max_absolute": 1.368334889839673e-10,
+      "max_relative": 3.7149220367571685e-10,
+      "max_tolerance_ratio": 100.00001001980148,
+      "passed": false
+    },
+    {
+      "label": "honest_batch_1500",
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "max_tolerance_ratio": 0.0,
+      "passed": true
+    },
+    {
+      "label": "honest_batch_750",
+      "max_absolute": 4.440892098500626e-16,
+      "max_relative": 1.2888632344568552e-13,
+      "max_tolerance_ratio": 0.00042804451305084187,
+      "passed": true
+    },
+    {
+      "label": "honest_batch_500",
+      "max_absolute": 6.522560269672795e-16,
+      "max_relative": 2.649771769434252e-14,
+      "max_tolerance_ratio": 0.0006365861066541995,
+      "passed": true
+    },
+    {
+      "label": "honest_batch_128",
+      "max_absolute": 6.522560269672795e-16,
+      "max_relative": 2.649771769434252e-14,
+      "max_tolerance_ratio": 0.0006365861066541995,
+      "passed": true
+    },
+    {
+      "label": "honest_batch_1",
+      "max_absolute": 1.7763568394002505e-15,
+      "max_relative": 9.542885763317357e-13,
+      "max_tolerance_ratio": 0.0012081715765361832,
+      "passed": true
+    },
+    {
+      "label": "honest_reordering",
+      "max_absolute": 6.522560269672795e-16,
+      "max_relative": 2.649771769434252e-14,
+      "max_tolerance_ratio": 0.0006365861066541995,
+      "passed": true
+    }
+  ],
+  "target": 372.0,
+  "achieved": 371.99999999999994,
+  "gauge_max": 7.494005416219807e-16,
+  "honest_max": 1.7763568394002505e-15,
+  "honest_gauge_ratio": 2.3703703703703702,
+  "hash_reference": "0fe7b34e98cca97d80ade88a841405fce42d9c63658777062218609dd9fba95c",
+  "hash_gauge": "06e8cdfe47bc3281562b794d74d4adfa882ddf5da9c915ef3db852662fca9574",
+  "batch_sizes": [
+    1500,
+    750,
+    500,
+    128,
+    1
+  ],
+  "reorder_seed": 0
+}

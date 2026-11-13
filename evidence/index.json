@@ -1,0 +1,2226 @@
+{
+  "scope": "Selected historical task evidence; no experiments rerun during packaging",
+  "raw_historical_summaries_included": false,
+  "note": "Absolute path metadata is redacted in distributed copies. Historical environment IDs refer to original records, not hashes of redacted records. Other omitted historical runs are not represented as current results.",
+  "excluded_misattributed_artifact": "A24's concurrent scorers-revision-comparison.json was not produced by A24 and is not distributed.",
+  "tasks": {
+    "v1_gauge.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 0.1688010009820573,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "v1_gauge.py": "9ad6d8d56a52cbe28b13acda23641e1265ed4f0f7b9b6f078514d148d0e2bc16"
+      },
+      "log": "evidence/logs/v1_gauge.py.txt",
+      "historical_log_sha256": "62e8ce475f5379115618d98e87191bdb3c799cb850aa979a728bcc177cbd8a96",
+      "distributed_log_sha256": "62e8ce475f5379115618d98e87191bdb3c799cb850aa979a728bcc177cbd8a96",
+      "artifacts": []
+    },
+    "v2_feedback.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 3.1846841339720413,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "v2_feedback.py": "61cd687ef6302cece1b270cc91372a17e64a2dccda770d7747a759ad7cf5bfda"
+      },
+      "log": "evidence/logs/v2_feedback.py.txt",
+      "historical_log_sha256": "fa9fb86d8473d7c982b387112bfbcc6d8c8cd43a9a0981f0874841a5bb0dbedb",
+      "distributed_log_sha256": "fa9fb86d8473d7c982b387112bfbcc6d8c8cd43a9a0981f0874841a5bb0dbedb",
+      "artifacts": []
+    },
+    "v3_defense_bounds.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 2.5442759330035187,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "v3_defense_bounds.py": "e01721fe7cd20164ae90f95aae31a654491516e1c22b9d5731465014cda8837a"
+      },
+      "log": "evidence/logs/v3_defense_bounds.py.txt",
+      "historical_log_sha256": "15bc59c8a1133bd19fdfd37f52850ae985a828b28804fa64f0d7c28b06f5c34a",
+      "distributed_log_sha256": "15bc59c8a1133bd19fdfd37f52850ae985a828b28804fa64f0d7c28b06f5c34a",
+      "artifacts": []
+    },
+    "v4_anchor_mechanism.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 5.4253670439939015,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "v4_anchor_mechanism.py": "16e13dee7dc5e1a9d2a681ae1cce1585b35eee988cf72e4e0333eb3316094362"
+      },
+      "log": "evidence/logs/v4_anchor_mechanism.py.txt",
+      "historical_log_sha256": "048c68b0fb2602b5e83b37ad04e7c774a58d0d227384e31faa2caeec22abd938",
+      "distributed_log_sha256": "048c68b0fb2602b5e83b37ad04e7c774a58d0d227384e31faa2caeec22abd938",
+      "artifacts": []
+    },
+    "v5_repaired_bound.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 67.22515188902617,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "v5_repaired_bound.py": "7be71fece795e67bdbbca078619e20f4901d4e283efd1618b83a1ad77391096d"
+      },
+      "log": "evidence/logs/v5_repaired_bound.py.txt",
+      "historical_log_sha256": "68c201c14a368471ac0347373d745a32c2ff7ed214fe147ecfa114e66db8768d",
+      "distributed_log_sha256": "68c201c14a368471ac0347373d745a32c2ff7ed214fe147ecfa114e66db8768d",
+      "artifacts": [
+        {
+          "path": "exp/results/v5_revision.json",
+          "historical_sha256": "6003a4ff8fbda8d62c6c0f4f8a78655e6c8c0ce29fe997a2c16b9619f242d0c5",
+          "distributed_sha256": "6003a4ff8fbda8d62c6c0f4f8a78655e6c8c0ce29fe997a2c16b9619f242d0c5",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "v6_capture.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 96.01417311799014,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "v6_capture.py": "aa89bab9ff5e84fd669857f1a3d258b17b09d3d7617174fdcef5f81e22ec067e"
+      },
+      "log": "evidence/logs/v6_capture.py.txt",
+      "historical_log_sha256": "ac05f28955aa48156cbe4879ce753b306c6bacbb1a6c64a81fbfde24a1b813b9",
+      "distributed_log_sha256": "ac05f28955aa48156cbe4879ce753b306c6bacbb1a6c64a81fbfde24a1b813b9",
+      "artifacts": []
+    },
+    "e2_silence.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 42.69801620702492,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee"
+      },
+      "log": "evidence/logs/e2_silence.py.txt",
+      "historical_log_sha256": "11d7c9400b6614f33834044c3eaf16e860e0531669464509d87224c725002cda",
+      "distributed_log_sha256": "11d7c9400b6614f33834044c3eaf16e860e0531669464509d87224c725002cda",
+      "artifacts": [
+        {
+          "path": "exp/e2_results.json",
+          "historical_sha256": "3f70e6a9b15168d317c85d10f3304068dfa147a97b749c567af1ee340cedda37",
+          "distributed_sha256": "3f70e6a9b15168d317c85d10f3304068dfa147a97b749c567af1ee340cedda37",
+          "path_metadata_redacted": false
+        },
+        {
+          "path": "exp/results/e2_revision.json",
+          "historical_sha256": "e7f0ea74814eb2ab43611a1bc96dbb9fa87537deed5ca19ee011b1046042877a",
+          "distributed_sha256": "e7f0ea74814eb2ab43611a1bc96dbb9fa87537deed5ca19ee011b1046042877a",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "e2b_sweep.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 32.706216646009125,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e2b_sweep.py": "c7eac24446f821277f22c30d00d4044219dbd661ab47c218fc8b7c7f3b909844"
+      },
+      "log": "evidence/logs/e2b_sweep.py.txt",
+      "historical_log_sha256": "db11ede900c6ca6cad64b8655edf10ddbeb590ec81acbc8aa2bd2f46e840dda5",
+      "distributed_log_sha256": "db11ede900c6ca6cad64b8655edf10ddbeb590ec81acbc8aa2bd2f46e840dda5",
+      "artifacts": []
+    },
+    "e2c_confirm.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 80.99910995800747,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e2b_sweep.py": "c7eac24446f821277f22c30d00d4044219dbd661ab47c218fc8b7c7f3b909844",
+        "e2c_confirm.py": "47ff9863491084358f38cf707bd9fe96372e22a94e09f3e4b66af98c1055ddd8"
+      },
+      "log": "evidence/logs/e2c_confirm.py.txt",
+      "historical_log_sha256": "75d206563c4a7b486ad55c9a2b700421c88eee8fd92d05c12b3c5b702be04644",
+      "distributed_log_sha256": "75d206563c4a7b486ad55c9a2b700421c88eee8fd92d05c12b3c5b702be04644",
+      "artifacts": []
+    },
+    "e2d_trustharm.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 76.26238967000972,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e2b_sweep.py": "c7eac24446f821277f22c30d00d4044219dbd661ab47c218fc8b7c7f3b909844",
+        "e2d_trustharm.py": "9315d63db6c39bcf6df017187d7b6049d23f8c0ac2745be05a2f0e3eb1d65ad4"
+      },
+      "log": "evidence/logs/e2d_trustharm.py.txt",
+      "historical_log_sha256": "c06b4c781681027b693f2b0efbf64cee7370fcb4f9c21783a0fe61ab12fe408e",
+      "distributed_log_sha256": "c06b4c781681027b693f2b0efbf64cee7370fcb4f9c21783a0fe61ab12fe408e",
+      "artifacts": []
+    },
+    "e3_defense.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 37.60947347601177,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e2b_sweep.py": "c7eac24446f821277f22c30d00d4044219dbd661ab47c218fc8b7c7f3b909844",
+        "e3_defense.py": "68fbc6002ba71e285da18a2ca5c260b7c08ffe370e9641401318e8152b053302"
+      },
+      "log": "evidence/logs/e3_defense.py.txt",
+      "historical_log_sha256": "e293e8ff7e27e118bbfc0ec70bbea59722a133edb9ec4aa497c1f602a5da1812",
+      "distributed_log_sha256": "e293e8ff7e27e118bbfc0ec70bbea59722a133edb9ec4aa497c1f602a5da1812",
+      "artifacts": []
+    },
+    "a1_nn_symmetry.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 3.1976781880366616,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993"
+      },
+      "log": "evidence/logs/a1_nn_symmetry.py.txt",
+      "historical_log_sha256": "2ae9b3531053aba394a267e5a26cd04155a45a7ad7541fae9ebebcc76c8b6473",
+      "distributed_log_sha256": "2ae9b3531053aba394a267e5a26cd04155a45a7ad7541fae9ebebcc76c8b6473",
+      "artifacts": []
+    },
+    "a2_gauge_alignment.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 17.27015344897518,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a2_gauge_alignment.py": "1e197273b40f087d525f09676ee8da68e50f39221afe264ce76846f450243c05"
+      },
+      "log": "evidence/logs/a2_gauge_alignment.py.txt",
+      "historical_log_sha256": "4ec47216a4639a7413beb64fbc72b98f7030dea06150be335fa2fa1d8678d3aa",
+      "distributed_log_sha256": "4ec47216a4639a7413beb64fbc72b98f7030dea06150be335fa2fa1d8678d3aa",
+      "artifacts": []
+    },
+    "a3_gauge_stabilise.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 111.9197935849661,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a3_gauge_stabilise.py": "64453093f37f7662588e6cad517400f6cfa22c076df6c3468ab0eaf5c8be3645",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd"
+      },
+      "log": "evidence/logs/a3_gauge_stabilise.py.txt",
+      "historical_log_sha256": "1514f6ab3d7dc831749db96f02f7ec5105ee21a24729a75612f284c25214b74e",
+      "distributed_log_sha256": "1514f6ab3d7dc831749db96f02f7ec5105ee21a24729a75612f284c25214b74e",
+      "artifacts": []
+    },
+    "a4_aggregate_gauge.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 3.3282571170129813,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd"
+      },
+      "log": "evidence/logs/a4_aggregate_gauge.py.txt",
+      "historical_log_sha256": "69cae4d3fe258bdc94ed8818dfe308c7ed8742c0601b8329c0c84009c0ab1f1e",
+      "distributed_log_sha256": "69cae4d3fe258bdc94ed8818dfe308c7ed8742c0601b8329c0c84009c0ab1f1e",
+      "artifacts": []
+    },
+    "a5_honest_exclusion.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 199.009444891999,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd",
+        "a5_honest_exclusion.py": "5fcc09723d6dbcbeb3f4835e0e30586ea7d480d3d3ef564ccba279b4c9026dcb"
+      },
+      "log": "evidence/logs/a5_honest_exclusion.py.txt",
+      "historical_log_sha256": "fe7b6e473ced98257d2974d192866eb48c47ac1faeccd76509772383343db3d0",
+      "distributed_log_sha256": "fe7b6e473ced98257d2974d192866eb48c47ac1faeccd76509772383343db3d0",
+      "artifacts": []
+    },
+    "a6_audit_gap.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 40.25064779003151,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd",
+        "a6_audit_gap.py": "7b54e6358a892b47cf8d90f9f46961e8732c0cab467a656d2bcd0c002408ee22"
+      },
+      "log": "evidence/logs/a6_audit_gap.py.txt",
+      "historical_log_sha256": "e43b33439ac659cef73beff46a359af9565fb4a7721a9f3ae0c00cd5c372a73d",
+      "distributed_log_sha256": "e43b33439ac659cef73beff46a359af9565fb4a7721a9f3ae0c00cd5c372a73d",
+      "artifacts": []
+    },
+    "mlp.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 0.29740880499593914,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/mlp.py.txt",
+      "historical_log_sha256": "ba4f86d81ee7aaab8d577630adac2ce9dc2efb7cb5a65862c06dfeafd47068e0",
+      "distributed_log_sha256": "ba4f86d81ee7aaab8d577630adac2ce9dc2efb7cb5a65862c06dfeafd47068e0",
+      "artifacts": []
+    },
+    "a7_capacity.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 196.668110847997,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a7_capacity.py": "2a9e8e18aca34824f3bf379c4f9795ce2c3d843d926ed8524418a64a6edcda69",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/a7_capacity.py.txt",
+      "historical_log_sha256": "0c58cca5613f3c88a65e6f70ed9a2ab35c08c826882b0c1382642785f33284b7",
+      "distributed_log_sha256": "0c58cca5613f3c88a65e6f70ed9a2ab35c08c826882b0c1382642785f33284b7",
+      "artifacts": []
+    },
+    "a8_normalisation.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 58.82368949399097,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a7_capacity.py": "2a9e8e18aca34824f3bf379c4f9795ce2c3d843d926ed8524418a64a6edcda69",
+        "a8_normalisation.py": "c14da51d6a8166a33ec53b1019485bae8546c48d1769b671151fb7b9049b1b96",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/a8_normalisation.py.txt",
+      "historical_log_sha256": "3ed7ddafbba848935ef405eeec28e5897d6b5af4b5b713e541a2142c160d7d3a",
+      "distributed_log_sha256": "3ed7ddafbba848935ef405eeec28e5897d6b5af4b5b713e541a2142c160d7d3a",
+      "artifacts": []
+    },
+    "a9_gauge_displacement.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 214.6709905170137,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a9_gauge_displacement.py": "4167af13ee8ab2a5e4280455700e2430d9dae7c58c8a67cb2d5c12cdd7f6893a",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/a9_gauge_displacement.py.txt",
+      "historical_log_sha256": "cce581d90d994ea98b0860a4f71f33d1edad7707c5df54cd952bccfe251e03bf",
+      "distributed_log_sha256": "cce581d90d994ea98b0860a4f71f33d1edad7707c5df54cd952bccfe251e03bf",
+      "artifacts": []
+    },
+    "a10_magnitude_law.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 298.72804037103197,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a10_magnitude_law.py": "adaa6ca94dfbeb9116b4137da7141a88b15ec383b9f0aadda151521069b2e92f",
+        "a7_capacity.py": "2a9e8e18aca34824f3bf379c4f9795ce2c3d843d926ed8524418a64a6edcda69",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/a10_magnitude_law.py.txt",
+      "historical_log_sha256": "85375ebea0d0b6c811e046fbc05d2c004c219f5e1355765349dea82688b7fee3",
+      "distributed_log_sha256": "85375ebea0d0b6c811e046fbc05d2c004c219f5e1355765349dea82688b7fee3",
+      "artifacts": []
+    },
+    "a11_permutation_canon.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 7.033496959018521,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a11_permutation_canon.py": "fe04f6398059be9839e3f485115aa80edb45ff8889ec11b6e3652c1f8ac97a5b",
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd"
+      },
+      "log": "evidence/logs/a11_permutation_canon.py.txt",
+      "historical_log_sha256": "40d627dffc00695733a578f72f8214f53b140fd213b9060260d4711a23b2a9bc",
+      "distributed_log_sha256": "40d627dffc00695733a578f72f8214f53b140fd213b9060260d4711a23b2a9bc",
+      "artifacts": []
+    },
+    "a12_policy_binding.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 0.7569023160031065,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a11_permutation_canon.py": "fe04f6398059be9839e3f485115aa80edb45ff8889ec11b6e3652c1f8ac97a5b",
+        "a12_policy_binding.py": "277770683d219e8f227a1a2a54d85809b1ce71f93ee4242685d853686ebc6669",
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd"
+      },
+      "log": "evidence/logs/a12_policy_binding.py.txt",
+      "historical_log_sha256": "403ad6428edc71e6e26c6d76a3a8943d74dc78e2853be49eef030e4d8615b8c3",
+      "distributed_log_sha256": "403ad6428edc71e6e26c6d76a3a8943d74dc78e2853be49eef030e4d8615b8c3",
+      "artifacts": []
+    },
+    "a13_real_data.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 191.56935441796668,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a13_real_data.py": "41769c573887087228b4362dc0c994bc38a0d206a055beb4c21746db1d6bbd50",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/a13_real_data.py.txt",
+      "historical_log_sha256": "c114be5ff8cec9bad23dd15530547af5b9bc6562f9dbf5a4c10bf11fed7842ee",
+      "distributed_log_sha256": "c114be5ff8cec9bad23dd15530547af5b9bc6562f9dbf5a4c10bf11fed7842ee",
+      "artifacts": []
+    },
+    "a14_auditgap_exact.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 8.495451355993282,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a14_auditgap_exact.py": "723184172f0bb05abae6a9a674d20a3d0110f276909ed667453c9a65fc4240dd",
+        "a7_capacity.py": "2a9e8e18aca34824f3bf379c4f9795ce2c3d843d926ed8524418a64a6edcda69",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/a14_auditgap_exact.py.txt",
+      "historical_log_sha256": "2dde21a93b5b868720d173d36206eb7cd4d3965fcf8461acb2524be541ca9681",
+      "distributed_log_sha256": "2dde21a93b5b868720d173d36206eb7cd4d3965fcf8461acb2524be541ca9681",
+      "artifacts": [
+        {
+          "path": "exp/results/a14_revision.json",
+          "historical_sha256": "62c0e708dcce0bb4bdbe026f8b5571a200e88b5782905db70c5c42d4c45a8304",
+          "distributed_sha256": "62c0e708dcce0bb4bdbe026f8b5571a200e88b5782905db70c5c42d4c45a8304",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "a15_gauge_constrained.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 14.423470548994374,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a11_permutation_canon.py": "fe04f6398059be9839e3f485115aa80edb45ff8889ec11b6e3652c1f8ac97a5b",
+        "a15_gauge_constrained.py": "b83efcb53b870f9ae787552155da9268ffe0249ef2abca54b7056cd9ea19be88",
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd"
+      },
+      "log": "evidence/logs/a15_gauge_constrained.py.txt",
+      "historical_log_sha256": "dce88d4476e7e3774cdca759702e08781942cfeb86122793980f7215385b6e3a",
+      "distributed_log_sha256": "dce88d4476e7e3774cdca759702e08781942cfeb86122793980f7215385b6e3a",
+      "artifacts": []
+    },
+    "a16_ceiling_residual.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 113.0252734789974,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a16_ceiling_residual.py": "0e79cb137df3aa32e39c7d7980291bd0cdddae541610d6ac3650f8278be04bb9"
+      },
+      "log": "evidence/logs/a16_ceiling_residual.py.txt",
+      "historical_log_sha256": "b2e0eeb64606769b4c8f074d659fb67f9c208ffe4419b65718bfea6e91913b6c",
+      "distributed_log_sha256": "b2e0eeb64606769b4c8f074d659fb67f9c208ffe4419b65718bfea6e91913b6c",
+      "artifacts": []
+    },
+    "a17_digest_granularity.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 1.2762793009751476,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a14_auditgap_exact.py": "723184172f0bb05abae6a9a674d20a3d0110f276909ed667453c9a65fc4240dd",
+        "a17_digest_granularity.py": "20b44d93d8ae4181ce193ce2f70512d37b912297edf12c4c3354ba7a13a5d4fc",
+        "a7_capacity.py": "2a9e8e18aca34824f3bf379c4f9795ce2c3d843d926ed8524418a64a6edcda69",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/a17_digest_granularity.py.txt",
+      "historical_log_sha256": "5666687ac7ab02a4fea34681765357ab6b3782c1fce366b05bed5ee0d3636d56",
+      "distributed_log_sha256": "5666687ac7ab02a4fea34681765357ab6b3782c1fce366b05bed5ee0d3636d56",
+      "artifacts": [
+        {
+          "path": "exp/results/a17_revision.json",
+          "historical_sha256": "bfe5e2bdcf49d82276fe092aa3ad83de51f64b1b8b3199dd16d6f3d60fcbb81f",
+          "distributed_sha256": "bfe5e2bdcf49d82276fe092aa3ad83de51f64b1b8b3199dd16d6f3d60fcbb81f",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "a18_quotient_ties.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 1.9967387889628299,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a11_permutation_canon.py": "fe04f6398059be9839e3f485115aa80edb45ff8889ec11b6e3652c1f8ac97a5b",
+        "a18_quotient_ties.py": "754f5f8e8738888a6dc2416074a1b38df2ae8ce2d739d3756e85b7768269e3b5",
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd"
+      },
+      "log": "evidence/logs/a18_quotient_ties.py.txt",
+      "historical_log_sha256": "f91b615adf7ee81c6595e51bd9623479c9a636889689d1eda0805f81d5599302",
+      "distributed_log_sha256": "f91b615adf7ee81c6595e51bd9623479c9a636889689d1eda0805f81d5599302",
+      "artifacts": []
+    },
+    "a19_dead_units.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 109.72748903901083,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a11_permutation_canon.py": "fe04f6398059be9839e3f485115aa80edb45ff8889ec11b6e3652c1f8ac97a5b",
+        "a19_dead_units.py": "d0e43c8fda779d653c539051a46052c108061e053cabd769e460973b36943c41",
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd"
+      },
+      "log": "evidence/logs/a19_dead_units.py.txt",
+      "historical_log_sha256": "08018554aca2fcc5989a74118ce3c74a09cd3975d9af094131f8106158e0cda2",
+      "distributed_log_sha256": "08018554aca2fcc5989a74118ce3c74a09cd3975d9af094131f8106158e0cda2",
+      "artifacts": []
+    },
+    "b1_published_baselines.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 271.3422153290012,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "b1_published_baselines.py": "b2d235e734da46874fbb7ab8eee08091aa6e257b16eaf56e6e52512b2f27147a",
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e2b_sweep.py": "c7eac24446f821277f22c30d00d4044219dbd661ab47c218fc8b7c7f3b909844"
+      },
+      "log": "evidence/logs/b1_published_baselines.py.txt",
+      "historical_log_sha256": "e40fe594deafcb1a5615668205e8dc8f2cc83c17f300fbd7780a8417000d3946",
+      "distributed_log_sha256": "e40fe594deafcb1a5615668205e8dc8f2cc83c17f300fbd7780a8417000d3946",
+      "artifacts": [
+        {
+          "path": "exp/results/b1_baselines.json",
+          "historical_sha256": "7ddb72972d4fec91f844e4dacf5ccf269d9cee59e64bf932a56a79ca162839bf",
+          "distributed_sha256": "7ddb72972d4fec91f844e4dacf5ccf269d9cee59e64bf932a56a79ca162839bf",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "b2_matcher_baselines.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 40.92973291000817,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a11_permutation_canon.py": "fe04f6398059be9839e3f485115aa80edb45ff8889ec11b6e3652c1f8ac97a5b",
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd",
+        "b2_matcher_baselines.py": "c718ed79c4383d77260f479afe1ee34c40244167977f7a10ae54adc49b791b3f"
+      },
+      "log": "evidence/logs/b2_matcher_baselines.py.txt",
+      "historical_log_sha256": "ca9407eee9dfa6fcaf7ca15d4e1e9cc45428e5c26d696ce7f90efce17959d6fb",
+      "distributed_log_sha256": "ca9407eee9dfa6fcaf7ca15d4e1e9cc45428e5c26d696ce7f90efce17959d6fb",
+      "artifacts": [
+        {
+          "path": "exp/results/b2_matchers.json",
+          "historical_sha256": "50241c82ac7500ca99892ab180b8192195441028cbf9d6dbfcd601a8d1222eef",
+          "distributed_sha256": "50241c82ac7500ca99892ab180b8192195441028cbf9d6dbfcd601a8d1222eef",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "c1_recent_scorers.py": {
+      "historical_run": "scorers-repair-experiments",
+      "historical_summary_sha256": "fd42d7260ed3d03eea3418fddd89b210cdc23e522c822c47f26b1708453c9314",
+      "historical_status": "PASSED",
+      "historical_environment_id": "2b6666d22496792c73e217aa1635a0e11ab5da0000163ae1c690c2a525d2a2ce",
+      "historical_seconds": 413.02487000095425,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "pypdfium2": "5.13.0",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "b1_published_baselines.py": "b2d235e734da46874fbb7ab8eee08091aa6e257b16eaf56e6e52512b2f27147a",
+        "c1_recent_scorers.py": "6f7b319821e6e79fdf51cbe09e7f1ac9a9711f9d4da88690bf1fbd8282ffecab",
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e2b_sweep.py": "c7eac24446f821277f22c30d00d4044219dbd661ab47c218fc8b7c7f3b909844",
+        "tools/rank_metrics.py": "4655c2f4123a5d29fb6f611f12c482b67f7947329bcc3e40591a1cf9c0caa229"
+      },
+      "log": "evidence/logs/c1_recent_scorers.py.txt",
+      "historical_log_sha256": "e41a77b8087ac1c06fddf9a46e85e9bf3e560d862d4c48536659794e39e243b2",
+      "distributed_log_sha256": "e41a77b8087ac1c06fddf9a46e85e9bf3e560d862d4c48536659794e39e243b2",
+      "artifacts": [
+        {
+          "path": "exp/results/c1_recent.json",
+          "historical_sha256": "799d0d262ff19ccd52855d07eb662683d9b3bed972f6a496134794a876cde26d",
+          "distributed_sha256": "799d0d262ff19ccd52855d07eb662683d9b3bed972f6a496134794a876cde26d",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "c2_deployed_family1.py": {
+      "historical_run": "scorers-repair-experiments",
+      "historical_summary_sha256": "fd42d7260ed3d03eea3418fddd89b210cdc23e522c822c47f26b1708453c9314",
+      "historical_status": "PASSED",
+      "historical_environment_id": "2b6666d22496792c73e217aa1635a0e11ab5da0000163ae1c690c2a525d2a2ce",
+      "historical_seconds": 408.48245753499214,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "pypdfium2": "5.13.0",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "b1_published_baselines.py": "b2d235e734da46874fbb7ab8eee08091aa6e257b16eaf56e6e52512b2f27147a",
+        "c2_deployed_family1.py": "8e4a4db44d721ed8f4e7c5add50faebde4aa705e55231589aba7f39a813016fc",
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e2b_sweep.py": "c7eac24446f821277f22c30d00d4044219dbd661ab47c218fc8b7c7f3b909844",
+        "test_fiva.py": "9c8bfc1ab8f64d00023fca5eedf03866cbcf54c9502d8c1e846662421899a410",
+        "tools/rank_metrics.py": "4655c2f4123a5d29fb6f611f12c482b67f7947329bcc3e40591a1cf9c0caa229"
+      },
+      "log": "evidence/logs/c2_deployed_family1.py.txt",
+      "historical_log_sha256": "8583b70d4558d6f167b1aa0569652a9e1e6ef5174e79a63524565a925f372026",
+      "distributed_log_sha256": "a1034b945e3b01f2d1817894bcd977b632583d21d71eb8e423e69cc9bf40a45e",
+      "artifacts": [
+        {
+          "path": "exp/results/c2_deployed.json",
+          "historical_sha256": "e298bb39e3b61f694426572b431377d65394174da5424b4ae61c6f1993c7105d",
+          "distributed_sha256": "e298bb39e3b61f694426572b431377d65394174da5424b4ae61c6f1993c7105d",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "e9_adaptive_defense.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 492.62411307997536,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e9_adaptive_defense.py": "d766ec05eef08b77cdca520a1332871871f7a75af6d120f1840e8a038ea61ca3"
+      },
+      "log": "evidence/logs/e9_adaptive_defense.py.txt",
+      "historical_log_sha256": "42e0ff983614c2d499a4a4aa305252190f9b671aeab509afe16d94622ac2595a",
+      "distributed_log_sha256": "42e0ff983614c2d499a4a4aa305252190f9b671aeab509afe16d94622ac2595a",
+      "artifacts": []
+    },
+    "e11_hierarchical.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 10.796632062993012,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e11_hierarchical.py": "01ba119a463280e87c356016beb681023130dcaee678611aeba7f8d64ebb63c3"
+      },
+      "log": "evidence/logs/e11_hierarchical.py.txt",
+      "historical_log_sha256": "154d2f4cdc0bf016e59af7cb8cb94309582edda94752e4ed5e0651c10c072804",
+      "distributed_log_sha256": "154d2f4cdc0bf016e59af7cb8cb94309582edda94752e4ed5e0651c10c072804",
+      "artifacts": []
+    },
+    "a20_impossibility_scope.py": {
+      "historical_run": "scorers-repair-experiments",
+      "historical_summary_sha256": "fd42d7260ed3d03eea3418fddd89b210cdc23e522c822c47f26b1708453c9314",
+      "historical_status": "PASSED",
+      "historical_environment_id": "2b6666d22496792c73e217aa1635a0e11ab5da0000163ae1c690c2a525d2a2ce",
+      "historical_seconds": 0.9425255389651284,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "pypdfium2": "5.13.0",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a20_impossibility_scope.py": "8ae7f7f8ecb5c9d316551b6cc53e654af78240c8538e17e5ce8fa1735b8b0f71",
+        "tools/rank_metrics.py": "4655c2f4123a5d29fb6f611f12c482b67f7947329bcc3e40591a1cf9c0caa229"
+      },
+      "log": "evidence/logs/a20_impossibility_scope.py.txt",
+      "historical_log_sha256": "147a89ec6afa1cf3df2b2df5b7f43ef0d2559ab1cd4af2d7581ba7e0032269d3",
+      "distributed_log_sha256": "147a89ec6afa1cf3df2b2df5b7f43ef0d2559ab1cd4af2d7581ba7e0032269d3",
+      "artifacts": []
+    },
+    "a21_threshold_criterion.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 200.27794067701325,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a21_threshold_criterion.py": "86df16bf379f8821be508240199bb47c68dec8ade4c4b2a02f70b52913b2d74d"
+      },
+      "log": "evidence/logs/a21_threshold_criterion.py.txt",
+      "historical_log_sha256": "97300ae91e29f925adcb7bac539a3f568580386b3842838fce2abad74cf49cc8",
+      "distributed_log_sha256": "97300ae91e29f925adcb7bac539a3f568580386b3842838fce2abad74cf49cc8",
+      "artifacts": []
+    },
+    "a22_ceiling_exact.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 9.207251960004214,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a22_ceiling_exact.py": "567aa92d9f89dce08893676826ef43c38b6d7ecbcfbd0921c3749a7d4d5ff586"
+      },
+      "log": "evidence/logs/a22_ceiling_exact.py.txt",
+      "historical_log_sha256": "1a97845f90fafa0159a030f31ab18bd41f2c84895a463e7b84990aa72bd630b7",
+      "distributed_log_sha256": "1a97845f90fafa0159a030f31ab18bd41f2c84895a463e7b84990aa72bd630b7",
+      "artifacts": []
+    },
+    "a23_same_harness_defense.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 58.865292937960476,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a23_same_harness_defense.py": "e5230ad4580126792081fd663a3025c95a3fa0aad27da4be2299472f77ca2d8c",
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee"
+      },
+      "log": "evidence/logs/a23_same_harness_defense.py.txt",
+      "historical_log_sha256": "6d6bea801ecee956420a1036f1d3d306277a2eceeaedfcdc9cac1437d6543740",
+      "distributed_log_sha256": "6d6bea801ecee956420a1036f1d3d306277a2eceeaedfcdc9cac1437d6543740",
+      "artifacts": []
+    },
+    "a24_weight_cap.py": {
+      "historical_run": "scorers-repair-experiments",
+      "historical_summary_sha256": "fd42d7260ed3d03eea3418fddd89b210cdc23e522c822c47f26b1708453c9314",
+      "historical_status": "PASSED",
+      "historical_environment_id": "2b6666d22496792c73e217aa1635a0e11ab5da0000163ae1c690c2a525d2a2ce",
+      "historical_seconds": 355.9979778220295,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "pypdfium2": "5.13.0",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a20_impossibility_scope.py": "8ae7f7f8ecb5c9d316551b6cc53e654af78240c8538e17e5ce8fa1735b8b0f71",
+        "a24_weight_cap.py": "0ca1eaaaf3f0c74a3800b5845197b2dff1f1140f9867d29b07418b895b7dab92",
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "tools/rank_metrics.py": "4655c2f4123a5d29fb6f611f12c482b67f7947329bcc3e40591a1cf9c0caa229"
+      },
+      "log": "evidence/logs/a24_weight_cap.py.txt",
+      "historical_log_sha256": "cdc94bd12ab8ad95c5c8983bd53cd0d2696a5bfb38689ad6b9dba842a5cec6b6",
+      "distributed_log_sha256": "cdc94bd12ab8ad95c5c8983bd53cd0d2696a5bfb38689ad6b9dba842a5cec6b6",
+      "artifacts": []
+    },
+    "a25_orbit_scope.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 0.2843522180337459,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a25_orbit_scope.py": "b5909b5a35e3c3423f837b8be2b849551406a5d11f43ec6c65b5981e37c73007"
+      },
+      "log": "evidence/logs/a25_orbit_scope.py.txt",
+      "historical_log_sha256": "6150d2612c6103a16e33ee9636e3de4e53dcc8a3068d9ba3474ee32e20f6be0e",
+      "distributed_log_sha256": "6150d2612c6103a16e33ee9636e3de4e53dcc8a3068d9ba3474ee32e20f6be0e",
+      "artifacts": []
+    },
+    "a26_real_confound.py": {
+      "historical_run": "scorers-repair-experiments",
+      "historical_summary_sha256": "fd42d7260ed3d03eea3418fddd89b210cdc23e522c822c47f26b1708453c9314",
+      "historical_status": "PASSED",
+      "historical_environment_id": "2b6666d22496792c73e217aa1635a0e11ab5da0000163ae1c690c2a525d2a2ce",
+      "historical_seconds": 190.39384496596176,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "pypdfium2": "5.13.0",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a13_real_data.py": "41769c573887087228b4362dc0c994bc38a0d206a055beb4c21746db1d6bbd50",
+        "a26_real_confound.py": "7d7e70670cc8150a1b5ebb568dc9d2acd270c4cd27b31483f37f8f9b478dc066",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9",
+        "tools/rank_metrics.py": "4655c2f4123a5d29fb6f611f12c482b67f7947329bcc3e40591a1cf9c0caa229"
+      },
+      "log": "evidence/logs/a26_real_confound.py.txt",
+      "historical_log_sha256": "e2d7fa4a10df35fcf149827f0c49402ead624e8253b3ad373c285f89db26cbcd",
+      "distributed_log_sha256": "e2d7fa4a10df35fcf149827f0c49402ead624e8253b3ad373c285f89db26cbcd",
+      "artifacts": []
+    },
+    "e10_cifar_cnn.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "bac6f623590cbe9bf96fb9fd3ec3b5d893966257e1c9bf8794f51ee41eaf7575",
+      "historical_seconds": 2896.3679084969917,
+      "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit",
+      "packages": {
+        "Jinja2": "3.1.6",
+        "MarkupSafe": "3.0.3",
+        "filelock": "3.32.4",
+        "fsspec": "2026.7.0",
+        "mpmath": "1.3.0",
+        "networkx": "3.6.1",
+        "numpy": "1.26.4",
+        "pillow": "12.3.0",
+        "pip": "26.2.1",
+        "pyarrow": "25.0.1",
+        "sympy": "1.14.0",
+        "torch": "2.2.2",
+        "torchvision": "0.17.2",
+        "typing_extensions": "4.16.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e10_cifar_cnn.py": "a55e53d797fc017cd3e02c7a2c9eba0ee7757679f52bcaac22e03725c751c9c0",
+        "tools/provenance.py": "a061e8fe6b36b06522cc6e36d3916d343d0190e66d2af3450630ce53d8b32f76"
+      },
+      "log": "evidence/logs/e10_cifar_cnn.py.txt",
+      "historical_log_sha256": "f0f91a18f68b9e6b4c3b78fcf765647f64bb2e26423fd1b2da904411d03ad33c",
+      "distributed_log_sha256": "8f8cdaf4e56c1eb738cb709e7ea8d4541a5af69fa9e616e9ac2b2e591a222dce",
+      "artifacts": [
+        {
+          "path": "exp/results/e10_revision.json",
+          "historical_sha256": "116cadddabedfb2357883c125a8fcabf8ea549cbe7b7120483d3209dbe29847f",
+          "distributed_sha256": "56858cae5a80a893ac3c865ea3dca969e893d4c7c3a7ee1d3c41166acbee6f6e",
+          "path_metadata_redacted": true
+        },
+        {
+          "path": "exp/results/e10_partition.json",
+          "historical_sha256": "ac49024433792ff1544c7da39015d71693529f88b02bf56d488e2413f0b16994",
+          "distributed_sha256": "ac49024433792ff1544c7da39015d71693529f88b02bf56d488e2413f0b16994",
+          "path_metadata_redacted": false
+        }
+      ]
+    },
+    "mkfig_silence.py": {
+      "historical_run": "pre-submission-figures",
+      "historical_summary_sha256": "e8f1fdc64a44ff4ac942ffd0938fe5d90dab5a15af9806ab8bdf67d4c1104c57",
+      "historical_status": "PASSED",
+      "historical_environment_id": "2b6666d22496792c73e217aa1635a0e11ab5da0000163ae1c690c2a525d2a2ce",
+      "historical_seconds": 6.635991119999744,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "pypdfium2": "5.13.0",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "mkfig_silence.py": "1bc289734d4e26e480fd52160d7353fd7c69b2a7fcf8c09fc212a8705f73eb49"
+      },
+      "log": "evidence/logs/mkfig_silence.py.txt",
+      "historical_log_sha256": "49bcce5b6e29d292dab2885b1a4362e49fddc45543fa4bd28ffb73d426c12b43",
+      "distributed_log_sha256": "49bcce5b6e29d292dab2885b1a4362e49fddc45543fa4bd28ffb73d426c12b43",
+      "artifacts": []
+    },
+    "mkfig_maglaw.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 56.10989953397075,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a10_magnitude_law.py": "adaa6ca94dfbeb9116b4137da7141a88b15ec383b9f0aadda151521069b2e92f",
+        "a7_capacity.py": "2a9e8e18aca34824f3bf379c4f9795ce2c3d843d926ed8524418a64a6edcda69",
+        "mkfig_maglaw.py": "5198a3c516cb25d3fd991bd0ec26398560224622ddc90b6f19542d6054e6ef34",
+        "mlp.py": "9018ab37ee59f8f05b5726f8374d0daf3a320b4b63f79708ed7b38d711f9baa9"
+      },
+      "log": "evidence/logs/mkfig_maglaw.py.txt",
+      "historical_log_sha256": "6288840f679f4335934bad5be902527a682935620a4cf960896397b94b19d0ce",
+      "distributed_log_sha256": "6288840f679f4335934bad5be902527a682935620a4cf960896397b94b19d0ce",
+      "artifacts": []
+    },
+    "mkfig_defense.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 7.676360153011046,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a11_permutation_canon.py": "fe04f6398059be9839e3f485115aa80edb45ff8889ec11b6e3652c1f8ac97a5b",
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd",
+        "mkfig_defense.py": "c2b016925348bb81219b6033ec6ca33f0dc870849c7b5dd78ae47bd1757fc1a7"
+      },
+      "log": "evidence/logs/mkfig_defense.py.txt",
+      "historical_log_sha256": "2883c02a92fc79a72ded1ae8b0244b4465faa5a7cfeb795725636701bb030f9f",
+      "distributed_log_sha256": "2883c02a92fc79a72ded1ae8b0244b4465faa5a7cfeb795725636701bb030f9f",
+      "artifacts": []
+    },
+    "mkfig_policy.py": {
+      "historical_run": "revision-full",
+      "historical_summary_sha256": "d29b86f1d32a1bb272bbf660e577de0a0fb1a2d7aa0d90123dc2dd4cfb476600",
+      "historical_status": "PASSED",
+      "historical_environment_id": "1e04d7a9d8155a5b54647f8b9b99d72ffa9673606ec9cd7f61b91526dd3ab093",
+      "historical_seconds": 3.3331404749769717,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "a11_permutation_canon.py": "fe04f6398059be9839e3f485115aa80edb45ff8889ec11b6e3652c1f8ac97a5b",
+        "a12_policy_binding.py": "277770683d219e8f227a1a2a54d85809b1ce71f93ee4242685d853686ebc6669",
+        "a1_nn_symmetry.py": "90bf93e89e3d269aa80dd507a7326054e063ec79934c03206ff70ccd75ef6993",
+        "a4_aggregate_gauge.py": "c10818443a808d62f6cda89ff259cfda5e7a3e55fcba528836f3efc3d9d4d4cd",
+        "mkfig_policy.py": "f8131ce5107688c8b061a7529abf9ae8b10852147645e8d647dfe60241b195ec"
+      },
+      "log": "evidence/logs/mkfig_policy.py.txt",
+      "historical_log_sha256": "cb483e0ed9d6bee4a6cac03d79802d5f5982b8ab6d03fd25bce658b80c687c28",
+      "distributed_log_sha256": "cb483e0ed9d6bee4a6cac03d79802d5f5982b8ab6d03fd25bce658b80c687c28",
+      "artifacts": []
+    },
+    "mkfig_scorers.py": {
+      "historical_run": "pre-submission-figures",
+      "historical_summary_sha256": "e8f1fdc64a44ff4ac942ffd0938fe5d90dab5a15af9806ab8bdf67d4c1104c57",
+      "historical_status": "PASSED",
+      "historical_environment_id": "2b6666d22496792c73e217aa1635a0e11ab5da0000163ae1c690c2a525d2a2ce",
+      "historical_seconds": 1.8767308799997409,
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "packages": {
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "fonttools": "4.63.0",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.11.1",
+        "narwhals": "2.25.0",
+        "numpy": "2.5.2",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pip": "26.1.2",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.16.2",
+        "pypdfium2": "5.13.0",
+        "python-dateutil": "2.9.0.post0",
+        "scikit-learn": "1.9.0",
+        "scipy": "1.18.1",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      },
+      "source_sha256": {
+        "b1_published_baselines.py": "b2d235e734da46874fbb7ab8eee08091aa6e257b16eaf56e6e52512b2f27147a",
+        "c1_recent_scorers.py": "6f7b319821e6e79fdf51cbe09e7f1ac9a9711f9d4da88690bf1fbd8282ffecab",
+        "c2_deployed_family1.py": "8e4a4db44d721ed8f4e7c5add50faebde4aa705e55231589aba7f39a813016fc",
+        "e2_silence.py": "6a8ee8b003a5d2ad50795301f9985d3d01eba3849a43ac5d4a38d791810a8cee",
+        "e2b_sweep.py": "c7eac24446f821277f22c30d00d4044219dbd661ab47c218fc8b7c7f3b909844",
+        "mkfig_scorers.py": "a383e83f2201065e1f0b0a3e726b6151a5d97d234430d62627ba319d4f98268a",
+        "test_fiva.py": "9c8bfc1ab8f64d00023fca5eedf03866cbcf54c9502d8c1e846662421899a410",
+        "tools/rank_metrics.py": "4655c2f4123a5d29fb6f611f12c482b67f7947329bcc3e40591a1cf9c0caa229"
+      },
+      "log": "evidence/logs/mkfig_scorers.py.txt",
+      "historical_log_sha256": "e6272987ca6b9f6bb24d71a5a4bedaf617886d7ff63133bca1f08df684e78775",
+      "distributed_log_sha256": "972c8fb4d72458d743342f10bc90edfe2aa896f9b469a25c626f4767cb4cd99f",
+      "artifacts": [
+        {
+          "path": "exp/results/scorers_figure.json",
+          "historical_sha256": "ea56aa4906d14d4e796f9f692247d336ae365b091fb279f3f60a82200d758a5e",
+          "distributed_sha256": "ea56aa4906d14d4e796f9f692247d336ae365b091fb279f3f60a82200d758a5e",
+          "path_metadata_redacted": false
+        }
+      ]
+    }
+  }
+}

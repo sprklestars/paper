@@ -1,0 +1,64 @@
+============================================================================
+A5.1  honest clients only: what does gauge drift cost in trust?
+============================================================================
+  per-unit drift   max excl rate   clients excl >50%   final MSE
+            0.00            1.00                   6      0.3598
+            0.02            1.00                   6      0.3581
+            0.05            0.67                   3      0.3473
+            0.10            0.58                   1      0.3540
+            0.20            0.50                   0      0.4049
+            0.40            0.50                   0      1.1108
+
+  Every client here is honest and trains on identically distributed
+  data.  Exclusion is caused by the choice of coordinates alone.
+
+============================================================================
+A5.2  stragglers: the realistic mechanism, still no adversary
+============================================================================
+  straggle rate   max excl   mean excl   excl >50%   final MSE
+           0.00       1.00       0.300        6.00      0.4061
+           0.10       1.00       0.300        5.25      0.3999
+           0.20       1.00       0.300        3.25      0.3955
+           0.30       0.75       0.300        2.00      0.3941
+           0.50       0.75       0.300        2.25      0.4080
+
+  A device that misses rounds -- battery, duty cycle, radio -- is
+  penalised for having drifted, not for being wrong.
+
+============================================================================
+A5.3  is exclusion correlated with anything REAL?
+============================================================================
+                     setting   corr(excl, own MSE)     p-ish
+           in sync, no drift                 0.114     0.072
+             gauge drift 0.1                 0.150     0.050
+              stragglers 0.3                 0.246     0.102
+
+  Correlation near zero means the scorer is excluding clients for
+  reasons unrelated to the quality of what they computed.
+
+============================================================================
+A5.4  the control: identical protocol on a model with no orbit
+============================================================================
+  straggle rate   max excl   mean excl   final MSE
+           0.00       1.00       0.300    0.000415
+           0.10       1.00       0.300    0.000418
+           0.30       1.00       0.300    0.000388
+           0.50       0.92       0.300    0.000381
+
+  Same straggling, same scorer, no orbit.  Whatever exclusion
+  appears here is the baseline cost of staleness; the excess in
+  A5.2 over this row is what the symmetry group adds.
+
+============================================================================
+A5.5  does gauge canonicalisation repair it, and what does it cost?
+============================================================================
+                 setting   max excl        MSE |  canon excl   canon MSE
+                 in sync       1.00     0.4061 |        1.00      0.3694
+         gauge drift 0.1       0.58     0.4057 |        1.00      0.3693
+         gauge drift 0.4       0.60     1.0161 |        1.00      0.3693
+          stragglers 0.3       0.75     0.3941 |        0.73      0.3530
+          stragglers 0.5       0.67     0.4080 |        0.69      0.3699
+
+  Canonicalisation is a gauge move, so it is free: it changes no
+  client's function.  It addresses the continuous group only.
+

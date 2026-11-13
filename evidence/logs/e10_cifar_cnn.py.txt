@@ -1,0 +1,92 @@
+loading CIFAR-10 and partitioning by Dirichlet(0.5) label skew...
+  20000 training images over 10 clients, shard sizes 671-4435 (6.6x imbalance),
+  largest single class per client 0.19-0.51 of its data -- Dirichlet's skew, not ours
+
+==============================================================================
+E10.0  is the reimplemented group actually a symmetry?  (CNN)
+==============================================================================
+  logit scale 0.607;  max |df| under a gauge move 2.38e-07, under canon 2.38e-07, under align 2.38e-07
+  parameter L2 moves from 4.44 to 146.04 -- same function, different point in parameter space
+
+==============================================================================
+E10.0  is the reimplemented group actually a symmetry?  (CNNBN)
+==============================================================================
+  logit scale 0.607;  max |df| under a gauge move 1.49e-07, under canon 0.00e+00, under align 3.28e-07
+  parameter L2 moves from 8.23 to 40.83 -- same function, different point in parameter space
+
+==============================================================================
+E10.1  audit gap on CIFAR-10, 10 Dirichlet(0.5) clients, CNN, 20 FedAvg rounds
+==============================================================================
+ seed  max|dlogit|   own err  own after  clean err  err after   clean L   L after  L ratio
+    0     2.86e-06    0.6300     0.6300     0.4115     0.4385    1.1374    1.4733     1.30
+    1     2.86e-06    0.5995     0.5995     0.4125     0.7040    1.1512    8.6177     7.49
+    2     2.86e-06    0.6075     0.6075     0.4120     0.6635    1.1530    5.8165     5.04
+    3     3.81e-06    0.6225     0.6225     0.4130     0.5135    1.1501    2.9759     2.59
+    4     2.38e-06    0.5915     0.5915     0.4055     0.5060    1.1365    1.9700     1.73
+    5     3.81e-06    0.5855     0.5855     0.4050     0.5770    1.1279    2.5905     2.30
+
+  clean federation  err 0.4099 and loss 1.1427, against 0.900 and 2.303 for guessing
+  -- the baseline the ratio is measured against has genuinely learnt CIFAR-10
+  damage on the loss  median 2.44x  min 1.30x  max 7.49x   (error rises 0.410 -> 0.567)
+  functional audit  max |dlogit| 3.81e-06, own error unchanged to 0.00e+00 and own loss to 0.00e+00
+
+==============================================================================
+E10.2  audit gap on CIFAR-10, 10 Dirichlet(0.5) clients, CNNBN, 20 FedAvg rounds
+==============================================================================
+ seed  max|dlogit|   own err  own after  clean err  err after   clean L   L after  L ratio
+    0     2.86e-06    0.6500     0.6500     0.4085     0.4365    1.1513    1.3548     1.18
+    1     2.38e-06    0.6295     0.6295     0.4075     0.5040    1.1526    1.9185     1.66
+    2     2.38e-06    0.6120     0.6120     0.4010     0.8870    1.1152   37.2548    33.41
+    3     3.34e-06    0.6315     0.6315     0.3945     0.5125    1.1237    2.3021     2.05
+    4     2.86e-06    0.6365     0.6365     0.4130     0.5685    1.1478    2.9133     2.54
+    5     2.86e-06    0.6510     0.6510     0.4050     0.5250    1.1202    2.0028     1.79
+
+  clean federation  err 0.4049 and loss 1.1351, against 0.900 and 2.303 for guessing
+  -- the baseline the ratio is measured against has genuinely learnt CIFAR-10
+  damage on the loss  median 1.92x  min 1.18x  max 33.41x   (error rises 0.405 -> 0.572)
+  functional audit  max |dlogit| 3.34e-06, own error unchanged to 0.00e+00 and own loss to 2.38e-07
+
+==============================================================================
+E10.3  the magnitude law on CIFAR-10 (CNN, seed 0)
+==============================================================================
+  clean loss 1.1374, clean err 0.4115, honest |theta| 8.5
+
+  log-sd   |theta_q|    ratio      loss    damage      err  max|dlogit|
+     0.5        11.3      1.3     1.142      1.00   0.4115     3.81e-06
+     1.0        24.8      2.9     1.183      1.04   0.4130     2.86e-06
+     1.5        71.8      8.5     1.473      1.30   0.4385     2.86e-06
+     2.0       235.5     27.8     3.263      2.87   0.5125     2.86e-06
+     2.5       823.8     97.1    13.194     11.60   0.6195     2.86e-06
+     3.0      3003.1    354.1    67.600     59.43   0.7030     2.86e-06
+
+  damage grows monotonically from 1.00x to 59.43x while the functional audit stays at 3.8e-06:
+  the same law as fig:maglaw, on a convnet and a different loss.
+
+==============================================================================
+E10.4  M4 on CIFAR-10: repair under attack, and cost without one
+==============================================================================
+ seed   undef x     M4 x  honest x  canon |df|
+    0      1.30   1.0000    0.9981    2.86e-06
+    1      7.49   1.0000    0.9986    2.86e-06
+    2      5.04   1.0000    0.9985    2.86e-06
+    3      2.59   1.0000    0.9967    3.81e-06
+    4      1.73   1.0000    0.9988    2.86e-06
+    5      2.30   1.0000    0.9990    2.86e-06
+
+  undefended median 2.44x  ->  under M4 1.0000x
+  honest cost (M4 applied with no attacker present) median 0.9986x
+  the canon changed no client's function: max |dlogit| 3.81e-06
+
+==============================================================================
+SUMMARY -- CIFAR-10 replication of prop:auditgap, fig:maglaw and M4
+==============================================================================
+  plain CNN      damage median 2.44x on the loss, functional audit max 3.8e-06
+  BatchNorm CNN  damage median 1.92x on the loss, functional audit max 3.3e-06
+  magnitude law  1.00x at log-sd 0.5 rising to 59.43x at 3.0, audit flat throughout
+  M4             2.44x -> 1.0000x, honest cost 0.9986x
+
+OK: on a real CNN and on a BatchNorm CNN the functional audit is blind while
+the aggregate degrades, the magnitude law holds, and M4 repairs it at a cost near one.
+E10 CLAIMS: plain 2.44x | bn 1.92x | maglaw 1.00->59.43x | M4 2.44->1.0000x | cost 0.9986x | audit 3.8e-06
+<PROJECT_ROOT>/.venv-torch/lib/python3.12/site-packages/numpy/__config__.py:155: UserWarning: Install `pyyaml` for better output
+  warnings.warn("Install `pyyaml` for better output", stacklevel=1)

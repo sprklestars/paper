@@ -1,0 +1,78 @@
+==============================================================================
+A13.1  audit gap on California housing, clients partitioned by GEOGRAPHY
+==============================================================================
+  real data: 19648 rows, 6 features, 12 geographic clients
+  shard sizes 422-4129 (ratio 9.8x), mean label per shard 0.601 sd -- non-IID and unbalanced, neither of which we chose
+
+ seed    max|df|    own MSE  own after  agg clean  agg after        x
+    0    2.2e-15     1.1187     1.1187     0.6368     2.9220     4.59
+    1    1.1e-15     1.1163     1.1163     0.6475     6.8580    10.59
+    2    1.6e-15     1.2058     1.2058     0.6917     0.7509     1.09
+    3    1.8e-15     1.1097     1.1097     0.6369     7.9360    12.46
+    4    1.2e-15     1.0220     1.0220     0.6160     3.8558     6.26
+    5    1.3e-15     1.0218     1.0218     0.5508     5.6196    10.20
+
+  aggregate damage  median 8.23x  min 1.09x  max 12.46x
+  clean aggregate MSE 0.630 vs 1.000 for predicting the mean (y is z-scored) -- the baseline the ratio is
+  measured against has genuinely learnt the task
+  functional audit  max over seeds 2.2e-15 -- the client's function is unchanged
+  On real, geographically non-IID shards the gap is present with no
+  tuning: prop:auditgap is a property of the parameter space, not of
+  the data-generating process.
+
+==============================================================================
+A13.2  audit gap on UCI digits (3-vs-rest), clients by LABEL skew
+==============================================================================
+  real data: 64 pixel features, 10 label-skewed clients, shards 261-274
+  positive rate per client 0.02-0.67 -- client 3 holds almost all positives
+
+ seed    max|df|    own MSE  own after  agg clean  agg after        x
+    0    1.4e-15     0.0802     0.0802     0.0883     0.4156     4.71
+    1    2.7e-15     0.0945     0.0945     0.0850     4.6474    54.65
+    2    1.8e-15     0.0837     0.0837     0.0720     1.7162    23.85
+    3    2.0e-15     0.0609     0.0609     0.0700     2.1883    31.28
+    4    5.3e-15     0.0956     0.0956     0.0814     2.8020    34.41
+    5    2.7e-15     0.1497     0.1497     0.0909    45.8883   505.01
+
+  aggregate damage  median 32.85x  min 4.71x  max 505.01x
+  clean aggregate MSE 0.081; predicting the base rate scores 0.088
+  functional audit  max over seeds 5.3e-15
+  Real pixels, real label skew, a classification objective: same
+  separation between P1 and P2.
+
+==============================================================================
+A13.3  M4 on real data: repair under attack, and cost without one
+==============================================================================
+
+  -- california --
+   seed   undef x     M4 x  honest x  canon |df|
+      0      4.59   1.0000    0.9996     2.0e-15
+      1     10.59   1.0000    0.9992     1.8e-15
+      2      1.09   1.0000    1.0039     1.8e-15
+      3     12.46   1.0000    0.9986     4.9e-15
+      4      6.26   1.0000    0.9994     2.7e-15
+      5     10.20   1.0000    1.0020     2.2e-15
+    undefended median 8.23x -> under M4 max 1.0000x
+    honest-case cost  max 1.0039x   canon audit delta max 4.9e-15
+
+  -- digits --
+   seed   undef x     M4 x  honest x  canon |df|
+      0      4.71   1.0000    1.0013     4.4e-15
+      1     54.65   1.0000    1.0013     6.2e-15
+      2     23.85   1.0000    1.0010     2.7e-15
+      3     31.28   1.0000    1.0003     2.7e-15
+      4     34.41   1.0000    1.0005     6.2e-15
+      5    505.01   1.0000    1.0008     3.8e-15
+    undefended median 32.85x -> under M4 max 1.0000x
+    honest-case cost  max 1.0013x   canon audit delta max 6.2e-15
+
+  M4 is data-agnostic by construction -- it never looks at the data --
+  and the measurement confirms it on both real sets.
+
+==============================================================================
+SUMMARY -- real-data replication of prop:auditgap and M4
+==============================================================================
+  california  damage median 8.23x  audit <= 2.2e-15
+  digits      damage median 32.85x  audit <= 5.3e-15
+  M4 california  8.23x -> 1.0000x   honest cost <= 1.0039x
+  M4 digits      32.85x -> 1.0000x   honest cost <= 1.0013x

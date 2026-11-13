@@ -1,0 +1,24 @@
+test_average_ties (__main__.RankTests.test_average_ties) ... ok
+test_constants_and_short_inputs (__main__.RankTests.test_constants_and_short_inputs) ... ok
+test_invalid_inputs (__main__.RankTests.test_invalid_inputs) ... ok
+test_null_and_partial_seed_summary (__main__.RankTests.test_null_and_partial_seed_summary) ... ok
+test_permutation_and_sign (__main__.RankTests.test_permutation_and_sign) ... ok
+test_scipy_oracle (__main__.RankTests.test_scipy_oracle) ... ok
+test_shared_metric_wiring (__main__.RankTests.test_shared_metric_wiring) ... ok
+test_small_nonconstant_values_are_ranked (__main__.RankTests.test_small_nonconstant_values_are_ranked) ... ok
+test_all_zero_local_fallback (__main__.ScorerTests.test_all_zero_local_fallback) ... ok
+test_ee_mixed_channels_independent_oracle (__main__.ScorerTests.test_ee_mixed_channels_independent_oracle) ... ok
+test_ee_paper_additive_example (__main__.ScorerTests.test_ee_paper_additive_example) ... ok
+test_fp_known_fractional_share (__main__.ScorerTests.test_fp_known_fractional_share) ... ok
+test_fp_loo_and_ioi_fallback (__main__.ScorerTests.test_fp_loo_and_ioi_fallback) ... ok
+test_import_is_quiet (__main__.ScorerTests.test_import_is_quiet) ... ok
+test_minshift_is_separate_policy (__main__.ScorerTests.test_minshift_is_separate_policy) ... ok
+test_negative_budget_does_not_reverse_shares (__main__.ScorerTests.test_negative_budget_does_not_reverse_shares) ... ok
+test_nonfinite_is_not_silently_uniform (__main__.ScorerTests.test_nonfinite_is_not_silently_uniform) ... ok
+test_short_simulations (__main__.ScorerTests.test_short_simulations) ... ok
+test_symmetry_and_report_path (__main__.ScorerTests.test_symmetry_and_report_path) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.642s
+
+OK

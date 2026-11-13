@@ -1,0 +1,105 @@
+============================================================================
+A11.1  is Hungarian alignment function-preserving?
+============================================================================
+  client   max |df| align    max |df| full
+       0         0.00e+00         1.78e-15
+       1         0.00e+00         1.78e-15
+       2         0.00e+00         2.22e-15
+       3         0.00e+00         2.22e-15
+       4         0.00e+00         2.00e-15
+       5         0.00e+00         1.78e-15
+
+  worst deviation 2.22e-15
+  Alignment is a gauge move: it is free by construction.
+
+============================================================================
+A11.2  does alignment remove the permutation damage of A4.3?
+============================================================================
+  clean aggregate MSE 0.482064   (N = 24)
+
+  permuted   undefended   x clean     defended   x clean
+         0     0.482064      1.00     0.482753      1.00
+         1     0.472340      0.98     0.482753      1.00
+         2     0.489509      1.02     0.482753      1.00
+         3     0.489035      1.01     0.482753      1.00
+         5     0.521909      1.08     0.482753      1.00
+         8     0.624829      1.30     0.482753      1.00
+        12     0.744103      1.54     0.482753      1.00
+
+============================================================================
+A11.3  what does it cost when NOBODY attacks?
+============================================================================
+  seed       plain   scale canon   full canon    ratio
+     0    0.482064      0.482753     0.482753    1.001
+     1    0.566870      0.567681     0.567681    1.001
+     2    0.449534      0.450158     0.450158    1.001
+     3    0.989628      0.990789     0.990789    1.001
+     4    0.539330      0.540033     0.540033    1.001
+
+  mean ratio full/plain 1.001
+  A ratio at or below 1 means the defence is free on honest input.
+
+============================================================================
+A11.4  can the adversary beat the aligner by combining S1 and S2?
+============================================================================
+  clean aggregate MSE 0.482064
+
+              adversary move    own MSE   undef x    def x   audit df
+            permutation only     0.6247      0.98     1.00   1.33e-15
+   per-unit scale log-sd 1.5     0.6247     12.64     1.00   2.00e-15
+          scale then permute     0.6247      1.61     1.00   1.55e-15
+  scale log-sd 3.0 + permute     0.6247   9648.12     1.00   1.78e-15
+
+  adversary's honest own MSE 0.6247 throughout (the function never moves).
+
+============================================================================
+A11.5  does it still work WITHOUT a common initialisation?
+============================================================================
+  Here the units are genuinely unaligned, so the assignment problem
+  is doing real work rather than undoing a known permutation.
+
+  mean individual client MSE     0.566469
+  plain average                  0.914351
+  scale canon only               0.915484
+  scale + alignment              0.892379
+
+============================================================================
+A11.6  which reference?  init is public; anchors are scarce
+============================================================================
+  clean 0.482064, undefended 1.34x  (8 of 24 permuted)
+
+                 reference     defended   x clean
+            public init g0     0.482753      1.00
+    one anchor (client 23)     0.482753      1.00
+     teacher (upper bound)     0.570248      1.18
+
+  If the public init suffices, the defence carries no trust
+  assumption at all -- unlike M2, it needs no anchor.
+
+============================================================================
+A11.7  is full_canon an exact QUOTIENT map?
+============================================================================
+  A11.2's defended column was identical at every k, which would
+  follow if canon(g.x) = canon(x) for every g in the group rather
+  than merely reducing the damage.  That is a stronger claim than
+  the table makes, so it is checked directly here.
+
+  client     move   ||canon(gx)-canon(x)||    relative
+       0     perm                6.779e-16   8.001e-17
+       0    scale                1.566e-15   1.848e-16
+       0     both                1.664e-15   1.964e-16
+       1     perm                5.258e-16   6.241e-17
+       1    scale                1.433e-15   1.701e-16
+       1     both                1.469e-15   1.743e-16
+       2     perm                8.696e-16   1.023e-16
+       2    scale                1.427e-15   1.679e-16
+       2     both                1.466e-15   1.725e-16
+       3     perm                7.879e-16   9.448e-17
+       3    scale                1.318e-15   1.580e-16
+       3     both                1.398e-15   1.676e-16
+
+  worst relative deviation 1.96e-16
+  The gauge attack family is CLOSED, not merely mitigated: every
+  orbit representative maps to the same point.  What remains open
+  is A11.5 -- clients in genuinely different basins.
+

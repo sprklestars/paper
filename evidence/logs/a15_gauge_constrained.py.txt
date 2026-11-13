@@ -1,0 +1,106 @@
+==============================================================================
+A15.1  where the four-detector suite first fires
+==============================================================================
+
+fired = any detector above its own no-attack verdict, 8 seeds.
+
+ log-sd  damage (mean)    median  seeds silent  first detector to fire
+------------------------------------------------------------------------------
+   0.00         1.0000    1.0000         8/8  -
+   0.02         1.0000    1.0000         8/8  -
+   0.05         1.0001    1.0001         0/8  dist,krum,norm
+   0.10         1.0002    1.0002         0/8  dist,krum,norm
+   0.25         1.0011    1.0010         0/8  dist,krum,norm
+   0.50         1.0054    1.0047         0/8  dist,krum,norm
+   1.00         1.0686    1.0606         0/8  dist,krum,norm
+   1.50         2.4261    1.7317         0/8  dist,krum,norm
+   2.00        56.7949   13.5451         0/8  dist,krum,norm
+
+The consensus-distance and Krum statistics fire long before the
+magnitude that produces the headline damage: this is an auditing
+result, not a stealth result, and A15.2 gives the silent bound.
+
+==============================================================================
+A15.2  largest damage with the whole suite at its false-positive rate
+==============================================================================
+
+ seed  max silent log-sd  damage there
+----------------------------------------
+    0             0.0346        1.0001
+    1             0.0450        1.0001
+    2             0.0488        0.9999
+    3             0.0285        1.0000
+    4             0.0253        1.0001
+    5             0.0418        1.0001
+    6             0.0361        1.0001
+    7             0.0413        1.0001
+
+silent damage over 8 seeds: mean 1.0000x  median 1.0001x  max 1.0001x
+
+The honest reading: subject to (C4) against the full suite, the
+gauge attack buys almost nothing.  What it buys is not damage but
+BLINDNESS -- the functional audit cannot see any of it, at any
+magnitude (A14), which is why prop:auditgap is an admission result
+and why M4 is a canonicalisation and not a detector.
+
+==============================================================================
+A15.3  the SCALE-ONLY attack at log-sd 3.0, across seeds
+==============================================================================
+
+eq:maglaw is fitted over log-sd 0.5-2.0, so 3.0 is outside the
+fitted band and the distribution is heavy-right-tailed; the spread
+belongs in the paper wherever a single draw is quoted.
+
+ seed         damage  suite fires
+----------------------------------
+    0        5382.60         True
+    1       12596.93         True
+    2      798304.04         True
+    3        8037.60         True
+    4       84234.02         True
+    5       21455.65         True
+    6      389148.04         True
+    7       11237.07         True
+
+mean 166299.49x  median 17026.29x  min 5382.60x  max 798304.04x
+
+The mean is carried by the tail, so quoting a single draw as the
+attack magnitude is not defensible; quote the median and give the
+maximum as the maximum.
+
+==============================================================================
+A15.4  the COMPOSED attack (scale log-sd 3.0 + permute) across seeds
+==============================================================================
+
+A11.4's harness (N=24, common init), which is where 9648.12x comes
+from; that run is seed 0 with RNG draws taken after three earlier
+moves, so it is one sample of this distribution and not its centre.
+
+ seed     undefended   under M4+    own MSE
+--------------------------------------------
+    0       32996.18      1.0014     0.6247
+    1    10316322.36      1.0014     0.6644
+    2      732330.91      1.0014     0.5760
+    3         943.40      1.0012     1.2257
+    4        6724.79      1.0013     0.6421
+    5      847564.54      0.9993     0.5851
+    6    63262020.12      1.0014     0.5708
+    7    14304299.14      1.0016     0.6018
+
+undefended: mean 11187900.2x  median 789947.7x  min 943.4x  max 63262020.1x
+under M4+ : mean 1.0011x  median 1.0014x  max 1.0016x
+
+The defended column is the claim that matters, and it is flat
+across seeds; the undefended column spans orders of magnitude, so
+the paper should quote its median and range, not one draw.
+
+==============================================================================
+A15 conclusion: (C4) against the full four-detector suite caps
+TSP-Gauge damage at a median 1.00x, against the
+unconstrained magnitudes the paper quotes.  Those magnitudes are
+the reach of the GROUP, which is what prop:auditgap is about; the
+silent figure is the reach of an adversary facing distance-based
+monitoring.  Both belong in the paper, labelled as what they are.
+The composed attack the abstract quotes has median 789948x undefended
+(range 943-63262020x over 8 seeds) and median 1.00x under M4+.
+==============================================================================

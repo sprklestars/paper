@@ -1,0 +1,82 @@
+==============================================================================
+A23.1  every mechanism in ONE harness, against ONE baseline
+==============================================================================
+  E3's harness at the E2d silent point, 8 seeds.  x fair is the
+  cumulative reward share over fair share; cost is honest-population
+  MSE against inverse variance on the same population.
+
+                       mechanism    x fair     sd      eps    cost
+   undefended (invvar, no floor)     4.59x   0.25   0.1422   1.00x
+                  M1 floor=1e-03     2.56x   0.14   0.0585   1.00x
+                  M1 floor=3e-03     1.30x   0.05   0.0107   1.11x
+                  M1 floor=1e-02     1.00x   0.02   0.0000   1.38x
+       M2 WEIGHT mixing lam=0.75     3.71x   0.19   0.1073   1.02x
+       M2 WEIGHT mixing lam=0.50     2.82x   0.13   0.0719   1.09x
+       M2 WEIGHT mixing lam=0.25     1.91x   0.07   0.0361   1.21x
+       M2 WEIGHT mixing lam=0.00     1.00x   0.00   0.0000   1.38x
+  M2 FRAME mixing lam=1.00 (a=3)     5.63x   0.57   0.1823   0.92x
+  M2 FRAME mixing lam=0.75 (a=3)     5.32x   0.47   0.1695   0.91x
+  M2 FRAME mixing lam=0.50 (a=3)     4.91x   0.39   0.1530   0.90x
+  M2 FRAME mixing lam=0.25 (a=3)     4.50x   0.33   0.1364   0.89x
+  M2 FRAME mixing lam=0.00 (a=3)     4.10x   0.28   0.1210   0.89x
+
+  undefended baseline in THIS harness: 4.59x fair
+  V3.3's baseline was 6.85x and E3's was 4.59x, which is why the two
+  sets of figures could not be compared: they are different systems.
+
+  Comparing the two M2 variants at equal lam, same harness, same seeds:
+   lam   weight mixing   frame mixing   which is worse
+  0.75           3.71x          5.32x            frame
+  0.50           2.82x          4.91x            frame
+  0.25           1.91x          4.50x            frame
+  0.00           1.00x          4.10x            frame
+
+  frame mixing is the worse of the two at 4 of 4 settings.
+  That is the claim sec:e3 makes, and this is the first measurement of
+  it in which both mechanisms saw the same clients.
+
+==============================================================================
+A23.2  does M1 still bind here, and does frame mixing reach it?
+==============================================================================
+  V3.3's M1 rows were all inert at 6.85x -- its floor never bound, so
+  that harness could not rank the mechanisms.  Here:
+
+  best M1 row          1.00x fair
+  best frame-mix row   4.10x fair
+  best weight-mix row  1.00x fair
+  M1 range across the three floors: 1.56x, so the floor BINDS.
+  M1 is load-bearing and the frame mix is not, which is the design rule
+  sec:e3 states -- now supported by rows that share a baseline.
+
+==============================================================================
+A23.3  the anchor-budget sweep, with seeds
+==============================================================================
+  V3.2 swept a on ONE seed and eps rose 0.1487 -> 0.1817 against its
+  own prediction of a 1/sqrt(a) fall; sec:e3 calls it flat.  Eight
+  seeds, E3's harness, lam = 0.5, frame mixing:
+
+   a    x fair       eps   sd(eps)  eps*sqrt(a)
+   1     4.46x    0.1337    0.0166       0.1337
+   2     4.76x    0.1494    0.0178       0.2113
+   4     5.09x    0.1542    0.0239       0.3084
+   8     5.04x    0.1532    0.0156       0.4333
+  16     5.08x    0.1603    0.0229       0.6414
+  32     5.09x    0.1695    0.0321       0.9591
+  64     5.14x    0.1650    0.0193       1.3200
+
+  log eps vs log a slope +0.0476; the prediction eps ~ 1/sqrt(a)
+  needs -0.5, and a flat eps needs 0.
+  spread 0.0358 against a mean seed sd of 0.0212, i.e.
+  1.7 seed sd.
+  The variation across a is inside the seed noise, so 'flat' is the
+  honest description and the 1/sqrt(a) term is not detectable here.
+  Either way the load-bearing claim is the one that survives: under
+  TSP-Var the anchor budget does not govern displacement, Pi_max does.
+
+==============================================================================
+A23 conclusion: the 5.79x/4.77x figures belong to a harness whose own
+undefended point is 6.85x and whose M1 rows are inert, so they cannot
+be set against E3's 4.59x.  A23.1 replaces them with same-harness
+numbers.  A23.3 replaces the single-seed 'flat' with a seeded
+comparison against the seed noise.
+==============================================================================

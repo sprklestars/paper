@@ -1,0 +1,53 @@
+==========================================================================
+A2.1  visibility of the backdoored client with NO gauge search
+==========================================================================
+  poison   Krum rank   L2 rank   cos rank   backdoor
+     0.0           1         1          1     -0.159
+     1.0           3         3          3      0.307
+     2.0          30        29         29      0.833
+     5.0          30        30         30      2.404
+    10.0          30        30         30      4.877
+
+  (rank 1 = most trusted of 30.)  A strong backdoor is visible:
+  the poisoned client drifts to the tail of the distance ranking.
+
+==========================================================================
+A2.2  gauge descent: minimise trust score along the symmetry orbit
+==========================================================================
+  poison   Krum before   Krum after   rank before  rank after
+     1.0        147.92       147.41             3           3
+     2.0        170.56       169.90            30          29
+     5.0        310.25       308.47            30          30
+    10.0        651.92       644.59            30          30
+
+  The orbit is searched, not the model.  The function never changes.
+
+==========================================================================
+A2.3  does the backdoor SURVIVE the gauge move?  (must be checked)
+==========================================================================
+  poison   backdoor before   backdoor after    max |df|
+     1.0            0.3071           0.3071    2.66e-15
+     2.0            0.8332           0.8332    2.66e-15
+     5.0            2.4037           2.4037    4.44e-15
+    10.0            4.8765           4.8765    7.11e-15
+
+  Identical to floating point.  The gauge move is functionally free.
+
+==========================================================================
+A2.5  is the obvious fix -- normalise before scoring -- sufficient?
+==========================================================================
+  Canonicalisation candidates:
+    raw       score the parameter vector as submitted
+    l2norm    rescale whole vector to unit norm (norm clipping)
+    layerwise rescale each layer to unit norm (fixes S1)
+
+  poison                raw             l2norm          layerwise
+               before/after       before/after       before/after
+     2.0           30 -> 29           29 -> 30           22 -> 22
+     5.0           30 -> 30           30 -> 30           30 -> 30
+    10.0           30 -> 30           30 -> 30           30 -> 30
+
+  Layerwise normalisation quotients out S1 but NOT S2 (permutation),
+  which has no cheap canonical form -- matching hidden units across
+  clients is the assignment problem.
+

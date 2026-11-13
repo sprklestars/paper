@@ -1,0 +1,122 @@
+==============================================================================
+A9.1  can a gauge move DISPLACE an honest client's weight?
+==============================================================================
+  A3 showed the adversary cannot raise its own weight (AM-GM floor).
+  The untested direction is whether it can lower someone else's.
+
+  family   attack  adv weight  victim weight  median honest  victim / clean  div
+       I     none      0.0500         0.0500         0.0500           1.000    0
+       I    gauge      0.0000         0.0526         0.0526           1.053    0
+      II     none      0.0487         0.0511         0.0496           1.000    0
+      II    gauge      0.0000         0.0534         0.0521           1.045    0
+
+  Fair share is 1/N = 0.05.  The last column is Definition 4's
+  quantity: honest weight under attack over honest weight clean.
+  'div' counts seeds where the federation produced no finite state.
+
+  NULL RESULT, and the value says why: N/(N-1) = 20/19 = 1.0526.
+  Both families score the adversary to w = 0.0000, and the remaining
+  N-1 clients then split the whole simplex, so EVERY honest client
+  gains by the same renormalisation factor.  A ratio above 1 with no
+  spread between victim and median honest is not displacement -- the
+  hypothesis that the gauge can push a targeted honest client down
+  is REFUTED, not confirmed, by this table.
+
+==============================================================================
+A9.2  is the displacement SILENT?
+==============================================================================
+  Silence in the paper's sense: an honest client loses weight while
+  global accuracy and every functional detector stay in range.
+
+  attack   min honest w / clean   global MSE  x clean MSE   adv audit MSE
+    none                  1.000       0.2499         1.00               -
+  sd=0.5                  1.055       0.2508         1.00        0.298613
+  sd=1.0                  1.056       0.2508         1.00        0.298487
+  sd=1.5                  1.056       0.2508         1.00        0.298453
+  sd=2.5                  1.056       0.2508         1.00        0.298475
+
+  The adversary's audit MSE is what a server checking 'is this
+  client any good' would read.  Compare it across rows: the gauge
+  does not change what the client computes, so the audit cannot
+  separate the attacking rows from the honest one.
+
+==============================================================================
+A9.3  the control: the same displacement attempt, no orbit
+==============================================================================
+                attack   adv own MSE  victim w / clean   global MSE
+                  none        0.0023             1.000     0.000209
+            scale by 4      156.3403             1.050     0.000237
+           scale by 20     6272.4786             1.050     0.000237
+
+  Displacement is achievable here too -- but only by an adversary
+  whose OWN model is visibly broken (column 1 against the 'none'
+  row).  A functional audit rejects it.  That is the difference the
+  orbit makes: for the network the same displacement costs nothing.
+
+==============================================================================
+A9.4  which scoring family does the gauge reach?
+==============================================================================
+  Family I scores a client on its OWN across-round dispersion, so it
+  has no reference frame to move -- A3's floor applies and the
+  adversary cannot help itself.  Family II builds its frame from the
+  submissions, so one client's coordinates move everyone's score.
+
+  family  adv w / fair  victim w / clean  honest spread
+       I          0.00             1.053           1.00
+      II          0.00             1.045           1.35
+
+  Column 1 near 1.00 confirms A3 dynamically: no self-promotion.
+  The damage, if any, is in column 2 and is done to someone else.
+
+==============================================================================
+A9.5  the paper's floor (M1) vs canonicalisation
+==============================================================================
+  These answer different theorems, which is the separation the paper
+  already reports for TSP-Var.  The floor bounds how much weight any
+  ONE client can hold; it does not make the score gauge invariant.
+  Canonicalisation makes the score gauge invariant; it does nothing
+  about a client that is genuinely, functionally wrong.
+
+                     defence  victim w / clean   global MSE   x clean
+            (clean baseline)             1.000       0.2499      1.00
+                        none             1.045       0.2508      1.00
+            M1 floor phi=0.5             1.045       0.2508      1.00
+            M1 floor phi=1.0             1.050       0.2501      1.00
+      gauge canonicalisation             1.007       0.2205      0.88
+                        both             0.999       0.2199      0.88
+
+  A value of 1.000 in column 1 means the honest client kept the
+  weight it would have had with no adversary present.
+  phi=0.5 floors the error at half the MEDIAN error, which under
+  Family II never binds -- the adversary's Krum score is orders of
+  magnitude ABOVE the median, not below it, so the floor is inactive
+  by construction and the row is expected to equal 'none' exactly.
+
+==============================================================================
+A9.6  the cold-start round: where the gauge actually does damage
+==============================================================================
+  Every score in Family I is an ACROSS-ROUND statistic, so at t=0
+  there is nothing to score and the aggregator must fall back to
+  uniform weights.  A gauge move inflates the submitted vector by
+  orders of magnitude at zero functional cost, so that one round
+  admits it at full 1/N.  Measured over 8 seeds.
+
+  family  cold start  diverged / 8   final global MSE  |adv| / |honest|
+       I        warm             0             0.3006                  
+       I     uniform             2             0.3085                  
+      II        warm             0             0.2891                  
+      II     uniform             0             0.2891                  
+
+  The norm ratio the gauge produces, measured directly:
+    log-sd   |q| / |p|    max |df|
+      0.50        1.34     1.8e-15
+      1.00        3.02     2.1e-15
+      1.50       11.07     1.8e-15
+      2.50      263.46     1.3e-15
+
+  This is the honest reading of A9: the gauge is not a stealth
+  displacement tool against a warmed-up Family II aggregator, which
+  scores it out at 1e-7.  It is an availability attack on the round
+  where the trust state does not exist yet, and THAT round is exactly
+  the one the paper's persistent-state defence cannot cover.
+

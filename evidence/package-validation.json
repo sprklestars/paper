@@ -1,0 +1,26 @@
+{
+  "research_experiments_rerun": false,
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+  "python_files_compiled": 56,
+  "tests": {
+    "test_scorers.py": {
+      "returncode": 0,
+      "log": "evidence/test_scorers.py.txt",
+      "log_sha256": "e84c9df71b99f58141a9247b8a3acc2c76adcd6bc77d7cb08f7036cecb0bc0e7"
+    },
+    "test_fiva.py": {
+      "returncode": 0,
+      "log": "evidence/test_fiva.py.txt",
+      "log_sha256": "8e9c2dc5d3f02fc0e5751f37e0efc1b0a83036e00c70431ab96ad9cf6b9856e0"
+    }
+  },
+  "copied_files_hash_verified": 131,
+  "status": "PASSED",
+  "read_only_release_review": {
+    "completed": true,
+    "scope": "Candidate text, PDF metadata/text, local dependency targets, attribution and interpretation notes",
+    "blockers_found": [],
+    "guarantee_of_no_secrets_or_license_clearance": false
+  }
+}

@@ -1,0 +1,26 @@
+==============================================================================
+A16  the residual in prop:ceiling, attributed
+==============================================================================
+
+het = honest sigmas uniform(0.8,1.2) as in C3d; hom = common sigma_H,
+which is the case the proof states.  T is raised with rho so that the
+EMA is equally converged in every column.
+
+    N  eq:ceil  N/(2N-1)  het rho.9  hom rho.9  hom rho.99  hom rho.999
+----------------------------------------------------------------------
+   10   0.5235    0.5263     0.5115     0.5236      0.5231       0.5235
+   20   0.5122    0.5128     0.4963     0.5069      0.5119       0.5120
+   30   0.5082    0.5085     0.4996     0.5115      0.5084       0.5082
+   50   0.5049    0.5051     0.4910     0.5023      0.5027       0.5047
+  100   0.5025    0.5025     0.4832     0.4975      0.5015       0.5027
+
+residual with heterogeneity: 0.9 to 1.9 percentage points, growing in N
+residual without it, rho=0.999: 0.03 percentage points worst case, no trend
+
+So (a) accounts for it and (b) does not: rho from 0.9 to 0.999
+changes nothing, while removing the spread in sigma_H closes the gap
+to a fiftieth of a point at every N.  prop:ceiling is exact for the
+common-sigma case it states, and the measured curve sits below it
+because 1/sigma^2 is convex, so dispersion among the honest clients
+inflates their total weight.  The direction is favourable to the
+defender and the ceiling remains ~N/2 times a fair share.
